@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Khảo cứu chi tiết về nguồn gốc, lý do hình thành và các lớp phát triển của Chu Dịch, Kinh Dịch và Dịch học, có dẫn nguồn học thuật quốc tế.">
+  <meta name="color-scheme" content="light dark">
+  <title>Kinh Dịch — Nguồn gốc, quá trình hình thành và lịch sử các lý thuyết</title>
+  <style>
+    :root {
+      --bg: #f5f0e6;
+      --paper: #fffdf8;
+      --paper-soft: #faf6ed;
+      --ink: #20211f;
+      --ink-soft: #5c5b55;
+      --line: #d8cfbd;
+      --accent: #9b322d;
+      --accent-dark: #6f211e;
+      --gold: #a97b28;
+      --jade: #245f57;
+      --blue: #304f72;
+      --shadow: 0 18px 50px rgba(65, 45, 20, 0.10);
+      --radius: 18px;
+      --content: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 32px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(169, 123, 40, 0.11), transparent 25rem),
+        radial-gradient(circle at 94% 17%, rgba(155, 50, 45, 0.08), transparent 27rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--accent); }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 4px;
+      background: transparent;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+      transition: width 80ms linear;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #f8f2e8;
+      background:
+        linear-gradient(135deg, rgba(18, 41, 38, 0.97), rgba(44, 38, 30, 0.96)),
+        #1e332f;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      content: "";
+      border-radius: 50%;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -105px;
+      top: -180px;
+      border: 1px solid #f0d394;
+      box-shadow: 0 0 0 48px rgba(240, 211, 148, 0.08), 0 0 0 96px rgba(240, 211, 148, 0.05);
+    }
+
+    .hero::after {
+      width: 230px;
+      height: 230px;
+      left: -90px;
+      bottom: -155px;
+      background: var(--accent);
+      filter: blur(1px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 40px), var(--content));
+      margin: 0 auto;
+      padding: 80px 0 68px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #e8c677;
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 5.15rem);
+      font-weight: 620;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-deck {
+      max-width: 800px;
+      margin: 24px 0 0;
+      color: #ded9cf;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.08rem, 1.9vw, 1.35rem);
+      line-height: 1.62;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 28px;
+      color: #bfb9ae;
+      font-size: 0.86rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      color: #1c302c;
+      border: 1px solid #e8c677;
+      border-radius: 999px;
+      background: #e8c677;
+      font-size: 0.9rem;
+      font-weight: 760;
+      line-height: 1.25;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .hero-link:hover {
+      color: #142521;
+      background: #f2d98f;
+    }
+
+    .hexagram-mark {
+      justify-self: end;
+      width: 210px;
+      padding: 27px 24px;
+      border: 1px solid rgba(240, 211, 148, 0.32);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+    }
+
+    .hexagram-mark .line {
+      display: flex;
+      gap: 16px;
+      height: 12px;
+      margin: 14px 0;
+    }
+
+    .hexagram-mark .line::before,
+    .hexagram-mark .line::after {
+      content: "";
+      display: block;
+      flex: 1;
+      border-radius: 2px;
+      background: #e8c677;
+    }
+
+    .hexagram-mark .line.solid { gap: 0; }
+    .hexagram-mark .line.solid::after { display: none; }
+
+    .hexagram-label {
+      margin: 18px 0 0;
+      text-align: center;
+      color: #d6d0c4;
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 40px), var(--content));
+      margin: 36px auto 90px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 22px;
+      padding: 22px 20px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.92);
+      box-shadow: 0 10px 32px rgba(59, 43, 24, 0.07);
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: toc;
+    }
+
+    .toc li { counter-increment: toc; }
+
+    .toc a {
+      display: grid;
+      grid-template-columns: 1.65rem 1fr;
+      gap: 4px;
+      align-items: baseline;
+      padding: 7px 8px;
+      border-radius: 8px;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.7rem;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      color: var(--accent-dark);
+      background: #f2eadb;
+    }
+
+    .toc-note {
+      margin: 14px 7px 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    main {
+      min-width: 0;
+      padding: 14px clamp(22px, 5vw, 68px) 56px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding-top: 50px;
+    }
+
+    section + section {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      color: #2b302c;
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 650;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin: 36px 0 12px;
+      color: #303832;
+      font-size: clamp(1.28rem, 2.4vw, 1.62rem);
+    }
+
+    h4 {
+      margin: 25px 0 8px;
+      font-size: 1.1rem;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .lede {
+      color: #343936;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      line-height: 1.66;
+    }
+
+    .chapter-visual {
+      margin: 4px 0 30px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #191d1a;
+      box-shadow: 0 16px 34px rgba(47, 36, 20, 0.15);
+    }
+
+    .chapter-visual picture { display: block; }
+
+    .chapter-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #d7c6a3;
+    }
+
+    .chapter-visual figcaption {
+      margin: 0;
+      padding: 12px 15px 13px;
+      color: #d9d3c7;
+      background: #28342f;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .chapter-visual figcaption span {
+      display: inline-block;
+      margin-right: 8px;
+      color: #e7c36f;
+      font-weight: 780;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .illustration-disclaimer {
+      margin: -12px 0 26px;
+      color: var(--ink-soft);
+      font-size: 0.76rem;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .callout {
+      margin: 26px 0;
+      padding: 24px 26px;
+      border-left: 5px solid var(--accent);
+      border-radius: 5px 14px 14px 5px;
+      background: #f7eee7;
+    }
+
+    .callout.gold {
+      border-left-color: var(--gold);
+      background: #f7f1df;
+    }
+
+    .callout.jade {
+      border-left-color: var(--jade);
+      background: #edf5f1;
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    .formula {
+      margin: 28px 0;
+      padding: 24px 28px;
+      border: 1px solid #cab98c;
+      border-radius: 16px;
+      color: #433a29;
+      background:
+        linear-gradient(120deg, rgba(169,123,40,0.08), rgba(155,50,45,0.035)),
+        #fffaf0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper-soft);
+    }
+
+    .card h3,
+    .card h4 { margin-top: 0; }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .term {
+      color: var(--accent-dark);
+      font-family: Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .han { white-space: nowrap; }
+
+    .table-wrap {
+      width: 100%;
+      margin: 22px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      line-height: 1.5;
+    }
+
+    th, td {
+      padding: 14px 15px;
+      border-bottom: 1px solid #e8e0d2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #f9f5ec;
+      background: #3b4c45;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: #fbf8f1; }
+
+    .timeline {
+      position: relative;
+      margin: 30px 0 8px;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      content: "";
+      left: 7px;
+      top: 9px;
+      bottom: 15px;
+      width: 2px;
+      background: linear-gradient(var(--gold), var(--accent), var(--jade));
+    }
+
+    .era {
+      position: relative;
+      margin: 0 0 42px;
+    }
+
+    .era::before {
+      position: absolute;
+      content: "";
+      left: -29px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .era-time {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 5px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: #6c4d12;
+      background: #f3e7c8;
+      font-size: 0.73rem;
+      font-weight: 760;
+      letter-spacing: 0.025em;
+    }
+
+    .era h3 { margin: 7px 0 10px; }
+    .era p:last-child { margin-bottom: 0; }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 24px 0 30px;
+    }
+
+    .workflow div {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 92px;
+      padding: 12px;
+      border: 1px solid #d9ccb4;
+      border-radius: 12px;
+      background: #fbf5e9;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 680;
+      line-height: 1.35;
+    }
+
+    .workflow div:not(:last-child)::after {
+      position: absolute;
+      z-index: 2;
+      content: "→";
+      right: -12px;
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    ul, ol { padding-left: 1.28em; }
+    li { margin: 7px 0; }
+
+    .tight li { margin: 4px 0; }
+
+    .source-note {
+      margin-top: 18px;
+      padding: 13px 15px;
+      border: 1px solid #ddd3c1;
+      border-radius: 10px;
+      color: var(--ink-soft);
+      background: #faf7ef;
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    .source-note strong {
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    sup a {
+      display: inline-block;
+      min-width: 1.25em;
+      margin-left: 2px;
+      color: var(--accent);
+      font-family: Inter, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 750;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    sup a:hover { text-decoration: underline; }
+
+    .certainty-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .certainty {
+      padding: 20px 22px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+
+    .certainty h3 {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 12px;
+      font-family: Inter, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .certainty.high { background: #edf5f1; }
+    .certainty.likely { background: #f4f1e5; }
+    .certainty.open { background: #f8eee6; }
+    .certainty.legend { background: #f5eeee; }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .certainty.high h3 { color: #216056; }
+    .certainty.likely h3 { color: #80601e; }
+    .certainty.open h3 { color: #a25724; }
+    .certainty.legend h3 { color: #923732; }
+
+    .myth-list {
+      margin: 22px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .myth-list li {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.8fr) minmax(260px, 1.5fr);
+      gap: 18px;
+      margin: 0;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .myth-list li:last-child { border-bottom: 0; }
+    .myth-list strong { color: var(--accent-dark); }
+
+    .reading-path {
+      counter-reset: path;
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .reading-path li {
+      counter-increment: path;
+      position: relative;
+      margin: 0 0 12px;
+      padding: 17px 18px 17px 58px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper-soft);
+    }
+
+    .reading-path li::before {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      content: counter(path);
+      border-radius: 50%;
+      color: #fff;
+      background: var(--jade);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .references {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: refs;
+    }
+
+    .references li {
+      counter-increment: refs;
+      position: relative;
+      margin: 0;
+      padding: 16px 12px 16px 48px;
+      border-bottom: 1px solid var(--line);
+      overflow-wrap: anywhere;
+    }
+
+    .references li::before {
+      position: absolute;
+      left: 10px;
+      top: 17px;
+      content: counter(refs);
+      color: var(--accent);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .references li:target {
+      border-radius: 10px;
+      background: #fff0ca;
+      outline: 2px solid rgba(169, 123, 40, 0.28);
+    }
+
+    .references .meta {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+    }
+
+    .references a.external::after {
+      content: " ↗";
+      font-size: 0.75em;
+      text-decoration: none;
+    }
+
+    .footer {
+      padding: 38px 20px 48px;
+      color: #d7d2c9;
+      background: #26332f;
+      text-align: center;
+    }
+
+    .footer p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 0.82rem;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 15px;
+      color: #e8c677;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-top: 62px;
+      }
+
+      .hexagram-mark {
+        justify-self: start;
+        width: 185px;
+      }
+
+      .page-shell { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc ol { columns: 2; column-gap: 18px; }
+      .toc li { break-inside: avoid; }
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 16px; }
+      .hero-inner, .page-shell { width: min(calc(100% - 24px), var(--content)); }
+      .hero-inner { padding: 48px 0 44px; }
+      .hexagram-mark { display: none; }
+      .page-shell { margin-top: 20px; }
+      main { padding: 4px 20px 40px; border-radius: 16px; }
+      section { padding-top: 38px; }
+      .toc ol { columns: 1; }
+      .cards, .certainty-grid { grid-template-columns: 1fr; }
+      .workflow { grid-template-columns: 1fr; }
+      .workflow div { min-height: 60px; }
+      .workflow div:not(:last-child)::after {
+        right: 50%;
+        bottom: -19px;
+        transform: rotate(90deg) translateY(-50%);
+      }
+      .myth-list li { grid-template-columns: 1fr; gap: 4px; }
+      th, td { padding: 11px 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .progress span { transition: none; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171a18;
+        --paper: #202420;
+        --paper-soft: #252a25;
+        --ink: #ece8de;
+        --ink-soft: #bbb7ad;
+        --line: #49483f;
+        --accent: #df746b;
+        --accent-dark: #ee928a;
+        --gold: #d3a84e;
+        --jade: #64a79d;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 8% 4%, rgba(169, 123, 40, 0.08), transparent 25rem),
+          radial-gradient(circle at 94% 17%, rgba(155, 50, 45, 0.08), transparent 27rem),
+          var(--bg);
+      }
+
+      .toc { background: rgba(32, 36, 32, 0.94); }
+      .toc a:hover, .toc a.active { background: #332e27; }
+      h2, h3 { color: #f0ece4; }
+      .lede { color: #e0ddd5; }
+      .callout { background: #392b29; }
+      .callout.gold { background: #383225; }
+      .callout.jade { background: #243632; }
+      .formula { color: #eee4ce; background: #312d25; }
+      .table-wrap { background: #202420; }
+      tbody tr:nth-child(even) { background: #282b27; }
+      th { background: #34453e; }
+      td { border-color: #42453f; }
+      .workflow div, .source-note { background: #292b26; }
+      .certainty.high { background: #21332f; }
+      .certainty.likely { background: #343023; }
+      .certainty.open { background: #3a2b24; }
+      .certainty.legend { background: #382727; }
+      .references li:target { background: #473d25; }
+    }
+
+    @media print {
+      :root {
+        --bg: #fff;
+        --paper: #fff;
+        --paper-soft: #fff;
+        --ink: #111;
+        --ink-soft: #444;
+        --line: #bbb;
+      }
+
+      body { background: #fff; font-size: 10.5pt; }
+      .progress, .toc, .back-top, .hexagram-mark { display: none !important; }
+      .hero { color: #111; background: #fff; border-bottom: 2px solid #111; }
+      .hero-inner { width: 100%; padding: 24px 0; display: block; }
+      .hero-deck, .hero-meta, .eyebrow { color: #333; }
+      .page-shell { width: 100%; margin: 0; display: block; }
+      main { padding: 0; border: 0; box-shadow: none; }
+      section { break-inside: auto; }
+      h2, h3 { break-after: avoid; }
+      .table-wrap, .callout, .card, .certainty, .era { break-inside: avoid; }
+      .chapter-visual { break-inside: avoid; box-shadow: none; }
+      .chapter-visual figcaption { color: #222; background: #eee; }
+      a { color: #111; text-decoration: none; }
+      a.external::after { content: " (" attr(href) ")"; font-size: 0.75em; }
+      .footer { color: #111; background: #fff; border-top: 1px solid #111; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Khảo cứu lịch sử văn bản &amp; khảo cổ</p>
+        <h1>Kinh Dịch</h1>
+        <p class="hero-deck">Nguồn gốc, lý do hình thành và con đường từ nghi lễ bói thời Đồ đồng đến những hệ lý thuyết đang lưu truyền hiện nay.</p>
+        <div class="hero-meta">
+          <span>Ngôn ngữ: Tiếng Việt</span>
+          <span>Cập nhật: 27/08/2026</span>
+          <span>Có dẫn nguồn học thuật quốc tế</span>
+        </div>
+        <div class="hero-actions">
+          <a class="hero-link" href="dich-hoc-co-truyen.html" target="_blank" rel="noopener">Mở trang Tri thức Dịch học cổ truyền ↗</a>
+        </div>
+      </div>
+      <div class="hexagram-mark" aria-label="Đồ hình trang trí gồm sáu hào">
+        <div class="line solid"></div>
+        <div class="line"></div>
+        <div class="line solid"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line solid"></div>
+        <p class="hexagram-label">六爻 · sáu hào</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <nav class="toc" aria-label="Mục lục">
+      <h2>Mục lục</h2>
+      <ol>
+        <li><a href="#ket-luan">Kết luận cốt lõi</a></li>
+        <li><a href="#thuat-ngu">Bốn lớp cần phân biệt</a></li>
+        <li><a href="#truyen-thuyet">Truyền thuyết và lịch sử</a></li>
+        <li><a href="#qua-trinh">Quá trình hình thành</a></li>
+        <li><a href="#ly-do">Vì sao Chu Dịch ra đời?</a></li>
+        <li><a href="#thap-duc">Thập Dực và bước ngoặt</a></li>
+        <li><a href="#thu-ban">Các thủ bản khai quật</a></li>
+        <li><a href="#han-tong">Từ Hán đến Tống</a></li>
+        <li><a href="#hien-dai">Thanh, hiện đại và phương Tây</a></li>
+        <li><a href="#pha-he">Phả hệ các lý thuyết</a></li>
+        <li><a href="#chac-chan">Mức độ chắc chắn</a></li>
+        <li><a href="#ngo-nhan">Các ngộ nhận phổ biến</a></li>
+        <li><a href="#lo-trinh">Lộ trình nghiên cứu</a></li>
+        <li><a href="#tai-lieu">Tài liệu và nguồn</a></li>
+      </ol>
+      <p class="toc-note">Các số trong ngoặc vuông dẫn tới danh mục tài liệu ở cuối trang. Liên kết ngoài mở ở thẻ mới.</p>
+    </nav>
+
+    <main>
+      <section id="ket-luan" data-section>
+        <p class="section-kicker">01 · Luận đề chính</p>
+        <h2>Kết luận cốt lõi</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/01-ket-luan.webp" type="image/webp">
+            <img src="assets/kinh-dich/01-ket-luan.png" width="1664" height="936" alt="Minh họa hành trình nhiều lớp từ xương bói và quẻ số đến thẻ tre, lụa và sách chú giải" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Chu Dịch hình thành qua nhiều môi trường vật chất và diễn giải, không phải một lần phát minh duy nhất.</figcaption>
+        </figure>
+        <p class="illustration-disclaimer">Các hình trong tài liệu được tạo bằng AI để mô tả khái niệm. Chúng không phải ảnh chụp hiện vật, bản phục dựng khảo cổ chính thức hay nguồn chứng cứ lịch sử.</p>
+        <p class="lede">Kinh Dịch không được “phát minh” trong một lần, bởi một người, để trình bày sẵn một học thuyết âm–dương hoàn chỉnh. Nó là kết quả của nhiều tầng thực hành, văn bản và diễn giải chồng lên nhau trong gần ba thiên niên kỷ.</p>
+
+        <div class="formula">
+          Nghi lễ xử lý bất định thời Thương → bói bằng số và đồ hình thời Thương–Chu → cẩm nang <em>Chu Dịch</em> → triết học hóa thời Chiến Quốc → vũ trụ–chính trị hóa thời Hán → nghĩa lý và đồ hình thời Ngụy–Tống → những cách đọc hiện đại.
+        </div>
+
+        <p>Lõi <em>Chu Dịch</em> ban đầu gần với một <strong>cẩm nang bói và hỗ trợ quyết định có tính nghi lễ</strong> hơn là một trước tác triết học. Những khái niệm được xem là “lý thuyết Kinh Dịch” ngày nay—âm dương như nguyên lý vũ trụ, Thái cực, đạo quân tử, ngũ hành, Bát cung, Tiên thiên–Hậu thiên—không có cùng niên đại.<sup><a href="#ref-1" aria-label="Xem nguồn 1">[1]</a></sup></p>
+
+        <div class="callout jade">
+          <p><strong>Công thức ngắn nhất:</strong> Kinh Dịch sinh ra từ nhu cầu ra quyết định trong bất định; hình thành nhờ việc mã hóa dấu hiệu thành quẻ và văn bản; trở thành triết học nhờ Dịch Truyện; trở thành hệ vũ trụ–chính trị nhờ nhà Hán; và tiếp tục biến đổi qua mọi thời đại.</p>
+        </div>
+      </section>
+
+      <section id="thuat-ngu" data-section>
+        <p class="section-kicker">02 · Cấu tạo văn bản</p>
+        <h2>Bốn lớp cần phân biệt</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/02-bon-lop-van-ban.webp" type="image/webp">
+            <img src="assets/kinh-dich/02-bon-lop-van-ban.png" width="1672" height="941" alt="Bốn lớp vật liệu gồm đồ hình sáu hào, thẻ tre, cuộn chú giải và sách hậu thế" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Đồ hình, lõi Chu Dịch, Dịch Truyện và truyền thống Dịch học là bốn lớp cần đọc tách biệt.</figcaption>
+        </figure>
+
+        <div class="cards">
+          <article class="card">
+            <h3><span class="term">Chu Dịch</span> <span class="han">周易 · Zhouyi</span></h3>
+            <p>Lõi gồm 64 hình sáu hào, tên quẻ, quái từ và hào từ. Có lẽ được viết thành một dạng nhận biết được vào khoảng thế kỷ IX–VIII TCN.</p>
+          </article>
+          <article class="card">
+            <h3><span class="term">Dịch Truyện</span> <span class="han">易傳</span></h3>
+            <p>Bảy thiên chia thành mười phần, thường gọi là Thập Dực. Chúng diễn giải Chu Dịch bằng đạo đức, vũ trụ luận, tượng và số; chủ yếu thuộc thế kỷ IV–II TCN.</p>
+          </article>
+          <article class="card">
+            <h3><span class="term">Kinh Dịch</span> <span class="han">易經 · Yijing</span></h3>
+            <p>Khối văn bản kinh điển gồm Chu Dịch cộng các lớp Dịch Truyện được tuyển chọn, ghép và kinh điển hóa dần từ thời Hán.</p>
+          </article>
+          <article class="card">
+            <h3><span class="term">Dịch học</span> <span class="han">易學</span></h3>
+            <p>Toàn bộ lịch sử chú giải, bói toán, tượng số, nghĩa lý, đồ hình và tiếp nhận từ Hán đến hiện đại.</p>
+          </article>
+        </div>
+
+        <h3>Nhầm lẫn thường gặp trong bản truyền thế</h3>
+        <ul>
+          <li><strong>Quái từ</strong> <span class="han">卦辭</span> là lời đoán ngắn thuộc lõi cổ; trong tiếng Việt đôi khi cũng được gọi là “thoán từ”.</li>
+          <li><strong>Thoán truyện</strong> <span class="han">彖傳</span> là chú giải muộn, giải thích quái từ bằng cấu trúc quẻ, đạo đức và vũ trụ luận.</li>
+          <li><strong>Hào từ</strong> <span class="han">爻辭</span> thuộc lõi; <strong>Tiểu Tượng</strong> là chú giải muộn gắn vào từng hào.</li>
+        </ul>
+        <p>Vì các bản truyền thế thường đặt Thoán và Tượng ngay cạnh kinh văn, người đọc rất dễ tưởng những câu đó được viết cùng lúc. Đây là lý do phải tách “kinh” khỏi “truyện” trước khi nghiên cứu nguồn gốc.</p>
+
+        <p class="source-note"><strong>Nguồn chính:</strong> Nielsen 2024 về hai phần cấu thành Yijing, niên đại lõi và Thập Dực.<sup><a href="#ref-1">[1]</a></sup> Oxford Academic về cấu tạo bảy thiên/mười phần và vai trò chuyển hóa của Thập Dực.<sup><a href="#ref-8">[8]</a></sup></p>
+      </section>
+
+      <section id="truyen-thuyet" data-section>
+        <p class="section-kicker">03 · Phả hệ thánh nhân</p>
+        <h2>Truyền thuyết và lịch sử</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/03-truyen-thuyet-lich-su.webp" type="image/webp">
+            <img src="assets/kinh-dich/03-truyen-thuyet-lich-su.png" width="1664" height="936" alt="Bóng thánh nhân trong sương đối chiếu với bàn khảo cổ chứa xương, đồng khí và thẻ tre" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Phả hệ thánh nhân thuộc ký ức văn hóa; lịch sử hiện đại ưu tiên hiện vật, thủ bản và niên đại.</figcaption>
+        </figure>
+
+        <p>Truyền thống từ thời Hán và các thời sau xây dựng một phả hệ gồm bốn thánh:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Nhân vật</th><th>Vai trò theo truyền thống</th><th>Đánh giá lịch sử</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Phục Hy</td><td>Sáng tạo bát quái</td><td>Nhân vật văn hóa–thần thoại; không có chứng cứ khảo cổ đương thời.</td></tr>
+              <tr><td>Văn Vương</td><td>Chồng thành 64 quẻ, sắp thứ tự hoặc viết quái từ</td><td>Không có minh văn Tây Chu xác nhận quyền tác giả; các truyền thống cũng không hoàn toàn nhất quán.</td></tr>
+              <tr><td>Chu Công</td><td>Viết các hào từ</td><td>Không có hồ sơ đương thời chứng minh; văn bản có dấu hiệu tích lũy và biên tập nhiều lớp.</td></tr>
+              <tr><td>Khổng Tử</td><td>Viết toàn bộ Thập Dực</td><td>Đồng thuận hiện đại bác quyền tác giả trực tiếp; Thập Dực gồm nhiều thể loại và phần lớn muộn hơn ông.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Phả hệ này quan trọng vì nó tạo uy tín chính thống: Kinh Dịch được trình bày như kết tinh trí tuệ của các thánh nhân và nền tảng của trật tự Chu–Nho. Nhưng nó là <strong>lịch sử thiêng và lịch sử tiếp nhận</strong>, không phải một hồ sơ tác giả đã được khảo cổ xác minh.</p>
+
+        <div class="callout">
+          <p><strong>Điểm phương pháp:</strong> Không có lời tựa Tây Chu nói “sách này được tạo ra vì lý do X”. Vì vậy, lý do hình thành phải được tái dựng từ loại hiện vật, hình thức lời bói, nội dung câu hỏi và môi trường chính trị–nghi lễ; không thể suy ra chỉ từ truyền thuyết.</p>
+        </div>
+
+        <p class="source-note"><strong>Nguồn chính:</strong> Tổng quan truyền thống tác giả và đồng thuận niên đại hiện đại trong Nielsen.<sup><a href="#ref-1">[1]</a></sup> Phân tích Thập Dực và vấn đề quyền tác giả Khổng Tử trong Oxford Academic.<sup><a href="#ref-8">[8]</a></sup></p>
+      </section>
+
+      <section id="qua-trinh" data-section>
+        <p class="section-kicker">04 · Dòng thời gian</p>
+        <h2>Quá trình hình thành</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/04-qua-trinh-hinh-thanh.webp" type="image/webp">
+            <img src="assets/kinh-dich/04-qua-trinh-hinh-thanh.png" width="1664" height="936" alt="Xưởng bói cuối Thương đầu Chu với bốc hỏa, người ghi chép và nhóm chia đếm cọng" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Bốc hỏa và bói số có thể từng cùng tồn tại; bằng chứng chưa cho phép vẽ một chuỗi thay thế thẳng.</figcaption>
+        </figure>
+
+        <div class="timeline">
+          <article class="era">
+            <span class="era-time">Tiền sử — trước thế kỷ XIII TCN</span>
+            <h3>1. Bói xương có trước Kinh Dịch</h3>
+            <p>Việc nung xương để quan sát vết nứt đã có từ thời Đồ đá mới. Những hiện vật này cho thấy một nền văn hóa dùng dấu hiệu vật chất để xử lý bất định, nhưng chưa có 64 quẻ, quái từ, hào từ hay học thuyết âm–dương. Vì vậy, chúng là tiền sử xa của hoạt động bói, không phải “Kinh Dịch nguyên thủy”.</p>
+            <p>Khảo cổ học cho thấy thủ tục bói càng phức tạp thường càng gắn với chuyên gia nghi lễ, bộ máy quan liêu và quyền lực nhà nước.<sup><a href="#ref-2">[2]</a></sup></p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Khoảng 1250–1046 TCN · Cuối Thương</span>
+            <h3>2. Bốc hỏa trở thành thiết chế cung đình</h3>
+            <p>Tại Ân Khư–Anyang, xương vai bò hoặc yếm rùa được xử lý và áp nhiệt để tạo vết nứt. Vua hay chuyên gia giải vết nứt; văn khắc có thể ghi ngày, người bói, câu hỏi, lời đoán và đôi khi kết quả thực tế.</p>
+            <p>Các câu hỏi hoàn toàn thực dụng: tế tự, mưa gió, mùa màng, săn bắn, chiến tranh, huy động lao động, bệnh tật, giấc mộng, sinh nở và người kế tự. Hơn 150.000 mảnh giáp cốt cuối Thương đã được phát hiện; nghiên cứu C-14 định thời Vũ Đinh khoảng 1254–1197 TCN và giai đoạn kết thúc Thương khoảng 1041 TCN.<sup><a href="#ref-3">[3]</a></sup></p>
+            <p><strong>Chức năng:</strong> quản trị bất định, tạo quyết định có thẩm quyền và củng cố vị trí của vua cùng giới chuyên gia nghi lễ. Tuy nhiên, giáp cốt Thương không phải một bản Chu Dịch.</p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Cuối Thương–Tây Chu</span>
+            <h3>3. Xuất hiện những “quẻ số”</h3>
+            <p>Trên xương, mai, đồng khí, đá và gốm có những dãy số; một phần đáng chú ý gồm sáu vị trí. Chúng có lẽ thuộc tiền sử gần của đồ hình sáu hào, nhưng mối nối trực tiếp đến bản Chu Dịch vẫn còn tranh luận.</p>
+            <ul class="tight">
+              <li>Có cả dãy 2, 4, 10, 12 hoặc 24 vị trí, không chỉ 3 hay 6.</li>
+              <li>Các giá trị số thay đổi theo thời đại.</li>
+              <li>Phần lớn không kèm lời giải đoán.</li>
+              <li>Khi có chữ đi kèm, nội dung không nhất thiết trùng Chu Dịch truyền thế.</li>
+              <li>Không thể lấy hệ âm/dương đời sau áp ngược vào mọi dấu số đời Thương.</li>
+            </ul>
+            <p>Nghiên cứu thống kê gợi ý thi thảo, que tính, vật gieo hay xúc xắc có thể tham gia tạo số, nhưng cơ chế chính xác chưa được xác định.<sup><a href="#ref-4">[4]</a></sup> Bói xương và bói số từng cùng tồn tại; không có một cuộc thay thế đột ngột đã được chứng minh.</p>
+            <p>Thuật toán “Đại diễn” dùng 50 cọng trong bản <em>Hệ Từ</em> truyền thế thuộc lớp văn bản muộn hơn lõi. Không nên dùng nó như một bản mô tả chắc chắn về cách tạo dãy số ở cuối Thương hay đầu Tây Chu.</p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Có lẽ thế kỷ IX–VIII TCN · Tây Chu muộn</span>
+            <h3>4. Lõi Chu Dịch được tích lũy và biên tập</h3>
+            <p>Lõi của mỗi quẻ gồm hình sáu hào, tên quẻ, quái từ và sáu hào từ đọc từ dưới lên. Nội dung cổ nói đến chiến tranh, tù binh, tế lễ, hôn nhân, đi lại, săn bắn, nông nghiệp, kiện tụng và những công thức như <em>cát</em>, <em>hung</em>, <em>vô cữu</em>, <em>hối</em>, <em>lận</em>, <em>lợi</em>.</p>
+            <p>Nhiều câu có vần, có hình ảnh điềm báo và cấu trúc gần với lời dự đoán trong hoạt động bói. Mô hình phù hợp nhất là nhiều thế hệ quan bói, sử quan và thư lại đã ghi, truyền, tuyển chọn rồi biên tập các công thức cùng ký ức lịch sử thành một cẩm nang.<sup><a href="#ref-5">[5]</a></sup><sup><a href="#ref-6">[6]</a></sup></p>
+            <p>Edward Shaughnessy định niên đại phần quan trọng của lõi vào khoảng cuối thế kỷ IX TCN dựa trên ngôn ngữ, vần và minh văn đồng khí, đồng thời cảnh báo rằng khâu biên tập cuối có thể muộn hơn một hoặc hai thế kỷ.<sup><a href="#ref-6">[6]</a></sup></p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Thế kỷ IV–II TCN · Chiến Quốc–đầu Hán</span>
+            <h3>5. Cẩm nang bói được triết học hóa</h3>
+            <p><em>Tả truyện</em>, được biên tập khoảng thế kỷ IV TCN, lưu những câu chuyện sử dụng Chu Dịch trong ngoại giao và chính trị. Cũng trong môi trường này, các văn bản về sau gọi là Thập Dực diễn giải quẻ bằng thời–vị, cương–nhu, đạo quân tử, Trời–Đất, tượng, số và biến hóa.</p>
+            <p>Bản tre Thượng Hải khoảng 300 TCN cho thấy lõi đã khá ổn định nhưng vẫn có nhiều dị thể chữ.<sup><a href="#ref-7">[7]</a></sup> Những bản thuộc truyền thống khác như <em>Quy Tàng</em> cho thấy Chu Dịch không phải hệ bói quẻ duy nhất.<sup><a href="#ref-11">[11]</a></sup></p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Thế kỷ II TCN–II SCN · Nhà Hán</span>
+            <h3>6. Kinh điển hóa và vũ trụ–chính trị hóa</h3>
+            <p>Bản lụa Mã Vương Đôi khoảng 175 TCN có đủ 64 quẻ nhưng thứ tự khác, kèm một tập chú giải không đồng nhất với Thập Dực truyền thế.<sup><a href="#ref-9">[9]</a></sup> Khoảng 136 TCN, Chu Dịch cùng một số chưa xác định trong Thập Dực được đưa vào hệ kinh điển triều đình. Mảnh Hy Bình Thạch Kinh từ năm 175 SCN cho thấy một bản nhà nước đã gần với truyền bản hiện nay.<sup><a href="#ref-1">[1]</a></sup></p>
+            <p>Học giả Hán ghép quẻ với âm dương, lịch, tháng, tiết khí, thiên can–địa chi, ngũ hành, thiên văn, tai dị và chính trị. Đây là nguồn của phần lớn tượng số kỹ thuật về sau.</p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Thế kỷ III–XIII · Ngụy–Đường–Tống</span>
+            <h3>7. Nghĩa lý, chính nghĩa và đồ hình</h3>
+            <p>Vương Bật đọc quẻ như tình thế có nguyên lý, phản ứng trước những bảng tương ứng Hán quá phức tạp. Dòng Vương Bật–Hàn Khang Bá được Khổng Dĩnh Đạt và triều Đường chuẩn hóa. Thời Tống, Thiệu Ung, Chu Đôn Di, Trình Di và Chu Hy tiếp tục xây dựng số tượng, Thái cực, đạo đức và hệ thống Tiên thiên–Hậu thiên.<sup><a href="#ref-13">[13]</a></sup><sup><a href="#ref-14">[14]</a></sup></p>
+          </article>
+
+          <article class="era">
+            <span class="era-time">Cận–hiện đại</span>
+            <h3>8. Khảo cổ học và những cách đọc mới</h3>
+            <p>Khảo chứng đời Thanh, phong trào Nghi cổ thế kỷ XX và các thủ bản khai quật đã tách lớp bói thời Đồ đồng khỏi những bình giải triết học muộn. Ở phương Tây, Kinh Dịch lại được đọc qua thần học Dòng Tên, số nhị phân của Leibniz, bản dịch Legge–Wilhelm, tâm lý học Jung và các trào lưu New Age.</p>
+          </article>
+        </div>
+
+        <h3>Quy trình chức năng có thể được tái dựng</h3>
+        <div class="workflow" aria-label="Sơ đồ quy trình bói và ra quyết định">
+          <div>Việc cần quyết định</div>
+          <div>Nghi thức tạo dấu hiệu</div>
+          <div>Số hoặc đồ hình</div>
+          <div>Lời quẻ, lời hào và giải đoán</div>
+          <div>Quyết định và hành động</div>
+        </div>
+
+        <div class="callout gold">
+          <p><strong>Vì sao 64?</strong> Khi đã có hai kiểu hào và sáu vị trí, số tổ hợp đầy đủ là 2<sup>6</sup> = 64. Nhưng công thức này không cho biết vì sao lịch sử đã chọn sáu vị trí, khi nào toàn bộ 64 tổ hợp được dùng, hay hệ thống được thiết kế một lần hay tích lũy dần.</p>
+        </div>
+      </section>
+
+      <section id="ly-do" data-section>
+        <p class="section-kicker">05 · Nguyên nhân chức năng</p>
+        <h2>Vì sao Chu Dịch ra đời?</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/05-ly-do-ra-doi.webp" type="image/webp">
+            <img src="assets/kinh-dich/05-ly-do-ra-doi.png" width="1664" height="936" alt="Hội đồng cổ đại cân nhắc chiến tranh, mùa màng, thời tiết và nghi lễ cùng chuyên gia bói" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Bói toán là một đầu vào có thẩm quyền trong quá trình ra quyết định dưới điều kiện bất định.</figcaption>
+        </figure>
+
+        <h3>1. Quản trị bất định</h3>
+        <p>Xã hội nông nghiệp và chiến tranh thời Đồ đồng phải quyết định khi không thể biết chắc thời tiết, mùa màng, bệnh tật, kết quả quân sự, hôn nhân hay kế tự. Nghi thức bói buộc người hỏi xác định vấn đề, tạo dấu hiệu, diễn giải khả năng và chọn hành động. Vì vậy, nó không chỉ nhằm “nhìn thấy số phận”, mà còn tổ chức quá trình ra quyết định.<sup><a href="#ref-12">[12]</a></sup></p>
+
+        <h3>2. Tạo quyết định có tính chính danh</h3>
+        <p>Một quyết định được trình bày như phù hợp với tổ tiên, Trời hoặc trật tự nghi lễ có sức nặng hơn ý kiến cá nhân. Người kiểm soát nghi lễ, chữ viết và việc giải dấu hiệu cũng nắm một nguồn quyền lực xã hội–chính trị.<sup><a href="#ref-2">[2]</a></sup></p>
+
+        <h3>3. Biến kinh nghiệm rời rạc thành kho tri thức</h3>
+        <p>Vết nứt hay một lần gieo số chỉ tồn tại trong khoảnh khắc. Khi kết quả được gắn với đồ hình, tên quẻ, lời chung và lời cho từng hào, kinh nghiệm của chuyên gia có thể được ghi nhớ, so sánh, truyền dạy và tái sử dụng. Theo nghĩa này, Chu Dịch hoạt động như một <strong>kho tình huống và lời phán đoán</strong>, dù không phải “cơ sở dữ liệu” theo nghĩa kỹ thuật hiện đại.</p>
+
+        <h3>4. Chuẩn hóa một ngôn ngữ dấu hiệu</h3>
+        <p>Bói bằng số cho phép tạo kết quả theo quy trình, mã hóa thành nhiều vị trí và tra cứu. Tuy nhiên, các giả thuyết như “thi thảo được chọn vì rẻ, nhẹ và tiện hơn mai rùa” chỉ là suy luận thực dụng; chưa có văn bản cổ xác nhận đó là động cơ lịch sử.</p>
+
+        <h3>5. Vì sao Chu Dịch sống sót?</h3>
+        <p>Chu Dịch không phải truyền thống quẻ duy nhất. Nhưng nó được giới trí thức Chiến Quốc triết học hóa, được gắn với các thánh nhân, được triều Hán kinh điển hóa và được giáo dục–khoa cử tiếp tục bảo tồn. Ngôn ngữ cô đọng và đồ hình mở giúp nó có thể được tái diễn giải trong nhiều hoàn cảnh.</p>
+
+        <div class="callout jade">
+          <p>Chu Dịch không tồn tại lâu chỉ vì người ta tin phép bói “đúng”. Nó tồn tại vì liên tục được biến thành một văn bản có thể phục vụ nghi lễ, đạo đức, chính trị, vũ trụ luận, tu dưỡng và tranh luận triết học.</p>
+        </div>
+      </section>
+
+      <section id="thap-duc" data-section>
+        <p class="section-kicker">06 · Bước ngoặt triết học</p>
+        <h2>Thập Dực đã thêm điều gì?</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/06-thap-duc.webp" type="image/webp">
+            <img src="assets/kinh-dich/06-thap-duc.png" width="1672" height="941" alt="Lõi thẻ tre ở trung tâm và bảy cuộn bình giải tỏa ra như những cánh" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Bảy thiên được chia thành mười phần đã mở rộng cẩm nang bói thành đạo đức và vũ trụ luận.</figcaption>
+        </figure>
+
+        <p>Thập Dực thực ra gồm bảy thiên. Ba thiên—Thoán, Tượng và Hệ Từ—được chia thượng/hạ, nên tổng cộng được đếm thành mười phần. Các thiên có thể không được viết cùng lúc hay bởi cùng một nhóm.<sup><a href="#ref-8">[8]</a></sup></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Văn bản</th><th>Chức năng</th><th>Lớp tư tưởng được thêm</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Thoán truyện thượng/hạ</td><td>Giải quái từ</td><td>Thời–vị, cương–nhu, cấu trúc quẻ, Trời–Đất và đạo đức</td></tr>
+              <tr><td>Tượng truyện thượng/hạ</td><td>Đại Tượng cho quẻ và Tiểu Tượng cho hào</td><td>Hình tượng tự nhiên; cách xử sự của quân tử và người trị nước</td></tr>
+              <tr><td>Hệ Từ thượng/hạ</td><td>Lý thuyết chung về Dịch</td><td>Biến hóa, tượng, lời, số, phép thi, Thái cực–lưỡng nghi–tứ tượng–bát quái</td></tr>
+              <tr><td>Văn Ngôn</td><td>Khai triển Càn và Khôn</td><td>Đạo đức, Trời–Đất và mẫu hình quân tử</td></tr>
+              <tr><td>Thuyết Quái</td><td>Hệ thống liên tưởng bát quái</td><td>Tự nhiên, gia đình, thân thể, phương hướng, động vật và nhiều loại tương ứng</td></tr>
+              <tr><td>Tự Quái</td><td>Giải trình tự 64 quẻ</td><td>Biến chuỗi quẻ thành một quá trình có lý do</td></tr>
+              <tr><td>Tạp Quái</td><td>Định nghĩa và đối chiếu</td><td>Phân loại các quẻ theo cặp tương phản</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Chính lớp này biến cẩm nang bói thành tác phẩm về giới hạn tri thức, biến đổi của vũ trụ, dấu hiệu và thực tại, đạo đức quân tử cùng nghệ thuật trị nước.</p>
+
+        <div class="callout">
+          <p><strong>Ví dụ quan trọng:</strong> “Thiên hành kiện, quân tử dĩ tự cường bất tức” thuộc <em>Tượng truyện</em>, không phải quái từ thời Tây Chu. Đây là một cách đọc đạo đức muộn hơn được đặt cạnh hình quẻ Càn.</p>
+        </div>
+      </section>
+
+      <section id="thu-ban" data-section>
+        <p class="section-kicker">07 · Chứng cứ vật chất</p>
+        <h2>Các thủ bản khai quật thay đổi câu chuyện như thế nào?</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/07-thu-ban-khai-quat.webp" type="image/webp">
+            <img src="assets/kinh-dich/07-thu-ban-khai-quat.png" width="1672" height="941" alt="Bàn bảo tồn nhìn từ trên với thẻ tre Thượng Hải, lụa Mã Vương Đôi và các nhóm thủ bản khác" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Nhiều thủ bản chứng minh một lõi tương đối ổn định nhưng có dị thể chữ, thứ tự và tập chú giải khác nhau.</figcaption>
+        </figure>
+
+        <h3>Bản tre Thượng Hải, khoảng 300 TCN</h3>
+        <ul>
+          <li>58 thẻ tre, giữ khoảng một phần ba lõi Chu Dịch truyền thế.</li>
+          <li>Chữ viết cho thấy được sao tại nước Sở khoảng 300 TCN; C-14 được công bố là 306 ± 65 TCN.</li>
+          <li>Có nhiều dị thể chữ nhưng nội dung cho thấy lõi đã khá ổn định.</li>
+          <li>Dây buộc mục và thẻ bị xáo trộn, nên không thể phục dựng chắc thứ tự quẻ.</li>
+          <li>Được mua từ thị trường cổ vật, không khai quật có kiểm soát; bối cảnh ngôi mộ không chắc chắn.</li>
+        </ul>
+        <p class="source-note"><strong>Nguồn:</strong> Shaughnessy, “A First Reading of the Shanghai Museum Bamboo-Strip Manuscript of the Zhou Yi”.<sup><a href="#ref-7">[7]</a></sup></p>
+
+        <h3>Bản lụa Mã Vương Đôi, sao khoảng 175 TCN</h3>
+        <ul>
+          <li>Được khai quật từ mộ số 3, đóng năm 168 TCN.</li>
+          <li>Có đủ 64 quẻ; quái từ và hào từ nhìn chung gần truyền bản nhưng có nhiều dị thể.</li>
+          <li>Thứ tự 64 quẻ khác bản hiện nay, chứng minh “quái thứ Văn Vương” không phải thứ tự duy nhất đầu Hán.</li>
+          <li>Có <em>Hệ Từ</em> và các chú giải khác như <em>Nhị Tam Tử Vấn</em>, <em>Dịch Chi Nghĩa</em> và <em>Yếu</em>.</li>
+          <li>Một số thiên dựng đối thoại với Khổng Tử: đây là chứng cứ về lịch sử gắn ông với việc đọc Dịch, không phải biên bản lời nói đương thời.</li>
+        </ul>
+        <p class="source-note"><strong>Nguồn:</strong> Shaughnessy, “A First Reading of the Mawangdui Yijing Manuscript”.<sup><a href="#ref-9">[9]</a></sup></p>
+
+        <h3>Phụ Dương và Quy Tàng</h3>
+        <p>Bản Phụ Dương, chôn năm 165 TCN, thiên về thực hành bói và gắn các lời dự đoán chung vào từng đoạn. Hai bản <em>Quy Tàng</em> tại Vương Gia Đài thuộc thế kỷ III TCN cho thấy tồn tại một truyền thống bói quẻ khác với Chu Dịch.<sup><a href="#ref-10">[10]</a></sup><sup><a href="#ref-11">[11]</a></sup></p>
+
+        <div class="callout gold">
+          <p><strong>Điều các thủ bản cùng chứng minh:</strong> không có mô hình “một bản gốc hoàn chỉnh được sao y nguyên ba nghìn năm”. Đúng hơn là một lõi tương đối ổn định, nhiều dị thể chữ, hơn một thứ tự quẻ, nhiều tập chú giải và một quá trình tuyển chọn–chuẩn hóa kéo dài.</p>
+        </div>
+      </section>
+
+      <section id="han-tong" data-section>
+        <p class="section-kicker">08 · Lịch sử tư tưởng</p>
+        <h2>Từ nhà Hán đến thời Tống</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/08-han-den-tong.webp" type="image/webp">
+            <img src="assets/kinh-dich/08-han-den-tong.png" width="1672" height="941" alt="Ba lớp Hán, Vương Bật và Tống với thiên văn lịch pháp, chú giải và đồ hình" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Tượng số Hán, nghĩa lý Vương Bật và đồ hình Tống là những bước tái cấu trúc khác nhau.</figcaption>
+        </figure>
+
+        <h3>Nhà Hán: tượng số và trật tự đế quốc</h3>
+        <p>Học giả Hán kết nối quẻ và hào với âm dương, khí, ngũ hành, lịch, tiết khí, can chi, phương hướng, âm luật, thiên văn và tai dị. Các hệ của Mạnh Hỷ, Tiêu Diên Thọ, Kinh Phòng và Ngu Phiên biến 64 quẻ từ kho tình huống bói thành mô hình thời gian và vũ trụ.</p>
+        <p>Trong quan niệm cảm ứng Trời–người, thiên tai hoặc nhật thực có thể được đọc như phản ứng của vũ trụ trước chính sự. Hệ thống vừa chính danh hóa hoàng đế, vừa cho học giả một ngôn ngữ để can gián. Phần lớn tượng số kỹ thuật hiện nay bắt nguồn từ môi trường này, không phải nguyên khối từ thời Văn Vương.<sup><a href="#ref-12">[12]</a></sup><sup><a href="#ref-18">[18]</a></sup></p>
+
+        <h3>Vương Bật: nghĩa lý</h3>
+        <p>Vương Bật (226–249) phản ứng trước sự tích lũy của các bảng tương ứng Hán. Ông xem tượng và lời là phương tiện đạt tới ý; ý nghĩa một hào phụ thuộc thời, vị trí và quan hệ trong toàn quẻ. “Đắc ý vong tượng” không có nghĩa phủ nhận mọi hình tượng, mà không để ý nghĩa bị khóa trong một danh mục vật tượng cứng.<sup><a href="#ref-13">[13]</a></sup></p>
+
+        <h3>Nhà Đường: chuẩn hóa</h3>
+        <p>Vương Bật chỉ chú lõi cùng Thoán, Tượng và Văn Ngôn; các phần còn lại trong bộ chú truyền thế chủ yếu do Hàn Khang Bá ở thế kỷ IV đảm nhiệm. <em>Chu Dịch Chính Nghĩa</em> của nhóm Khổng Dĩnh Đạt (574–648) lấy hai dòng chú đó rồi thêm phần sớ. Công trình được chỉnh lý và chính thức ban hành cùng <em>Ngũ Kinh Chính Nghĩa</em> năm 653, khiến dòng Vương–Hàn trở thành nền tảng giáo dục và kinh học chính thống.<sup><a href="#ref-22">[22]</a></sup></p>
+
+        <h3>Nhà Tống: siêu hình học Nho gia và đồ hình</h3>
+        <ul>
+          <li><strong>Thiệu Ung:</strong> số tượng, chu kỳ vũ trụ và các bố trí được gọi là Tiên thiên.</li>
+          <li><strong>Chu Đôn Di:</strong> <em>Thái Cực đồ thuyết</em>, nối Thái cực–âm dương–ngũ hành–vạn vật với đạo đức.</li>
+          <li><strong>Trình Di:</strong> quẻ như những tình thế đạo đức–chính trị, nhấn mạnh thời và vị.</li>
+          <li><strong>Chu Hy:</strong> tổng hợp nghĩa lý, tượng số, đồ hình và phép bói thi; đồng thời nhấn mạnh nghĩa ban đầu của Chu Dịch là bói.</li>
+        </ul>
+        <p>Các hệ Tiên thiên–Hậu thiên, Hà đồ–Lạc thư và nhiều đồ hình quen thuộc được hệ thống hóa mạnh trong thời Tống và sau đó. Chúng không phải vật chứng trực tiếp từ Phục Hy.<sup><a href="#ref-14">[14]</a></sup></p>
+
+        <p>Biểu tượng tròn đen–trắng giống hai con cá thường gọi là Thái Cực đồ không phải đồ hình của Chu Đôn Di; hình quen thuộc hiện nay thuộc một lịch sử đồ hình muộn hơn.<sup><a href="#ref-15">[15]</a></sup></p>
+      </section>
+
+      <section id="hien-dai" data-section>
+        <p class="section-kicker">09 · Tái diễn giải</p>
+        <h2>Thanh, hiện đại và phương Tây</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/09-hien-dai-phuong-tay.webp" type="image/webp">
+            <img src="assets/kinh-dich/09-hien-dai-phuong-tay.png" width="1672" height="941" alt="Học giả Thanh, nhà khảo cổ, giáo sĩ châu Âu và sách phương Tây trong nhiều lớp tiếp nhận" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Khảo chứng, khảo cổ và tiếp nhận phương Tây không phát hiện một nghĩa duy nhất mà tạo thêm các lớp đọc.</figcaption>
+        </figure>
+
+        <h3>Khảo chứng đời Thanh và việc lịch sử hóa Kinh Dịch</h3>
+        <p>Học giả khảo chứng đời Thanh chú trọng văn tự, âm vận, thư mục và nguồn trích dẫn. Họ phê bình một phần phả hệ đồ hình thời Tống, phục dựng Dịch học Hán và đặt câu hỏi liệu những hệ mang tên Phục Hy có thật sự cổ như truyền thống tuyên bố hay không.</p>
+        <p>Đầu thế kỷ XX, phong trào Nghi cổ và các học giả như Cố Hiệt Cương, Lý Kính Trì và Cao Hanh tiếp tục tách lời quẻ–hào có nguồn gốc bói toán khỏi Thập Dực và các lớp siêu hình học muộn. Những phát hiện tại Mã Vương Đôi, Thượng Hải, Phụ Dương và Vương Gia Đài sau đó cung cấp chứng cứ vật chất cho cách phân tầng này.<sup><a href="#ref-10">[10]</a></sup><sup><a href="#ref-19">[19]</a></sup></p>
+
+        <h3>Bouvet và Leibniz: tương ứng nhị phân</h3>
+        <p>Giáo sĩ Dòng Tên Joachim Bouvet đọc Kinh Dịch trong chương trình “figurism”, tức tìm trong cổ thư Trung Hoa những dấu vết của mặc khải Kitô giáo. Leibniz đã phát triển số học nhị phân trước khi biết đồ 64 quẻ của Thiệu Ung. Năm 1701, ông gửi trình bày về 0 và 1 cho Bouvet; Bouvet nhận ra sự tương ứng với đồ quẻ và gửi đồ lại; Leibniz công bố bài về số học nhị phân năm 1703.<sup><a href="#ref-16">[16]</a></sup></p>
+        <p>Do đó phải tách bốn mức:</p>
+        <ol>
+          <li>Hệ tổ hợp dùng hai dấu: có.</li>
+          <li>Có thể ánh xạ hồi cố sang 0 và 1: có.</li>
+          <li>Người xưa dùng hệ số vị trí nhị phân để tính toán: chưa có chứng cứ.</li>
+          <li>Chu Dịch đã chứa logic Boolean, điện tử học hay máy tính: không.</li>
+        </ol>
+
+        <h3>Legge, Wilhelm và Jung</h3>
+        <ul>
+          <li><strong>James Legge:</strong> bản tiếng Anh trong <em>Sacred Books of the East</em>, 1882; mang dấu ấn học thuật truyền giáo và đạo đức Victoria.</li>
+          <li><strong>Richard Wilhelm:</strong> bản Đức năm 1924, chủ yếu truyền đạt một truyền thống chú giải Nho gia–Tống học.</li>
+          <li><strong>Cary Baynes/Carl Jung:</strong> bản Anh năm 1950 cùng lời tựa của Jung đưa Kinh Dịch vào tâm lý học chiều sâu và văn hóa đại chúng phương Tây.</li>
+        </ul>
+        <p>“Synchronicity” của Jung là một cách diễn giải tâm lý học trong lịch sử tiếp nhận, không phải chứng minh thực nghiệm về khả năng dự báo. Wilhelm vẫn rất có giá trị để hiểu truyền thống chú giải, nhưng không nên là nguồn duy nhất để phục dựng nghĩa thời Tây Chu vì ra đời trước những phát hiện thủ bản quan trọng.<sup><a href="#ref-23">[23]</a></sup></p>
+
+        <h3>Khảo cổ học hiện đại thay đổi trọng tâm</h3>
+        <p>Hướng nghiên cứu hiện đại không hỏi trước “quẻ này nói chân lý phổ quát gì?”, mà hỏi: chữ cổ có nghĩa gì trong bối cảnh thời Đồ đồng, câu có vần hay công thức bói nào, thủ bản nào bảo lưu dị thể, và lớp chú giải nào đã biến lời bói thành đạo đức hoặc vũ trụ luận. Đó là lý do các bản dịch khảo cổ như Shaughnessy và Rutt có thể khác sâu với Wilhelm dù cùng dịch một văn bản.</p>
+      </section>
+
+      <section id="pha-he" data-section>
+        <p class="section-kicker">10 · Bản đồ khái niệm</p>
+        <h2>Phả hệ các lý thuyết hiện nay</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/10-pha-he-ly-thuyet.webp" type="image/webp">
+            <img src="assets/kinh-dich/10-pha-he-ly-thuyet.png" width="1672" height="941" alt="Cây phả hệ với rễ là xương bói và quẻ số, thân là Chu Dịch, các nhánh là hệ lý thuyết hậu kỳ" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Các lý thuyết có chung một thân văn bản nhưng mọc thành những nhánh ở các thời đại khác nhau.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Quan niệm hoặc kỹ thuật</th><th>Lớp lịch sử chính</th><th>Điều cần lưu ý</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>64 quẻ, quái từ, hào từ; cát–hung–lợi–vô cữu</td><td>Lõi Chu Dịch thời Đồ đồng</td><td>Chủ yếu là lời bói tình huống, chưa phải siêu hình học hoàn chỉnh.</td></tr>
+              <tr><td>Hai kiểu hào, sáu vị trí</td><td>Tiền sử trong bói số Thương–Chu</td><td>Cơ chế tạo số và thời điểm chuẩn hóa còn tranh luận.</td></tr>
+              <tr><td>Hào liền là dương, hào đứt là âm như nguyên lý vũ trụ</td><td>Dịch Truyện; hệ thống hóa Chiến Quốc–Hán</td><td>Lõi không trình bày một học thuyết âm–dương có hệ thống.</td></tr>
+              <tr><td>Thái cực → lưỡng nghi → tứ tượng → bát quái</td><td><em>Hệ Từ</em></td><td>Không phải lời quẻ–hào cổ.</td></tr>
+              <tr><td>Bát quái ứng tự nhiên, gia đình, thân thể, phương hướng</td><td><em>Thuyết Quái</em> và truyền thống sau</td><td>Các danh mục được mở rộng qua nhiều thời đại.</td></tr>
+              <tr><td>Quân tử noi tượng tự nhiên để tu thân</td><td><em>Tượng truyện</em></td><td>Là lớp đạo đức hóa Chiến Quốc.</td></tr>
+              <tr><td>Ngũ hành, lịch tháng, quái khí, Bát cung, nạp giáp</td><td>Dịch học Hán và hậu Hán</td><td>Nhiều chi tiết hiện biết qua trích dẫn hoặc hệ thống muộn hơn.</td></tr>
+              <tr><td>Nghĩa lý, quẻ như một tình thế có nguyên lý</td><td>Vương Bật, Trình Di và các dòng sau</td><td>Tượng số và nghĩa lý không phải hai phe hoàn toàn loại trừ nhau.</td></tr>
+              <tr><td>Thứ tự “Văn Vương” là thứ tự duy nhất nguyên thủy</td><td>Truyền thống bản hiện hành</td><td>Mã Vương Đôi chứng minh từng có thứ tự khác.</td></tr>
+              <tr><td>Tiên thiên–Hậu thiên, Hà đồ–Lạc thư, nhiều đồ hình số</td><td>Hệ thống hóa mạnh thời Tống</td><td>Không thể dùng tên “Phục Hy” để biến chúng thành chứng cứ tiền sử.</td></tr>
+              <tr><td>Mai Hoa, lục hào, gieo đồng xu và các hệ thực hành</td><td>Truyền thống hậu kỳ</td><td>Niên đại và phả hệ cụ thể thường phức tạp hơn cách gán cho một danh nhân.</td></tr>
+              <tr><td>Ánh xạ 64 quẻ thành số nhị phân</td><td>Cách đọc cận đại</td><td>Có tương ứng hình thức, không chứng minh người Tây Chu làm số học nhị phân.</td></tr>
+              <tr><td>DNA, lượng tử, máy tính</td><td>So sánh hiện đại</td><td>Không phải chứng cứ lịch sử hay sự kiểm chứng khoa học cho Kinh Dịch.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="chac-chan" data-section>
+        <p class="section-kicker">11 · Phân cấp chứng cứ</p>
+        <h2>Điều gì chắc chắn, điều gì còn mở?</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/11-muc-do-chac-chan.webp" type="image/webp">
+            <img src="assets/kinh-dich/11-muc-do-chac-chan.png" width="1672" height="941" alt="Các vòng chứng cứ từ hiện vật trung tâm đến tái dựng, khoảng trống và truyền thuyết trong sương" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Hiện vật, suy luận mạnh, câu hỏi mở và truyền thuyết phải được đặt ở các tầng chứng cứ khác nhau.</figcaption>
+        </figure>
+
+        <div class="certainty-grid">
+          <article class="certainty high">
+            <h3><span class="dot"></span> Chứng cứ rất mạnh</h3>
+            <ul class="tight">
+              <li>Cuối Thương có hệ thống bói xương cung đình quy mô lớn.</li>
+              <li>Lõi Chu Dịch ban đầu là cẩm nang bói.</li>
+              <li>Bói số tồn tại trong môi trường cuối Thương–Tây Chu.</li>
+              <li>Lõi đã khá ổn định vào khoảng 300 TCN.</li>
+              <li>Thập Dực muộn hơn lõi và có nhiều tác giả.</li>
+              <li>Hán–Đường quyết định việc kinh điển hóa và chuẩn hóa.</li>
+            </ul>
+          </article>
+
+          <article class="certainty likely">
+            <h3><span class="dot"></span> Rất có khả năng</h3>
+            <ul class="tight">
+              <li>Chu Dịch được viết thành dạng nhận biết được trong thế kỷ IX–VIII TCN.</li>
+              <li>Nhiều thế hệ chuyên gia bói–sử–thư lại tham gia tích lũy và biên tập.</li>
+              <li>Quẻ số Thương–Chu thuộc tiền sử của đồ hình quẻ sáu hào.</li>
+            </ul>
+          </article>
+
+          <article class="certainty open">
+            <h3><span class="dot"></span> Câu hỏi còn mở</h3>
+            <ul class="tight">
+              <li>Chính xác ai biên tập và có bao nhiêu lần biên tập.</li>
+              <li>Vì sao chọn sáu vị trí.</li>
+              <li>Cơ chế gieo số đầu tiên.</li>
+              <li>Khi nào lẻ/chẵn trở thành dương/âm.</li>
+              <li>Nguồn gốc thứ tự 64 quẻ và cách chọn hào ban đầu.</li>
+            </ul>
+          </article>
+
+          <article class="certainty legend">
+            <h3><span class="dot"></span> Truyền thuyết chưa kiểm chứng</h3>
+            <ul class="tight">
+              <li>Phục Hy lịch sử đã sáng tạo bát quái.</li>
+              <li>Văn Vương một mình tạo toàn bộ hệ 64 quẻ.</li>
+              <li>Chu Công một mình viết toàn bộ hào từ.</li>
+              <li>Khổng Tử trực tiếp viết toàn bộ Thập Dực.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="ngo-nhan" data-section>
+        <p class="section-kicker">12 · Kiểm tra tuyên bố</p>
+        <h2>Các ngộ nhận phổ biến</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/12-ngo-nhan.webp" type="image/webp">
+            <img src="assets/kinh-dich/12-ngo-nhan.png" width="1672" height="941" alt="Đồ hình sáu hào cổ tách khỏi các mảnh phản chiếu DNA, nguyên tử, máy tính và biểu tượng hậu kỳ" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Sự giống nhau hình thức với DNA, lượng tử hay máy tính không phải chứng cứ lịch sử hoặc kiểm chứng khoa học.</figcaption>
+        </figure>
+
+        <ul class="myth-list">
+          <li><strong>“Giáp cốt văn chính là Kinh Dịch đầu tiên.”</strong><span>Sai. Giáp cốt Thương là hồ sơ của một truyền thống bốc hỏa cổ hơn; nó tạo môi trường cho bói và chữ viết nhưng không phải bản Chu Dịch.</span></li>
+          <li><strong>“Chu Dịch thời Tây Chu đã có đầy đủ âm dương–ngũ hành.”</strong><span>Sai. Sự ghép thành hệ thống vũ trụ hoàn chỉnh chủ yếu là thành quả Chiến Quốc–Hán.</span></li>
+          <li><strong>“Ngũ hành là năm nguyên tố vật chất.”</strong><span>Dễ gây sai lệch. Trong nhiều ngữ cảnh nên hiểu là năm pha, loại vận động hoặc quá trình tương tác.</span></li>
+          <li><strong>“Chu Đôn Di vẽ biểu tượng hai con cá hiện nay.”</strong><span>Sai. Đồ của Chu Đôn Di là một cấu trúc dọc nhiều vòng; biểu tượng quen thuộc có lịch sử khác và muộn hơn.</span></li>
+          <li><strong>“Leibniz phát minh nhị phân nhờ Kinh Dịch.”</strong><span>Sai về trình tự: Leibniz đã có số học nhị phân trước khi Bouvet gửi đồ 64 quẻ. Điều họ nhận ra là một tương ứng hình thức.<sup><a href="#ref-16">[16]</a></sup></span></li>
+          <li><strong>“64 quẻ chứng minh người xưa biết 64 codon DNA.”</strong><span>Đó là trùng hợp tổ hợp 2<sup>6</sup> = 4<sup>3</sup>; không có cơ chế, dự đoán kiểm chứng hay lịch sử truyền thừa.</span></li>
+          <li><strong>“Cơ học lượng tử chứng minh âm dương.”</strong><span>Đó là phép so sánh triết học, không phải đồng nhất toán học hay kiểm chứng thực nghiệm.</span></li>
+          <li><strong>“Tượng số và nghĩa lý là hai trường phái tuyệt đối loại trừ nhau.”</strong><span>Quá đơn giản. Nhiều học giả, tiêu biểu Chu Hy, sử dụng cả cấu trúc quẻ, số, bói toán và đạo đức.</span></li>
+        </ul>
+      </section>
+
+      <section id="lo-trinh" data-section>
+        <p class="section-kicker">13 · Phương pháp học</p>
+        <h2>Lộ trình nghiên cứu không lẫn các lớp</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/13-lo-trinh-nghien-cuu.webp" type="image/webp">
+            <img src="assets/kinh-dich/13-lo-trinh-nghien-cuu.png" width="1672" height="941" alt="Nhà nghiên cứu so sánh riêng từng lớp hiện vật, bản dập, thẻ tre, lụa và sách chú giải" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Nghiên cứu tốt bắt đầu bằng việc giữ riêng từng lớp vật liệu, văn bản và diễn giải trước khi so sánh.</figcaption>
+        </figure>
+
+        <ol class="reading-path">
+          <li><strong>Đọc lõi Chu Dịch riêng.</strong> Chỉ đọc hình quẻ, quẻ danh, quái từ và hào từ; dùng bản dịch khảo cổ như Rutt hoặc Shaughnessy.</li>
+          <li><strong>Đọc Thập Dực như lớp bình giải.</strong> Đánh dấu câu nào thêm đạo quân tử, âm dương, Thái cực, tượng và số.</li>
+          <li><strong>So sánh thủ bản.</strong> Xem Thượng Hải, Mã Vương Đôi, Phụ Dương và Quy Tàng để nhận ra dị thể, thứ tự khác và hệ chú giải cạnh tranh.</li>
+          <li><strong>Học Dịch Hán.</strong> Sau khi đã tách lõi, mới nghiên cứu Mạnh Hỷ, Kinh Phòng, Bát cung, quái khí, can chi và ngũ hành.</li>
+          <li><strong>Đọc Vương Bật, Trình Di và Chu Hy.</strong> Quan sát cách một văn bản bói được chuyển thành triết học hành động, đạo đức và siêu hình học.</li>
+          <li><strong>Cuối cùng mới đánh giá các diễn giải hiện đại.</strong> Mọi tuyên bố về nhị phân, tâm lý, DNA hay lượng tử phải được kiểm tra độc lập bằng lịch sử và khoa học tương ứng.</li>
+        </ol>
+
+        <div class="callout gold">
+          <p><strong>Nguyên tắc đọc:</strong> Luôn hỏi ba câu—đoạn này thuộc lớp nào, chứng cứ vật chất sớm nhất là gì, và cách giải thích này đáp ứng nhu cầu của thời đại nào?</p>
+        </div>
+      </section>
+
+      <section id="tai-lieu" data-section>
+        <p class="section-kicker">14 · Thư mục có chú giải</p>
+        <h2>Tài liệu và nguồn học thuật</h2>
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/14-nguon-tai-lieu.webp" type="image/webp">
+            <img src="assets/kinh-dich/14-nguon-tai-lieu.png" width="1672" height="941" alt="Thư viện học thuật với xương bói, bản dập, thẻ tre, lụa, sách cổ và nghiên cứu hiện đại" loading="lazy" decoding="async">
+          </picture>
+          <figcaption><span>Minh họa khái niệm</span> Chuỗi nguồn đáng tin cậy đi từ hiện vật và thủ bản đến bài báo bình duyệt và chuyên khảo học thuật.</figcaption>
+        </figure>
+
+        <p>Danh mục dưới đây ưu tiên công trình đại học, nhà xuất bản học thuật, bài báo bình duyệt và nguồn toàn văn hợp pháp. Các liên kết được ghi trực tiếp để có thể kiểm tra từng nhận định.</p>
+
+        <ol class="references">
+          <li id="ref-1">
+            <strong>Bent Nielsen, “Yijing”.</strong>
+            <span class="meta">Routledge Resources Online / University of Copenhagen, 2024. Tổng quan tốt nhất để phân biệt lõi, Thập Dực, niên đại, kinh điển hóa và hai hướng tượng số–nghĩa lý.</span>
+            <a class="external" href="https://researchprofiles.ku.dk/en/publications/yijing/" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-2">
+            <strong>Rowan K. Flad, “Divination and Power: A Multiregional View of the Development of Oracle Bone Divination in Early China”.</strong>
+            <span class="meta"><em>Current Anthropology</em> 49.3, 2008. Phân tích quan hệ giữa bói toán, chuyên gia, quan liêu và quyền lực nhà nước.</span>
+            <a class="external" href="https://www.journals.uchicago.edu/doi/abs/10.1086/588495" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-3">
+            <strong>“Radiocarbon Dating of Oracle Bones of Late Shang Period in Ancient China”.</strong>
+            <span class="meta"><em>Radiocarbon</em>, Cambridge University Press. C-14, niên đại Vũ Đinh–cuối Thương và số lượng giáp cốt đã phát hiện.</span>
+            <a class="external" href="https://www.cambridge.org/core/journals/radiocarbon/article/radiocarbon-dating-of-oracle-bones-of-late-shang-period-in-ancient-china/38A7B64D6D538A3A7B96F912BBEE9592" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-4">
+            <strong>Andrea Bréard &amp; Constance A. Cook, “Cracking Bones and Numbers: Solving the Enigma of Numerical Sequences on Ancient Chinese Artifacts”.</strong>
+            <span class="meta"><em>Archive for History of Exact Sciences</em>, 2020. Nghiên cứu quẻ số, phân bố số và các giới hạn của việc áp hệ âm/dương về thời Thương.</span>
+            <a class="external" href="https://doi.org/10.1007/s00407-019-00245-9" target="_blank" rel="noopener noreferrer">Mở DOI</a>
+          </li>
+          <li id="ref-5">
+            <strong>Martin Kern, “Early Chinese Divination and Its Rhetoric”.</strong>
+            <span class="meta">Brill, 2018. Bài nghiên cứu toàn văn đặt Chu Dịch trong môi trường văn bản bói và mô tả quá trình từ cẩm nang bói sang sách minh triết.</span>
+            <a class="external" href="https://mkern.scholar.princeton.edu/sites/g/files/toruqf2716/files/mkern/files/early_chinese_divination_and_its_rhetoric.pdf" target="_blank" rel="noopener noreferrer">Đọc PDF</a>
+          </li>
+          <li id="ref-6">
+            <strong>Edward L. Shaughnessy, <em>The Origin and Early Development of the Zhou Changes</em>.</strong>
+            <span class="meta">Brill, 2022. Công trình chuyên sâu về niên đại, ngôn ngữ, vần, hào từ, bói thi và quá trình biên tập Chu Dịch.</span>
+            <a class="external" href="https://library.oapen.org/bitstream/handle/20.500.12657/76660/9789004513945.pdf?isAllowed=y&amp;sequence=1" target="_blank" rel="noopener noreferrer">Đọc toàn văn OAPEN</a>
+          </li>
+          <li id="ref-7">
+            <strong>Edward L. Shaughnessy, “A First Reading of the Shanghai Museum Bamboo-Strip Manuscript of the Zhou Yi”.</strong>
+            <span class="meta"><em>Early China</em> 30. Bản tre 58 thẻ, niên đại khoảng 300 TCN, dị thể và vấn đề thứ tự quẻ.</span>
+            <a class="external" href="https://www.cambridge.org/core/journals/early-china/article/abs/first-reading-of-the-shanghai-museum-bamboostrip-manuscript-of-the-zhou-yi/E1FFD4F3760FF82FFFB9BB0095D3206A" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-8">
+            <strong>Geoffrey Redmond &amp; Tze-ki Hon, “The Ten Wings”.</strong>
+            <span class="meta">Trong <em>Teaching the I Ching</em>, Oxford University Press, 2014. Cấu tạo bảy văn bản/mười phần, quyền tác giả và bước chuyển sang triết học.</span>
+            <a class="external" href="https://academic.oup.com/book/8934/chapter-abstract/155245419" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-9">
+            <strong>Edward L. Shaughnessy, “A First Reading of the Mawangdui Yijing Manuscript”.</strong>
+            <span class="meta"><em>Early China</em> 19. Bản lụa khoảng 175 TCN, thứ tự quẻ khác và các chú giải mới.</span>
+            <a class="external" href="https://www.cambridge.org/core/journals/early-china/article/abs/first-reading-of-the-mawangdui-yijing-manuscript/8AF18025AAF4EDD7B0C56DA8A8DC4A8F" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-10">
+            <strong>Edward L. Shaughnessy, <em>Unearthing the Changes</em>.</strong>
+            <span class="meta">Columbia University Press, 2014. Nghiên cứu tổng hợp bản Thượng Hải, Quy Tàng Vương Gia Đài và Chu Dịch Phụ Dương.</span>
+            <a class="external" href="https://cup.columbia.edu/book/unearthing-the-changes/9780231533300/" target="_blank" rel="noopener noreferrer">Mở trang sách</a>
+          </li>
+          <li id="ref-11">
+            <strong>Constance A. Cook, “Myth, History, and Music in the Creation of the Excavated Bamboo Guicang Hexagram Text”.</strong>
+            <span class="meta">Dự án IKGF, Đại học Erlangen–Nuremberg. Thông tin về bản Quy Tàng thế kỷ III–II TCN tại Vương Gia Đài.</span>
+            <a class="external" href="https://www.ikgf.uni-erlangen.de/research/research-projects/fate-and-prognostication/myth-history-and-music-in-the-creation-of-the-excavated-bamboo-guicang.shtml" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+          <li id="ref-12">
+            <strong>Tze-ki Hon, “Chinese Philosophy of Change (Yijing)”.</strong>
+            <span class="meta">Stanford Encyclopedia of Philosophy, cập nhật 2023. Tốt cho quan hệ giữa bói, ra quyết định, nghi lễ, biểu tượng, triết học và lịch sử chú giải.</span>
+            <a class="external" href="https://plato.stanford.edu/entries/chinese-change/" target="_blank" rel="noopener noreferrer">Đọc toàn văn</a>
+          </li>
+          <li id="ref-13">
+            <strong>Richard John Lynn, <em>The Classic of Changes: A New Translation … as Interpreted by Wang Bi</em>.</strong>
+            <span class="meta">Columbia University Press, 1994. Bản dịch và nghiên cứu nền tảng về cách đọc nghĩa lý của Vương Bật.</span>
+            <a class="external" href="https://cup.columbia.edu/book/the-classic-of-changes/9780231514057/" target="_blank" rel="noopener noreferrer">Mở trang sách</a>
+          </li>
+          <li id="ref-14">
+            <strong>Joseph A. Adler, <em>The Original Meaning of the Yijing: Commentary on the Scripture of Change</em>.</strong>
+            <span class="meta">Columbia University Press, 2020. Bản dịch Chu Hy, hữu ích để thấy sự tổng hợp tượng số, nghĩa lý, đồ hình và bói thi thời Tống.</span>
+            <a class="external" href="https://cup.columbia.edu/book/the-original-meaning-of-the-yijing/9780231191241/" target="_blank" rel="noopener noreferrer">Mở trang sách</a>
+          </li>
+          <li id="ref-15">
+            <strong>François Louis, “The Genesis of an Icon: The ‘Taiji’ Diagram’s Early History”.</strong>
+            <span class="meta"><em>Harvard Journal of Asiatic Studies</em> 63.1, 2003. Lịch sử biểu tượng Thái Cực đồ và vấn đề quy gán cho Chu Đôn Di.</span>
+            <a class="external" href="https://doi.org/10.2307/25066694" target="_blank" rel="noopener noreferrer">Mở DOI</a>
+          </li>
+          <li id="ref-16">
+            <strong>E. J. Aiton &amp; Eikoh Shimao, “Gorai Kinzō’s Study of Leibniz and the I Ching Hexagrams”.</strong>
+            <span class="meta"><em>Annals of Science</em> 38, 1981. Trình tự lịch sử giữa số học nhị phân của Leibniz và đồ 64 quẻ.</span>
+            <a class="external" href="https://doi.org/10.1080/00033798100200121" target="_blank" rel="noopener noreferrer">Mở DOI</a>
+          </li>
+          <li id="ref-17">
+            <strong>Richard J. Smith, <em>Fathoming the Cosmos and Ordering the World</em>.</strong>
+            <span class="meta">University of Virginia Press, 2008. Lịch sử trí thức toàn diện về bói, tượng số, nghĩa lý và chính trị.</span>
+            <a class="external" href="https://www.upress.virginia.edu/title/2188/" target="_blank" rel="noopener noreferrer">Mở trang sách</a>
+          </li>
+          <li id="ref-18">
+            <strong>Bent Nielsen, <em>A Companion to Yi Jing Numerology and Cosmology</em>.</strong>
+            <span class="meta">RoutledgeCurzon, 2003. Tài liệu tra cứu chuyên sâu về Mạnh Hỷ, Kinh Phòng, Bát cung, nạp giáp, lịch và vũ trụ luận Hán.</span>
+            <a class="external" href="https://doi.org/10.4324/9780203357927" target="_blank" rel="noopener noreferrer">Mở DOI</a>
+          </li>
+          <li id="ref-19">
+            <strong>Joseph A. Adler, <em>The Yijing: A Guide</em>.</strong>
+            <span class="meta">Oxford University Press, 2022. Tổng quan ngắn, cập nhật từ văn bản cổ đến Hán–Tống và tiếp nhận phương Tây.</span>
+            <a class="external" href="https://doi.org/10.1093/oso/9780190072452.001.0001" target="_blank" rel="noopener noreferrer">Mở DOI</a>
+          </li>
+          <li id="ref-20">
+            <strong>Richard Rutt, <em>Zhouyi: The Book of Changes—A Bronze Age Document</em>.</strong>
+            <span class="meta">Routledge, 1996. Bản dịch chú trọng việc đọc lõi như tài liệu thời Đồ đồng, hữu ích để tách kinh văn khỏi bình giải muộn.</span>
+            <a class="external" href="https://www.routledge.com/Zhouyi-A-New-Translation-with-Commentary-of-the-Book-of-Changes-1st-Edition/Rutt/p/book/9781315028989" target="_blank" rel="noopener noreferrer">Mở trang sách</a>
+          </li>
+          <li id="ref-21">
+            <strong>Chinese Text Project, “Book of Changes”.</strong>
+            <span class="meta">Bản Hán văn truyền thế có thể tra cứu trực tuyến. Khi dùng phải xác định câu thuộc kinh hay thuộc truyện.</span>
+            <a class="external" href="https://ctext.org/book-of-changes" target="_blank" rel="noopener noreferrer">Tra văn bản</a>
+          </li>
+          <li id="ref-22">
+            <strong>Michael Nylan, <em>The Five “Confucian” Classics</em>, phần chú thích về chuẩn hóa kinh điển.</strong>
+            <span class="meta">Yale University Press, 2001. Hữu ích cho lịch sử chú giải, Khổng Dĩnh Đạt và mốc ban hành <em>Ngũ Kinh Chính Nghĩa</em> năm 653.</span>
+            <a class="external" href="https://drupal.yalebooks.yale.edu/sites/default/files/files/Media/9780300081855/9780300081855_nylan3notes.pdf" target="_blank" rel="noopener noreferrer">Đọc ghi chú PDF</a>
+          </li>
+          <li id="ref-23">
+            <strong>Joseph A. Adler, “The Yijing in Modern China and the West”.</strong>
+            <span class="meta">Trong <em>The Yijing: A Guide</em>, Oxford University Press, 2022. Lịch sử Legge, Wilhelm, Jung, khảo cổ học và những cách đọc hiện đại.</span>
+            <a class="external" href="https://academic.oup.com/book/41418/chapter-abstract/352739352" target="_blank" rel="noopener noreferrer">Mở nguồn</a>
+          </li>
+        </ol>
+
+        <div class="callout">
+          <p><strong>Lưu ý về bản Wilhelm–Baynes/Jung:</strong> Đây là cột mốc quan trọng của lịch sử tiếp nhận phương Tây và tâm lý học, nhưng không nên dùng làm nguồn duy nhất để phục dựng nghĩa thời Tây Chu vì nó ra đời trước nhiều phát hiện khảo cổ và chịu ảnh hưởng sâu của chú giải Trình–Chu.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Tài liệu tổng hợp dựa trên khảo cổ học, nghiên cứu thủ bản, lịch sử văn bản và lịch sử tư tưởng. Các nhận định được phân cấp để không đồng nhất truyền thuyết, giả thuyết học thuật và chứng cứ vật chất.</p>
+    <a class="back-top" href="#top">Trở về đầu trang ↑</a>
+  </footer>
+
+  <script>
+    (() => {
+      const progress = document.getElementById('reading-progress');
+      const tocLinks = [...document.querySelectorAll('.toc a')];
+      const sections = [...document.querySelectorAll('[data-section]')];
+
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const value = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0;
+        progress.style.width = `${value}%`;
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        tocLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`);
+        });
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: [0, 0.15, 0.5] });
+
+      sections.forEach((section) => observer.observe(section));
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>

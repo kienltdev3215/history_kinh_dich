@@ -1,0 +1,1899 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bản đồ hệ thống tri thức Dịch học cổ truyền: bát quái, sáu hào, thời-vị, phép biến quẻ, các dòng Hán-Ngụy-Tống, cách chiêm và bảng tra cứu 64 quẻ có nguồn.">
+  <meta name="color-scheme" content="light dark">
+  <title>Dịch học cổ truyền — Hệ thống tri thức người xưa tổng hợp</title>
+  <style>
+    :root {
+      --bg: #efe9dc;
+      --paper: #fffdf7;
+      --paper-2: #f8f2e5;
+      --ink: #20241f;
+      --muted: #62655d;
+      --line: #d8cdb8;
+      --jade: #174f49;
+      --jade-2: #236a60;
+      --red: #9c342d;
+      --gold: #b28331;
+      --blue: #34546f;
+      --shadow: 0 20px 55px rgba(56, 42, 23, .1);
+      --radius: 20px;
+      --content: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 5% 5%, rgba(178, 131, 49, .13), transparent 27rem),
+        radial-gradient(circle at 96% 28%, rgba(23, 79, 73, .09), transparent 34rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--red);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: #c04b3f; }
+    img { max-width: 100%; }
+    button, input, select { font: inherit; }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 120;
+      height: 4px;
+      pointer-events: none;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+
+    .page-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(216, 205, 184, .7);
+      background: rgba(255, 253, 247, .92);
+      backdrop-filter: blur(14px);
+    }
+
+    .page-tabs nav {
+      width: min(calc(100% - 32px), var(--content));
+      min-height: 62px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: var(--jade);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .tab-list {
+      display: flex;
+      gap: 7px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-2);
+    }
+
+    .tab-list a {
+      padding: 7px 13px;
+      color: var(--muted);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 720;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .tab-list a:hover { color: var(--jade); }
+    .tab-list a[aria-current="page"] {
+      color: #fff;
+      background: var(--jade);
+      box-shadow: 0 5px 14px rgba(23, 79, 73, .2);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #f9f3e6;
+      background:
+        linear-gradient(122deg, rgba(14, 45, 41, .99), rgba(31, 43, 37, .95) 61%, rgba(68, 47, 30, .95)),
+        #173c37;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .hero::before {
+      position: absolute;
+      right: -9rem;
+      top: -13rem;
+      width: 34rem;
+      height: 34rem;
+      content: "";
+      border: 1px solid rgba(235, 204, 132, .24);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4rem rgba(235, 204, 132, .045), 0 0 0 8rem rgba(235, 204, 132, .025);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 40px), var(--content));
+      margin: 0 auto;
+      padding: 76px 0 72px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #e9c97d;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 770px;
+      margin: 0;
+      font-size: clamp(2.45rem, 5.7vw, 5rem);
+      font-weight: 610;
+      letter-spacing: -.038em;
+    }
+
+    .hero-deck {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: #ded9ce;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.04rem, 1.8vw, 1.28rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 17px;
+      margin-top: 26px;
+      color: #babdb4;
+      font-size: .84rem;
+    }
+
+    .hero-art {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(235, 204, 132, .33);
+      border-radius: 23px;
+      background: rgba(255, 255, 255, .05);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+      transform: rotate(1deg);
+    }
+
+    .hero-art img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: sepia(.08) saturate(.82) contrast(1.04);
+    }
+
+    .hero-art figcaption {
+      padding: 11px 14px;
+      color: #cbc7bd;
+      font-size: .75rem;
+      line-height: 1.45;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 40px), var(--content));
+      margin: 38px auto 90px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 86px;
+      padding: 21px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 247, .93);
+      box-shadow: 0 12px 35px rgba(55, 43, 26, .07);
+      backdrop-filter: blur(11px);
+    }
+
+    .toc h2 {
+      margin: 0 0 11px;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .76rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .toc ol { margin: 0; padding: 0; list-style: none; }
+    .toc li + li { margin-top: 2px; }
+
+    .toc a {
+      display: block;
+      padding: 7px 9px;
+      color: var(--muted);
+      border-left: 3px solid transparent;
+      border-radius: 0 8px 8px 0;
+      font-size: .84rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      color: var(--jade);
+      border-left-color: var(--gold);
+      background: #f5eddd;
+    }
+
+    .toc-note {
+      margin: 17px 0 0;
+      padding-top: 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: .74rem;
+      line-height: 1.5;
+    }
+
+    article {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .chapter {
+      padding: clamp(34px, 5vw, 64px);
+      scroll-margin-top: 88px;
+    }
+
+    .chapter + .chapter { border-top: 1px solid var(--line); }
+    .chapter:nth-child(even) { background: rgba(248, 242, 229, .48); }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 21px;
+      color: #1d3f3a;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 620;
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      margin: 31px 0 12px;
+      color: #294a44;
+      font-size: 1.32rem;
+    }
+
+    h4 { margin: 0 0 8px; font-size: 1.05rem; }
+    p { margin: 0 0 1em; }
+    .lead { color: #3d4841; font-family: Georgia, serif; font-size: 1.15rem; }
+    .muted { color: var(--muted); }
+
+    .cite {
+      padding: 0 2px;
+      color: var(--red);
+      font-size: .72em;
+      font-weight: 800;
+      text-decoration: none;
+      vertical-align: super;
+    }
+
+    .callout {
+      margin: 25px 0;
+      padding: 19px 21px;
+      border: 1px solid #d8c59e;
+      border-left: 5px solid var(--gold);
+      border-radius: 13px;
+      background: #fbf3df;
+    }
+
+    .callout.warning {
+      border-color: #dfbbb4;
+      border-left-color: var(--red);
+      background: #fff1ed;
+    }
+
+    .callout.jade {
+      border-color: #a9c4bd;
+      border-left-color: var(--jade);
+      background: #edf7f3;
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+    .callout-label {
+      display: block;
+      margin-bottom: 6px;
+      color: #785b20;
+      font-size: .73rem;
+      font-weight: 820;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .warning .callout-label { color: var(--red); }
+    .jade .callout-label { color: var(--jade); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255, 253, 247, .86);
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+    .term {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .layer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0;
+      counter-reset: layer;
+    }
+
+    .layer {
+      position: relative;
+      min-height: 175px;
+      padding: 46px 17px 17px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--paper);
+      counter-increment: layer;
+    }
+
+    .layer::before {
+      position: absolute;
+      left: 17px;
+      top: 14px;
+      content: "0" counter(layer);
+      color: var(--gold);
+      font-size: .74rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .layer h3 { margin: 0 0 8px; font-size: 1.06rem; }
+    .layer p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+
+    .chapter-visual {
+      margin: 30px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #283e39;
+      box-shadow: 0 16px 40px rgba(48, 36, 21, .13);
+    }
+
+    .chapter-visual img {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    .chapter-visual figcaption {
+      padding: 12px 16px;
+      color: #ddd8ce;
+      font-size: .76rem;
+      line-height: 1.45;
+    }
+
+    .table-wrap {
+      margin: 23px 0;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--paper);
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 680px; }
+    th, td {
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: #f8f3e8;
+      background: var(--jade);
+      font-size: .78rem;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: #faf6ed; }
+    td { font-size: .9rem; line-height: 1.55; }
+
+    .trigram {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 126px;
+    }
+
+    .trigram-symbol {
+      color: var(--jade);
+      font-family: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Symbols 2", sans-serif;
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .line-layout {
+      margin: 27px 0;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+      gap: 31px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: linear-gradient(135deg, #f2ead9, #fffdf7);
+    }
+
+    .six-lines { display: grid; gap: 8px; }
+    .line-row {
+      display: grid;
+      grid-template-columns: 48px 1fr 42px;
+      gap: 10px;
+      align-items: center;
+      font-size: .74rem;
+      font-weight: 760;
+    }
+
+    .line-row .bar {
+      height: 10px;
+      border-radius: 3px;
+      background: var(--jade);
+    }
+
+    .line-row.lower .bar { background: var(--gold); }
+    .line-row .pos { color: var(--muted); text-align: right; }
+    .line-row .realm { color: var(--muted); }
+
+    .line-key { display: grid; gap: 7px; }
+    .line-key p { margin: 0; font-size: .88rem; }
+
+    .formula {
+      margin: 23px 0;
+      padding: 18px;
+      overflow-x: auto;
+      color: #f6f0e4;
+      border-radius: 14px;
+      background: #183e39;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .86rem;
+      line-height: 1.75;
+      white-space: nowrap;
+    }
+
+    .process {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      counter-reset: step;
+    }
+
+    .process-step {
+      position: relative;
+      padding: 17px 18px 17px 58px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--paper);
+      counter-increment: step;
+    }
+
+    .process-step::before {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 28px;
+      height: 28px;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 50%;
+      background: var(--red);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .process-step strong { color: var(--jade); }
+
+    .school-table td:first-child { min-width: 145px; font-weight: 760; color: var(--jade); }
+
+    .hex-controls {
+      position: sticky;
+      top: 73px;
+      z-index: 20;
+      margin: 23px 0 18px;
+      padding: 14px;
+      display: grid;
+      grid-template-columns: minmax(210px, 1fr) 155px 155px auto;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255, 253, 247, .94);
+      box-shadow: 0 9px 24px rgba(54, 42, 25, .08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hex-controls input,
+    .hex-controls select,
+    .hex-controls button {
+      min-width: 0;
+      padding: 10px 12px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fffdf7;
+      font-size: .84rem;
+    }
+
+    .hex-controls input:focus,
+    .hex-controls select:focus {
+      outline: 3px solid rgba(35, 106, 96, .16);
+      border-color: var(--jade-2);
+    }
+
+    .hex-controls button {
+      color: #fff;
+      border-color: var(--jade);
+      background: var(--jade);
+      cursor: pointer;
+      font-weight: 750;
+    }
+
+    .hex-status {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .hex-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .hex-card {
+      min-height: 174px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 49px minmax(0, 1fr);
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--paper);
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .hex-card:hover {
+      z-index: 1;
+      border-color: #b7a47e;
+      box-shadow: 0 12px 28px rgba(50, 38, 20, .1);
+      transform: translateY(-2px);
+    }
+
+    .hex-symbol {
+      color: var(--jade);
+      font-family: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Symbols 2", sans-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+
+    .hex-no {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .69rem;
+      font-weight: 800;
+    }
+
+    .hex-card h3 {
+      margin: 0 0 4px;
+      color: #234b45;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .94rem;
+      line-height: 1.3;
+    }
+
+    .hex-han { color: var(--red); font-family: Georgia, serif; }
+    .hex-pair, .hex-theme { margin: 0; font-size: .75rem; line-height: 1.45; }
+    .hex-pair { color: var(--muted); }
+    .hex-theme { margin-top: 7px; color: #353a35; }
+    .empty { grid-column: 1 / -1; padding: 28px; text-align: center; border: 1px dashed var(--line); border-radius: 13px; }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 24px;
+      margin: 22px 0 32px;
+    }
+
+    .glossary div { padding-bottom: 10px; border-bottom: 1px dotted var(--line); }
+    .glossary dt { color: var(--jade); font-weight: 800; }
+    .glossary dd { margin: 3px 0 0; color: var(--muted); font-size: .88rem; }
+
+    .references { margin: 0; padding-left: 1.35rem; }
+    .references li { padding: 8px 0 11px 5px; border-bottom: 1px dotted var(--line); }
+    .references li:last-child { border-bottom: 0; }
+    .references .meta { display: block; color: var(--muted); font-size: .82rem; }
+
+    .footer {
+      padding: 40px 20px 48px;
+      color: #cbc8bd;
+      text-align: center;
+      background: #183a35;
+    }
+
+    .footer p { max-width: 850px; margin: 0 auto 12px; }
+    .footer a { color: #efd28b; }
+
+    @media (max-width: 1080px) {
+      .hex-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .layer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 940px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 34px; }
+      .hero-art { max-width: 620px; transform: none; }
+      .page-shell { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc ol { columns: 2; }
+      .hex-controls { top: 69px; grid-template-columns: 1fr 1fr; }
+      .hex-controls input { grid-column: 1 / -1; }
+      .hex-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .page-tabs nav { min-height: 70px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 6px; }
+      .brand { font-size: .9rem; }
+      .tab-list { width: 100%; overflow-x: auto; }
+      .tab-list a { flex: 1; text-align: center; }
+      .hero-inner, .page-shell { width: min(calc(100% - 24px), var(--content)); }
+      .hero-inner { padding: 49px 0 46px; }
+      .chapter { padding: 31px 20px; }
+      .toc ol { columns: 1; }
+      .grid.two, .grid.three, .layer-grid, .glossary { grid-template-columns: 1fr; }
+      .line-layout { grid-template-columns: 1fr; padding: 18px; }
+      .hex-controls { position: static; grid-template-columns: 1fr; }
+      .hex-controls input { grid-column: auto; }
+      .hex-grid { grid-template-columns: 1fr; }
+      .hex-card { min-height: 145px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hex-card { transition: none; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #181b19;
+        --paper: #222724;
+        --paper-2: #292d29;
+        --ink: #ece9df;
+        --muted: #b6b8af;
+        --line: #45483f;
+        --jade: #71b8aa;
+        --jade-2: #79c8b9;
+        --red: #ef897d;
+        --gold: #dab768;
+      }
+      .page-tabs { background: rgba(30, 34, 31, .94); }
+      .tab-list a[aria-current="page"], .hex-controls button { color: #14221f; background: #79c8b9; }
+      .chapter:nth-child(even), tbody tr:nth-child(even) { background: rgba(255, 255, 255, .025); }
+      .callout { color: #eee5d2; background: #383126; }
+      .callout.warning { background: #3b2826; }
+      .callout.jade { background: #213733; }
+      .line-layout { background: linear-gradient(135deg, #302d26, #222724); }
+      .hex-controls input, .hex-controls select { color: var(--ink); background: #252a27; }
+    }
+
+    @media print {
+      :root { --ink: #111; --muted: #444; --line: #bbb; --paper: #fff; }
+      body { background: #fff; font-size: 10pt; }
+      .progress, .page-tabs, .toc, .hex-controls, .footer a { display: none !important; }
+      .hero { color: #111; background: #fff; border-bottom: 2px solid #111; }
+      .hero-inner { width: 100%; padding: 20px 0; display: block; }
+      .hero-art { display: none; }
+      .hero-deck, .hero-meta, .eyebrow { color: #333; }
+      .page-shell { width: 100%; margin: 0; display: block; }
+      article { border: 0; box-shadow: none; }
+      .chapter { padding: 24px 0; }
+      .chapter, .card, .table-wrap { break-inside: avoid; }
+      .hex-grid { grid-template-columns: repeat(4, 1fr); }
+      .hex-card { min-height: 0; padding: 9px; }
+      a { color: #111; text-decoration: none; }
+      .references a::after { content: " (" attr(href) ")"; font-size: .72em; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+
+  <header class="page-tabs">
+    <nav aria-label="Hai trang của chuyên khảo Kinh Dịch">
+      <a class="brand" href="kinh-dich-nguon-goc-va-qua-trinh-hinh-thanh.html">Kinh Dịch · Chuyên khảo</a>
+      <div class="tab-list" role="list">
+        <a href="kinh-dich-nguon-goc-va-qua-trinh-hinh-thanh.html" role="listitem">Nguồn gốc &amp; hình thành</a>
+        <a href="dich-hoc-co-truyen.html" aria-current="page" role="listitem">Tri thức cổ truyền</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Trang 2 · Bản đồ hệ thống tri thức truyền thống</p>
+        <h1 id="page-title">Dịch học cổ truyền</h1>
+        <p class="hero-deck">Những gì các học giả Trung Hoa cổ–trung đại đã dần tổng hợp quanh <em>Chu Dịch</em>: tượng, số, thời, vị, bát quái, sáu hào, phép biến, chiêm quẻ và các dòng học từ Hán đến Tống.</p>
+        <div class="hero-meta">
+          <span>Đủ 64 quẻ theo thứ tự truyền thế</span>
+          <span>Có công cụ tìm kiếm</span>
+          <span>Phân biệt rõ từng lớp lịch sử</span>
+          <span>Cập nhật 27/08/2026</span>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <picture>
+          <source srcset="assets/kinh-dich/10-pha-he-ly-thuyet.webp" type="image/webp">
+          <img src="assets/kinh-dich/10-pha-he-ly-thuyet.png" alt="Minh họa phả hệ nhiều nhánh của các lý thuyết Dịch học" width="1536" height="1024">
+        </picture>
+        <figcaption>Minh họa khái niệm: Dịch học là một phả hệ nhiều lớp, không phải một học thuyết hoàn chỉnh xuất hiện trong một thời điểm.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="page-shell">
+    <aside class="toc" aria-label="Mục lục trang">
+      <h2>Mục lục</h2>
+      <ol>
+        <li><a href="#ban-do">1. Bản đồ các lớp tri thức</a></li>
+        <li><a href="#nguyen-ly">2. Nguyên lý nòng cốt</a></li>
+        <li><a href="#bat-quai">3. Bát quái</a></li>
+        <li><a href="#sau-hao">4. Sáu hào và quan hệ</a></li>
+        <li><a href="#bien-que">5. Các phép biến quẻ</a></li>
+        <li><a href="#cach-doc">6. Quy trình đọc có lớp lang</a></li>
+        <li><a href="#dong-hoc">7. Dòng học Hán–Ngụy–Tống</a></li>
+        <li><a href="#chiem-que">8. Chiêm quẻ truyền thống</a></li>
+        <li><a href="#sau-muoi-tu-que">9. Tra cứu 64 quẻ</a></li>
+        <li><a href="#nguon">10. Thuật ngữ &amp; nguồn</a></li>
+      </ol>
+      <p class="toc-note">Trang này mô tả <strong>hệ thống do người xưa tích lũy</strong>. Muốn biết từng yếu tố ra đời lúc nào, mở tab “Nguồn gốc &amp; hình thành”.</p>
+    </aside>
+
+    <article>
+      <section class="chapter" id="ban-do" data-section>
+        <p class="section-kicker">01 · Định vị</p>
+        <h2>Một “thư viện truyền thống”, không phải một khối đồng thời</h2>
+        <p class="lead">Nếu hỏi “người xưa đã tổng hợp được gì từ Kinh Dịch?”, câu trả lời không chỉ là 64 quẻ. Đó là cả một ngôn ngữ mô tả tình thế, một kỹ thuật quyết định, một vũ trụ luận tương ứng và một truyền thống đạo đức–chính trị được bồi đắp hơn hai thiên niên kỷ.</p>
+
+        <div class="layer-grid">
+          <div class="layer">
+            <h3>Lõi <em>Chu Dịch</em></h3>
+            <p>64 quẻ, quái từ và hào từ: kho tình thế và lời đoán hình thành từ môi trường chiêm bốc cuối thời Thương–Tây Chu.</p>
+          </div>
+          <div class="layer">
+            <h3><em>Thập Dực</em></h3>
+            <p>Các thiên bình giải phát triển ngôn ngữ âm–dương, tượng, đạo, đức và cách đọc cấu trúc quẻ; thường định niên đại khoảng thế kỷ IV–II TCN.</p>
+          </div>
+          <div class="layer">
+            <h3>Hán tượng–số</h3>
+            <p>Liên kết quẻ với khí, lịch, mùa, phương hướng, can chi, ngũ hành, thiên văn và trật tự chính trị.</p>
+          </div>
+          <div class="layer">
+            <h3>Ngụy–Tống nghĩa lý</h3>
+            <p>Vương Bật, Trình Di, Chu Hy và những học giả khác dùng Dịch để suy về thời thế, hành động, đạo đức, trật tự và sinh thành.</p>
+          </div>
+        </div>
+
+        <h3>Niên đại làm việc cho từng lớp</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Lớp</th><th>Khung thời gian thận trọng</th><th>Điều được thêm</th><th>Không nên suy ngược</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tiền thân kỹ thuật</strong></td><td>Từ khoảng thế kỷ XII TCN</td><td>Dấu số/vạch trong thực hành chiêm; quan hệ với quẻ còn được nghiên cứu.</td><td>Chưa thể gọi toàn bộ là 64 quẻ hay triết lý âm–dương hoàn chỉnh.</td></tr>
+              <tr><td><strong>Lõi <em>Chu Dịch</em></strong></td><td>Có dạng văn bản nào đó khoảng thế kỷ IX–VIII TCN; chi tiết còn tranh luận</td><td>Hệ quẻ, tên, quái từ và hào từ được biên tập qua nhiều giai đoạn.</td><td>Không mặc định có ngũ hành, nạp giáp, đồ Thái cực và toàn bộ bảng tương ứng.</td></tr>
+              <tr><td><strong><em>Thập Dực</em></strong></td><td>Khoảng thế kỷ IV–II TCN</td><td>Âm–dương, tượng, vị, đạo đức, vũ trụ luận và lý thuyết chiêm.</td><td>Không gán chắc toàn bộ cho một tác giả là Khổng Tử.</td></tr>
+              <tr><td><strong>Hán tượng–số</strong></td><td>Thế kỷ II TCN–II SCN</td><td>Quái khí, lịch, thiên văn, bát cung, can chi, ngũ hành.</td><td>Không dùng phép Hán để định nghĩa “nghĩa gốc” của mọi lời hào.</td></tr>
+              <tr><td><strong>Ngụy–Tấn nghĩa lý</strong></td><td>Nổi bật với Vương Bật, thế kỷ III</td><td>Nhấn thời, vị và ý thống nhất của quẻ; tiết chế bảng vật tượng quá vụn.</td><td>Không nói Vương Bật loại bỏ mọi hình tượng.</td></tr>
+              <tr><td><strong>Tống học</strong></td><td>Thế kỷ XI–XII</td><td>Đồ số Thiệu Ung, đạo đức Trình Di, tổng hợp văn bản–chiêm của Chu Hy.</td><td>Đồ “Phục Hy” không phải hiện vật trực tiếp từ Phục Hy.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Một quẻ trong bản truyền thế gồm những gì?</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Thành phần</th><th>Chức năng ban đầu / truyền thống</th><th>Khi đọc cần nhớ</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Đồ hình sáu hào</strong></td><td>Mã nhận diện một cấu hình âm–dương gồm thượng quái và hạ quái.</td><td>Đếm hào từ dưới lên; đồ hình tự nó không cung cấp toàn bộ nghĩa.</td></tr>
+              <tr><td><strong>卦名 · Quái danh</strong></td><td>Tên cực ngắn như 乾 Càn, 屯 Truân, 復 Phục.</td><td>Nhiều chữ cổ đa nghĩa; tên Việt chỉ là một lối dịch quy ước.</td></tr>
+              <tr><td><strong>卦辭 · Quái từ</strong></td><td>Lời chung của quẻ: đánh giá, điều kiện hành động, đôi khi có hình ảnh nghi lễ.</td><td>Trong sách cổ còn được gọi “thoán từ”; không nhầm với <em>Thoán truyện</em>.</td></tr>
+              <tr><td><strong>爻辭 · Sáu hào từ</strong></td><td>Sáu cảnh hoặc lời đoán theo từng vị trí của tiến trình.</td><td>Không nhất thiết là một truyện liền mạch; sự liền mạch thường do chú giải kiến tạo.</td></tr>
+              <tr><td><strong>用九 / 用六</strong></td><td>Hai lời đặc biệt chỉ có ở Càn và Khôn trong bản truyền thế.</td><td>Không phải “hào thứ bảy”; truyền thống dùng khi cả sáu hào của Càn/Khôn cùng động.</td></tr>
+              <tr><td><strong>Truyện bình giải</strong></td><td><em>Thoán</em>, <em>Tượng</em> và các thiên khác diễn giải phần kinh.</td><td>Là tầng trí thức hậu kỳ, có giá trị lớn nhưng khác tác giả và thời đại với lõi quẻ–hào.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ba cách người xưa đã dùng cùng một kinh điển</h3>
+        <div class="grid three">
+          <div class="card"><h4>Chiêm và quyết định</h4><p>Dựng quẻ cho một việc cụ thể, xác định thuận–nghịch, rủi ro, thời cơ và hành động nên tránh. Đây là công năng sớm nhất có thể nhận diện rõ.</p></div>
+          <div class="card"><h4>Giải thích trật tự thế giới</h4><p>Dùng quẻ làm lưới tương ứng cho trời–đất–người, lịch, khí, mùa, phương hướng và biến động chính trị; đặc biệt phát triển thời Hán.</p></div>
+          <div class="card"><h4>Tu dưỡng và trị sự</h4><p>Đọc từng quẻ như một loại tình thế đạo đức–chính trị: người ở vị nào, có trách nhiệm gì và phải đổi mình ra sao.</p></div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Quy tắc đọc toàn trang</span>
+          <p><strong>“Có trong Dịch học truyền thống” không đồng nghĩa “đã có nguyên vẹn trong lõi Tây Chu”.</strong> Phả hệ Phục Hy làm bát quái, Văn Vương xếp 64 quẻ, Khổng Tử viết toàn bộ <em>Thập Dực</em> là ký ức văn hóa quan trọng, nhưng không phải chuỗi tác giả đã được sử học hiện đại chứng minh. <a class="cite" href="#ref-4">[4]</a><a class="cite" href="#ref-5">[5]</a></p>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Thủ bản Mã Vương Đôi: dấu vết truyền thống còn lưu động</span>
+          <p>Bản lụa chép khoảng năm 175 TCN và được chôn trước năm 168 TCN chứa một bản <em>Chu Dịch</em>, một dạng <em>Hệ Từ</em> cùng nhiều thiên bình giải không trùng hoàn toàn với bộ <em>Thập Dực</em> truyền thế. Điều này cho thấy đầu Hán đã có một cảnh quan Dịch học phong phú, chưa đơn giản là một “bộ sách cố định” giống mọi bản về sau. <a class="cite" href="#ref-6">[6]</a></p>
+        </div>
+
+        <h3><em>Thập Dực</em>: bảy tác phẩm được tính thành mười “cánh”</h3>
+        <p>Trong bản truyền thế, “kinh” và “truyện” thường nằm sát nhau nên rất dễ tưởng là một giọng nói. Cần đặc biệt phân biệt <strong>thoán từ</strong> (lời chung của quẻ trong lõi kinh) với <strong>Thoán truyện</strong> (bình giải hậu kỳ). <a class="cite" href="#ref-17">[17]</a></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tác phẩm</th><th>Số “dực”</th><th>Vai trò trong hệ thống truyền thống</th></tr></thead>
+            <tbody>
+              <tr><td><strong>彖傳 · Thoán truyện</strong> thượng/hạ</td><td>2</td><td>Giải lời chung và cấu trúc của toàn quẻ.</td></tr>
+              <tr><td><strong>象傳 · Tượng truyện</strong> thượng/hạ</td><td>2</td><td>Đại Tượng suy từ hai quái; Tiểu Tượng bình từng hào.</td></tr>
+              <tr><td><strong>繫辭傳 · Hệ Từ</strong> thượng/hạ</td><td>2</td><td>Bàn về biến hóa, ký hiệu, tượng–số, đạo và chiêm.</td></tr>
+              <tr><td><strong>文言傳 · Văn Ngôn</strong></td><td>1</td><td>Mở rộng riêng ý nghĩa Càn và Khôn.</td></tr>
+              <tr><td><strong>說卦傳 · Thuyết Quái</strong></td><td>1</td><td>Hệ thống liên tưởng và thuộc tính của bát quái.</td></tr>
+              <tr><td><strong>序卦傳 · Tự Quái</strong></td><td>1</td><td>Giải thích trình tự nối tiếp của 64 quẻ.</td></tr>
+              <tr><td><strong>雜卦傳 · Tạp Quái</strong></td><td>1</td><td>Đối chiếu quẻ bằng các cặp ý nghĩa cô đọng.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Một quẻ, ba giọng nói: Bác 剝</h3>
+        <div class="grid three">
+          <div class="card"><span class="term">Lõi kinh</span><p>Quái từ rất ngắn: trong thời Bác, tiến tới không có lợi. Đây là định hướng chiêm cho toàn tình thế.</p></div>
+          <div class="card"><span class="term">Thoán truyện</span><p>Đọc cấu trúc “nhu biến cương”, đồng thời dùng động thái Khôn thuận và Cấn dừng để giải vì sao không nên tiến.</p></div>
+          <div class="card"><span class="term">Đại Tượng</span><p>Từ hình núi bám trên đất chuyển thành bài học chính trị: người trên phải làm dày nền dưới để chỗ ở được yên.</p></div>
+        </div>
+        <p class="muted">Ba lớp liên quan nhau nhưng không đồng chức năng: lời đoán → phân tích cấu trúc → bài học trị sự. Đây là ví dụ điển hình về cách <em>Thập Dực</em> biến kho lời chiêm thành kinh điển tư tưởng. <a class="cite" href="#ref-18">[18]</a></p>
+
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/06-thap-duc.webp" type="image/webp">
+            <img src="assets/kinh-dich/06-thap-duc.png" alt="Minh họa các lớp bình giải Thập Dực bồi quanh lõi Chu Dịch" loading="lazy" width="1536" height="1024">
+          </picture>
+          <figcaption>Minh họa biên tập: phần “kinh” và các lớp “truyện” cần được đọc tách biệt trước khi ghép thành hệ thống.</figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="nguyen-ly" data-section>
+        <p class="section-kicker">02 · Ngữ pháp của biến đổi</p>
+        <h2>Sáu ý niệm nòng cốt</h2>
+        <p class="lead">Dịch học không coi “biến” là hỗn loạn. Nó tìm mô thức trong chuyển động, xem việc đúng hay sai tùy cả phẩm chất hành động lẫn thời điểm, vị trí và quan hệ.</p>
+
+        <div class="grid three">
+          <div class="card">
+            <span class="term">易 · Dịch</span>
+            <h4>Biến đổi có mô thức</h4>
+            <p>Một tình thế sinh, lớn, đầy, suy và chuyển. Quẻ không đóng băng sự vật; nó chụp một cấu hình đang vận động.</p>
+          </div>
+          <div class="card">
+            <span class="term">陰陽 · Âm dương</span>
+            <h4>Hai mặt tương tác</h4>
+            <p>Hào đứt và hào liền thành hai tín hiệu cơ bản. Trong lớp <em>Hệ Từ</em>, âm–dương được nâng thành cặp vận hành của đạo biến hóa. <a class="cite" href="#ref-2">[2]</a></p>
+          </div>
+          <div class="card">
+            <span class="term">時 · Thời</span>
+            <h4>Thời thế của toàn quẻ</h4>
+            <p>“Thời” ở đây không chỉ là giờ lịch. Nó là thế cục: đang khởi, đang thông, đang bế hay đã đến cực điểm.</p>
+          </div>
+          <div class="card">
+            <span class="term">位 · Vị</span>
+            <h4>Vị trí và giai đoạn</h4>
+            <p>Cùng một phẩm chất nhưng đặt ở đầu, giữa hay cuối tiến trình sẽ tạo hiệu quả khác nhau.</p>
+          </div>
+          <div class="card">
+            <span class="term">象 · Tượng</span>
+            <h4>Hình ảnh để suy quan hệ</h4>
+            <p>Trời, đất, sấm, gió, nước, lửa, núi, đầm là các mẫu quan hệ chứ không chỉ là vật thể cần dịch từng chữ.</p>
+          </div>
+          <div class="card">
+            <span class="term">數 / 理 · Số / lý</span>
+            <h4>Trật tự và nguyên tắc</h4>
+            <p>“Số” tổ chức chu kỳ và đồ hình; “lý” nhấn mạnh nguyên tắc có thể hiểu. Sức nặng của hai thuật ngữ đổi theo từng thời đại.</p>
+          </div>
+        </div>
+
+        <h3>Càn–Khôn: cặp khởi phát, không phải hai phe đối địch</h3>
+        <p><strong>Càn 乾</strong> thường biểu trưng sức sáng tạo, cương kiện và phát động; <strong>Khôn 坤</strong> biểu trưng tiếp nhận, nâng đỡ và hoàn thành bằng sự nhu thuận. Trong nhiều lớp bình giải, một bên không “thắng” bên kia: sinh thành cần phát động <em>và</em> tiếp nhận, sáng kiến <em>và</em> điều kiện, quyết đoán <em>và</em> sức chứa.</p>
+
+        <h3>Sáu mệnh đề của <em>Hệ Từ</em> đã mở rộng Dịch học ra sao?</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mệnh đề / mô hình</th><th>Cách hiểu có kiểm soát</th><th>Ảnh hưởng về sau</th></tr></thead>
+            <tbody>
+              <tr><td><strong>“Một âm, một dương”</strong></td><td>Đạo được nhận qua nhịp tương tác và luân phiên, không phải hai vật chất bất biến đánh nhau.</td><td>Cung cấp ngôn ngữ chung cho biến hóa, đạo đức và vũ trụ luận.</td></tr>
+              <tr><td><strong>“Sinh rồi lại sinh”</strong></td><td>Dịch là năng lực tiếp tục phát sinh; một kết quả trở thành điều kiện của vòng kế tiếp.</td><td>Giải thích vì sao quẻ cuối là Vị Tế chứ không phải một kết thúc tuyệt đối.</td></tr>
+              <tr><td><strong>Thái cực → lưỡng nghi → tứ tượng → bát quái</strong></td><td>Một sơ đồ phân hóa khái niệm trong lớp <em>Hệ Từ</em>; không tự động là niên biểu ai đã “phát minh” từng cấp.</td><td>Trở thành nền cho đồ số và siêu hình học Tống Nho.</td></tr>
+              <tr><td><strong>Từ quan sát đến tượng, quẻ và lời</strong></td><td>Con người chọn nét tương đồng có ý nghĩa rồi ký hiệu hóa; “tượng” là phương tiện mô hình hóa.</td><td>Cho phép mở rộng từ thiên nhiên sang thân thể, xã hội và chính trị.</td></tr>
+              <tr><td><strong>Lời – biến – tượng – chiêm</strong></td><td>Bốn lối tiếp cận được nêu trong truyền thống: đọc lời, xét biến, quan sát tượng, dùng chiêm.</td><td>Nhắc rằng Dịch học không thể bị rút gọn chỉ còn số học hay chỉ còn đạo đức.</td></tr>
+              <tr><td><strong>Cát–hung–hối–lận</strong></td><td>Các mức đánh giá hành động trong tình thế, không phải nhãn số phận vĩnh viễn của một người.</td><td>Hình thành ngôn ngữ chẩn đoán và cảnh báo xuyên suốt các bản chú giải.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Năm từ phán đoán nên hiểu theo mức độ</h3>
+        <div class="grid three">
+          <div class="card"><span class="term">吉 · Cát</span><p>Điều kiện thuận hoặc hành động phù hợp. Không bảo đảm mọi chi tiết đều dễ dàng.</p></div>
+          <div class="card"><span class="term">凶 · Hung</span><p>Nguy cơ tổn hại hoặc hướng đi trái thế; thường là lời thúc đổi hành vi.</p></div>
+          <div class="card"><span class="term">悔 · Hối</span><p>Đã có lý do hối tiếc nhưng còn khả năng nhận ra và sửa.</p></div>
+          <div class="card"><span class="term">吝 · Lận</span><p>Tình thế khó xử, hẹp và đáng tiếc; nhẹ hơn tai họa tuyệt đối.</p></div>
+          <div class="card"><span class="term">無咎 · Vô cữu</span><p>Không đáng trách hoặc thoát lỗi trong điều kiện nêu ra; không đồng nghĩa đại cát.</p></div>
+          <div class="card"><span class="term">利 · Lợi</span><p>“Có lợi/thích hợp để…” thực hiện một hành động cụ thể, không chỉ là lợi ích tiền bạc.</p></div>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Ví dụ tiến trình: sáu hình tượng rồng của Càn</span>
+          <p>Các hào Càn được truyền thống đọc như sáu chặng của năng lực sáng tạo: còn ẩn → bắt đầu xuất hiện → chuyên cần trước nguy cơ → thử bước nhảy → đạt vị thế phát huy → lên quá cao và hối. Bài học không phải “cương luôn tốt”, mà là <strong>cùng một sức mạnh phải đổi cách dùng theo giai đoạn</strong>. <a class="cite" href="#ref-4">[4]</a></p>
+        </div>
+
+        <h3>Ký Tế–Vị Tế: hoàn tất không phải kết thúc lịch sử</h3>
+        <p>Trình tự truyền thế kết bằng quẻ 63 <strong>Ký Tế 既濟</strong> (“đã qua sông/đã hoàn tất”) rồi quẻ 64 <strong>Vị Tế 未濟</strong> (“chưa hoàn tất”). Cách kết này giúp người đọc không đồng nhất trật tự với bất động: việc vừa thành đã chứa nhiệm vụ giữ gìn; cái chưa thành vẫn mở khả năng chuyển hóa.</p>
+
+        <div class="callout">
+          <span class="callout-label">Một ngộ nhận nên bỏ</span>
+          <p>Bộ ba “biến dịch – bất dịch – giản dịch” phổ biến trong sách nhập môn hiện đại là một cách tổng hợp hậu kỳ, gắn với truyền thống <em>Dịch vĩ</em> đời Hán; không nên trình bày như ba câu định nghĩa nguyên văn của <em>Hệ Từ</em>.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="bat-quai" data-section>
+        <p class="section-kicker">03 · Tám mẫu cơ sở</p>
+        <h2>Bát quái: từ ba hào đến một “từ vựng” quan hệ</h2>
+        <p class="lead">Mỗi quái gồm ba hào, cho tám tổ hợp. Bảng dưới tóm tắt các liên tưởng truyền thống nổi bật trong <em>Thuyết Quái</em> và hệ Hậu thiên; đó là lớp chú giải cổ, không phải bằng chứng rằng toàn bộ bảng đã có ngay khi các lời quẻ Tây Chu ra đời. <a class="cite" href="#ref-3">[3]</a><a class="cite" href="#ref-18">[18]</a></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Quái</th>
+                <th>Hào dưới → trên</th>
+                <th>Tượng tự nhiên</th>
+                <th>Đức / động thái</th>
+                <th>Gia đình</th>
+                <th>Phương vị Hậu thiên</th>
+                <th>Thân thể / động vật</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☰</span><strong>乾 Càn</strong></div></td><td>Dương–dương–dương</td><td>Trời</td><td>Cương kiện, sáng tạo</td><td>Cha</td><td>Tây Bắc</td><td>Đầu / ngựa</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☷</span><strong>坤 Khôn</strong></div></td><td>Âm–âm–âm</td><td>Đất</td><td>Nhu thuận, tiếp nhận</td><td>Mẹ</td><td>Tây Nam</td><td>Bụng / bò</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☳</span><strong>震 Chấn</strong></div></td><td>Dương–âm–âm</td><td>Sấm</td><td>Động, khởi phát</td><td>Trưởng nam</td><td>Đông</td><td>Chân / rồng</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☴</span><strong>巽 Tốn</strong></div></td><td>Âm–dương–dương</td><td>Gió / cây</td><td>Nhập, thấm dần</td><td>Trưởng nữ</td><td>Đông Nam</td><td>Đùi / gà</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☵</span><strong>坎 Khảm</strong></div></td><td>Âm–dương–âm</td><td>Nước</td><td>Hãm, hiểm, chảy</td><td>Trung nam</td><td>Bắc</td><td>Tai / lợn</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☲</span><strong>離 Ly</strong></div></td><td>Dương–âm–dương</td><td>Lửa</td><td>Bám, sáng rõ</td><td>Trung nữ</td><td>Nam</td><td>Mắt / chim trĩ</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☶</span><strong>艮 Cấn</strong></div></td><td>Âm–âm–dương</td><td>Núi</td><td>Dừng, giới hạn</td><td>Thiếu nam</td><td>Đông Bắc</td><td>Tay / chó</td></tr>
+              <tr><td><div class="trigram"><span class="trigram-symbol">☱</span><strong>兌 Đoài</strong></div></td><td>Dương–dương–âm</td><td>Đầm / hồ</td><td>Vui, trao đổi</td><td>Thiếu nữ</td><td>Tây</td><td>Miệng / dê</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Cách đọc hai quái ghép nhau</h3>
+        <p>Một quy ước chú giải phổ biến xem <strong>hạ quái</strong> là phía trong, nền hoặc tác nhân khởi đầu; <strong>thượng quái</strong> là phía ngoài, môi trường hoặc pha biểu lộ. Đây là dụng cụ đọc, không phải luật duy nhất: <em>Đại Tượng</em>, <em>Thoán truyện</em> và từng trường phái có thể chọn quan hệ khác.</p>
+        <div class="grid two">
+          <div class="card">
+            <span class="term">䷂ · 屯 Truân</span>
+            <h4>Thượng Khảm ☵ · Hạ Chấn ☳</h4>
+            <p>Chấn là động lực vừa khởi; Khảm là hãm/nguy ở phía trước. Tổ hợp không chỉ là “nước trên sấm”, mà là <strong>một chuyển động non trẻ đi vào hoàn cảnh chưa định hình</strong>: cần tổ chức, người trợ giúp và kiên nhẫn ở buổi đầu.</p>
+          </div>
+          <div class="card">
+            <span class="term">䷳ · 艮 Cấn</span>
+            <h4>Thượng Cấn ☶ · Hạ Cấn ☶</h4>
+            <p>Khi cùng một quái lặp lại, động thái được nhấn mạnh. “Dừng” không nhất thiết là bất động tuyệt đối; nó là biết dừng đúng bộ phận, đúng lúc để hành động khác không vượt giới hạn.</p>
+          </div>
+        </div>
+
+        <h3>Hậu thiên như một chu trình, không chỉ là la bàn</h3>
+        <div class="formula" aria-label="Chu trình Hậu thiên">Chấn → Tốn → Ly → Khôn → Đoài → Càn → Khảm → Cấn → trở lại Chấn</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Chặng</th><th>Động thái trong <em>Thuyết Quái</em></th><th>Cách hiểu quá trình</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Chấn → Tốn</strong></td><td>Xuất hiện rồi trở nên chỉnh tề</td><td>Năng lực mới sinh cần lan và định hình.</td></tr>
+              <tr><td><strong>Ly → Khôn</strong></td><td>Hiện rõ rồi được nuôi dưỡng/phục vụ</td><td>Cái đã thấy phải có môi trường nâng đỡ để thành tựu.</td></tr>
+              <tr><td><strong>Đoài → Càn</strong></td><td>Vui/thuận rồi bước vào giao tranh âm–dương</td><td>Thịnh đạt không xóa căng thẳng của chuyển mùa.</td></tr>
+              <tr><td><strong>Khảm → Cấn</strong></td><td>Lao nhọc, quy tụ rồi hoàn tất–mở đầu</td><td>Đi qua hiểm và biết dừng tạo điều kiện cho vòng mới.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Mẹo nhớ hệ gia đình</span>
+          <p>Ba “con trai” là các quái có <strong>một hào dương</strong> giữa hai hào âm: dương ở dưới/giữa/trên lần lượt thành Chấn–Khảm–Cấn. Ba “con gái” có <strong>một hào âm</strong> giữa hai hào dương: âm ở dưới/giữa/trên lần lượt thành Tốn–Ly–Đoài. Đây là sơ đồ loại suy truyền thống, không phải khẳng định sinh học.</p>
+        </div>
+
+        <div class="callout">
+          <span class="callout-label">Tượng là cụm liên tưởng, không phải từ điển một–một</span>
+          <p>Khảm có thể gợi nước, hố, hiểm, tai, trung nam… Chọn nghĩa phải dựa vào toàn quẻ, lời quẻ/hào và vấn đề đang xét. Lấy một thuộc tính bất kỳ rồi tuyên bố kết quả là cách “bói theo liên tưởng” không kiểm soát.</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Tiên thiên 先天</h3>
+            <p>Truyền thống gắn đồ đối đãi này với Phục Hy; trong lịch sử tư tưởng, hệ đồ nổi bật nhờ Thiệu Ung đời Tống. Nó nhấn mạnh cân bằng cấu trúc và sự sinh thành 2 → 4 → 8 → 64.</p>
+          </div>
+          <div class="card">
+            <h3>Hậu thiên 後天</h3>
+            <p>Truyền thống gắn với Văn Vương; đồ này đặt tám quái trong phương vị và chu trình vận động của thế giới hiện hành. Bảng phương hướng ở trên dùng hệ này.</p>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Không trộn đồ hình</span>
+          <p>“Thái Cực” trong <em>Hệ Từ</em>, đồ dọc của Chu Đôn Di và biểu tượng hai mảng đen–trắng quen thuộc là ba đối tượng lịch sử khác nhau. Không nên lấy hình “hai cá âm dương” hiện đại làm bằng chứng trực tiếp cho thời Tây Chu. <a class="cite" href="#ref-13">[13]</a><a class="cite" href="#ref-15">[15]</a></p>
+        </div>
+      </section>
+
+      <section class="chapter" id="sau-hao" data-section>
+        <p class="section-kicker">04 · Giải phẫu một quẻ kép</p>
+        <h2>Sáu hào: đọc từ dưới lên, hiểu bằng thời và vị</h2>
+        <p class="lead">Một quẻ kép có sáu hào. Hào 1–3 tạo <strong>hạ quái</strong>, hào 4–6 tạo <strong>thượng quái</strong>. Mọi hào đều được đọc từ dưới lên; đảo thứ tự là lỗi cơ bản làm đảo cả cấu trúc.</p>
+
+        <h3>Giải mã tên một hào</h3>
+        <p>Tên hào ghép <strong>vị trí</strong> với <strong>tính âm–dương</strong>. Trong văn bản truyền thế, số <strong>九 cửu</strong> chỉ hào dương và <strong>六 lục</strong> chỉ hào âm; “sơ” dành cho vị dưới cùng, “thượng” dành cho vị trên cùng.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Dạng tên</th><th>Nghĩa</th><th>Ví dụ cách đọc</th></tr></thead>
+            <tbody>
+              <tr><td><strong>初九 · Sơ Cửu</strong></td><td>Hào dương ở vị trí 1</td><td>Mở đầu một tiến trình bằng lực dương.</td></tr>
+              <tr><td><strong>六二 · Lục Nhị</strong></td><td>Hào âm ở vị trí 2</td><td>Âm ở trung của hạ quái, đồng thời đúng vị chẵn.</td></tr>
+              <tr><td><strong>九三 · Cửu Tam</strong></td><td>Hào dương ở vị trí 3</td><td>Dương đúng vị lẻ nhưng đang ở ngưỡng cuối nội quái.</td></tr>
+              <tr><td><strong>六四 · Lục Tứ</strong></td><td>Hào âm ở vị trí 4</td><td>Âm đúng vị chẵn, vừa bước vào ngoại quái.</td></tr>
+              <tr><td><strong>九五 · Cửu Ngũ</strong></td><td>Hào dương ở vị trí 5</td><td>Vừa trung vừa chính; thường được bình giải như vị chủ.</td></tr>
+              <tr><td><strong>上六 · Thượng Lục</strong></td><td>Hào âm ở vị trí 6</td><td>Âm ở cực trên, nơi tiến trình có thể hoàn tất hoặc quá độ.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <span class="callout-label">Hai ngữ cảnh khác nhau của số 6 và 9</span>
+          <p>Trong <strong>nhãn hào của kinh văn</strong>, lục/cửu cho biết âm/dương của hào. Trong <strong>kết quả phép gieo</strong>, 6 và 9 thường chỉ âm động và dương động. Hai cách dùng liên quan nhưng không nên nhập thành một phát biểu rằng mọi “Cửu Ngũ” trong sách đều đang động. <a class="cite" href="#ref-7">[7]</a></p>
+        </div>
+
+        <div class="line-layout" aria-label="Sơ đồ sáu vị trí hào">
+          <div class="six-lines">
+            <div class="line-row"><span class="pos">Hào 6</span><span class="bar"></span><span class="realm">Trời</span></div>
+            <div class="line-row"><span class="pos">Hào 5</span><span class="bar"></span><span class="realm">Trời</span></div>
+            <div class="line-row"><span class="pos">Hào 4</span><span class="bar"></span><span class="realm">Người</span></div>
+            <div class="line-row lower"><span class="pos">Hào 3</span><span class="bar"></span><span class="realm">Người</span></div>
+            <div class="line-row lower"><span class="pos">Hào 2</span><span class="bar"></span><span class="realm">Đất</span></div>
+            <div class="line-row lower"><span class="pos">Hào 1</span><span class="bar"></span><span class="realm">Đất</span></div>
+          </div>
+          <div class="line-key">
+            <p><strong>Hào 1:</strong> bắt đầu, nền thấp, năng lực mới lộ.</p>
+            <p><strong>Hào 2:</strong> trung của nội quái, thường là chỗ ổn định bên trong.</p>
+            <p><strong>Hào 3:</strong> cuối nội quái, sát ngưỡng chuyển nên hay có căng thẳng.</p>
+            <p><strong>Hào 4:</strong> bước vào ngoại quái, gần vị chủ nên cần thận trọng.</p>
+            <p><strong>Hào 5:</strong> trung của ngoại quái, truyền thống thường xem là vị chủ.</p>
+            <p><strong>Hào 6:</strong> cực điểm; có thể là hoàn thành, quá độ hoặc cần rút.</p>
+          </div>
+        </div>
+
+        <p class="muted">Phân tầng “Đất–Người–Trời” (hai hào cho mỗi tầng) là cách đọc <em>tam tài</em> của bình giải hậu kỳ. Các ý nghĩa vị trí ở trên là khuynh hướng diễn giải, không phải bảng tra tốt/xấu tự động.</p>
+
+        <h3>Sáu khái niệm cấu trúc thường dùng</h3>
+        <div class="grid two">
+          <div class="card">
+            <span class="term">中 · Trung</span>
+            <p>Hào 2 và 5 ở giữa mỗi quái. “Trung” là không mắc ở cực đoan của tiểu trình, không có nghĩa thụ động hay luôn tốt.</p>
+          </div>
+          <div class="card">
+            <span class="term">正 / 當位 · Chính / đương vị</span>
+            <p>Vị trí lẻ 1–3–5 được quy là dương, vị trí chẵn 2–4–6 là âm. Hào cùng tính với vị gọi “đắc chính”.</p>
+          </div>
+          <div class="card">
+            <span class="term">應 · Ứng</span>
+            <p>Các cặp 1↔4, 2↔5, 3↔6 “có ứng” khi một âm một dương. Đây là tương tác xa giữa vị tương ứng của hai quái.</p>
+          </div>
+          <div class="card">
+            <span class="term">比 · Tỷ</span>
+            <p>Quan hệ kề nhau giữa hai hào. Gần về vị trí không tự động đồng nghĩa đồng minh; còn phải xét tính hào và toàn thời quẻ.</p>
+          </div>
+          <div class="card">
+            <span class="term">承 · Thừa</span>
+            <p>Hào dưới nâng/đỡ hào ngay trên. Chữ Hán cần được giữ vì âm Hán–Việt trùng với thuật ngữ kế tiếp.</p>
+          </div>
+          <div class="card">
+            <span class="term">乘 · Thừa / thặng</span>
+            <p>Hào trên cưỡi hoặc đè hào dưới. Một số sách Việt gọi “thặng” để phân biệt với <span lang="zh-Hant">承</span>.</p>
+          </div>
+        </div>
+
+        <h3>Ba tầng không gian thường được suy từ sáu vị</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tầng</th><th>Các hào</th><th>Cách đọc thường gặp</th><th>Giới hạn</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hạ / nội quái</strong></td><td>1–3</td><td>Bên trong, nền, người bắt đầu, giai đoạn chuẩn bị.</td><td>Không phải lúc nào cũng là “nội tâm”; phải theo văn cảnh.</td></tr>
+              <tr><td><strong>Thượng / ngoại quái</strong></td><td>4–6</td><td>Bên ngoài, môi trường, cấp cao hơn, giai đoạn biểu lộ.</td><td>Không mặc định là “người khác” hay “tương lai”.</td></tr>
+              <tr><td><strong>Tam tài</strong></td><td>1–2 Đất; 3–4 Người; 5–6 Trời</td><td>Ba bình diện được “nhân đôi” để thành sáu hào trong <em>Thuyết Quái</em>.</td><td>Là bình giải hậu kỳ về cấu trúc, không chứng minh ý đồ nguyên thủy của mọi quẻ.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Không nhập “chính” 正 với “trinh” 貞</span>
+          <p><strong>Chính/đương vị 正</strong> là quy ước cấu trúc: dương ở vị lẻ, âm ở vị chẵn. <strong>Trinh 貞</strong> là chữ nằm trong quái từ/hào từ, có lịch sử nghĩa liên quan chiêm vấn rồi được đạo đức hóa thành chính bền. Chúng không phải một thuật ngữ. Cửu Nhị quẻ Vị Tế là dương ở vị chẵn nên “bất chính”, nhưng hào từ vẫn có <em>trinh cát</em>; <em>Tượng truyện</em> giải rằng nhờ ở trung mà hành động thích đáng.</p>
+        </div>
+
+        <h3>So sánh kỹ thuật quẻ 63 và 64</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Quẻ</th><th>Sáu vị từ dưới lên</th><th>Chính / ứng</th><th>Ý nghĩa phương pháp</th></tr></thead>
+            <tbody>
+              <tr><td><strong>䷾ 既濟 · Ký Tế</strong></td><td>Dương – Âm – Dương – Âm – Dương – Âm</td><td>Cả sáu đắc chính; đủ 1↔4, 2↔5, 3↔6.</td><td>Cấu trúc chỉnh tề vẫn cần bảo trì; đạt trật tự không xóa nguy cơ suy.</td></tr>
+              <tr><td><strong>䷿ 未濟 · Vị Tế</strong></td><td>Âm – Dương – Âm – Dương – Âm – Dương</td><td>Cả sáu bất chính; vẫn đủ ba cặp ứng.</td><td>Chưa ổn định vẫn có mạng quan hệ và khả năng hanh thông; cấu trúc mở không đồng nghĩa vô vọng.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Bài kiểm tra chống máy móc</span>
+          <p>Quẻ 63 <strong>Ký Tế</strong> có cả sáu hào đúng tính vị, nhưng lời quẻ vẫn cảnh báo cuối cùng có thể loạn. Quẻ 64 <strong>Vị Tế</strong> có cả sáu hào “bất chính”, nhưng đủ ba cặp ứng và vẫn có chữ “hanh”. Vì vậy, hãy <strong>đọc văn bản lõi để nhận thời chung → xét vị, trung/chính, ứng và quan hệ gần → quay lại kiểm nghĩa với lời quẻ/hào</strong>, không cộng điểm hình thức. <a class="cite" href="#ref-4">[4]</a></p>
+        </div>
+      </section>
+
+      <section class="chapter" id="bien-que" data-section>
+        <p class="section-kicker">05 · Các phép thao tác</p>
+        <h2>“Biến quẻ” không chỉ có một nghĩa</h2>
+        <p class="lead">Truyền thống dùng nhiều phép biến khác nhau. Chúng giúp soi một cấu trúc từ góc khác, nhưng ra đời ở các giai đoạn khác nhau và không nên bị nhập thành một công thức duy nhất.</p>
+
+        <div class="formula" aria-label="Công thức quẻ hỗ">Bản quẻ [1, 2, 3, 4, 5, 6] → Quẻ hỗ [2, 3, 4, 3, 4, 5]</div>
+
+        <div class="grid two">
+          <div class="card">
+            <span class="term">本卦 → 之卦 / 變卦</span>
+            <h4>Bản quẻ → chi quẻ / quẻ biến</h4>
+            <p>Đổi mỗi hào động 6 hoặc 9 sang tính đối lập để có quẻ liên hệ. Quy tắc gieo và cách xử lý nhiều hào động hoàn chỉnh được hệ thống hóa muộn; không mặc định gọi quẻ sau là “tương lai”. <a class="cite" href="#ref-7">[7]</a></p>
+          </div>
+          <div class="card">
+            <span class="term">互體 / 互卦 · Hỗ thể / hỗ quẻ</span>
+            <h4>Cấu trúc bên trong</h4>
+            <p>Lấy hào 2–4 làm hạ quái mới và 3–5 làm thượng quái mới. Kỹ thuật nổi bật trong chú giải thời Hán.</p>
+          </div>
+          <div class="card">
+            <span class="term">綜卦 / 反覆 · Tổng quẻ</span>
+            <h4>Đảo trật tự cả sáu hào</h4>
+            <p>Đọc quẻ sau khi đảo hào 1↔6, 2↔5, 3↔4. Nhiều cặp trong thứ tự 64 quẻ có quan hệ lật; tên kỹ thuật phổ biến là hậu kỳ.</p>
+          </div>
+          <div class="card">
+            <span class="term">錯卦 / 旁通 · Thác quẻ</span>
+            <h4>Đổi âm–dương toàn bộ</h4>
+            <p>Mỗi hào liền thành đứt và mỗi hào đứt thành liền. Phép này thuộc môi trường tượng–số Hán và các truyền thống về sau.</p>
+          </div>
+          <div class="card">
+            <span class="term">卦變 / 易位 · Quái biến / dịch vị</span>
+            <h4>Họ phép chuyển hào</h4>
+            <p>Các học giả Hán và hậu Hán suy quan hệ giữa quẻ bằng chuyển vị hoặc đổi hào. Thuật ngữ này không hoàn toàn đồng nhất với “quẻ kết quả” trong thực hành hiện đại.</p>
+          </div>
+          <div class="card">
+            <span class="term">八宮 / 消息 · Bát cung / tiêu tức</span>
+            <h4>Sơ đồ phân loại và chu kỳ</h4>
+            <p>Dùng quẻ để biểu diễn họ cấu trúc hoặc sự tăng–giảm âm dương theo lịch. Đây là mô hình vũ trụ–thời gian, không phải tự động là quẻ tương lai của một lần gieo.</p>
+          </div>
+        </div>
+
+        <h3>Ví dụ tính đủ bốn phép từ quẻ Phục ䷗</h3>
+        <p>Quẻ 24 <strong>Phục 復</strong> có một hào dương ở đáy và năm hào âm phía trên: hạ Chấn ☳, thượng Khôn ☷. Vì cấu trúc rất rõ, nó là ví dụ tốt để thấy mỗi phép biến đang trả lời một câu hỏi khác.</p>
+        <div class="formula" aria-label="Dữ liệu thô ví dụ quẻ Phục">Kết quả dưới → trên [9,8,8,8,8,8] → âm/dương [1,0,0,0,0,0] = Phục ䷗ → đổi vị 1 → [0,0,0,0,0,0] = Khôn ䷁</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Phép</th><th>Kết quả từ quẻ 24</th><th>Điều phép đó cho thấy</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Chi quẻ</strong> nếu hào 1 động</td><td><strong>䷁ Khôn</strong>: đổi hào dương dưới cùng thành âm.</td><td>Quan hệ do đúng hào được đánh dấu động tạo ra; phụ thuộc kết quả lần gieo.</td></tr>
+              <tr><td><strong>Hỗ quẻ</strong></td><td><strong>䷁ Khôn</strong>: các hào 2–5 đều âm.</td><td>Mẫu “bên trong” được rút từ bốn hào giữa, không cần hào động.</td></tr>
+              <tr><td><strong>Tổng quẻ</strong></td><td><strong>䷖ Bác</strong>: lật Phục, hào dương từ đáy lên đỉnh.</td><td>Cùng cấu trúc nhìn từ chiều ngược; cặp Bác–Phục gợi suy rụng và trở lại.</td></tr>
+              <tr><td><strong>Thác quẻ</strong></td><td><strong>䷫ Cấu</strong>: đảo tính cả sáu hào.</td><td>Cấu hình âm–dương bổ sung/đối diện, không phải kết quả của hào động cụ thể.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Điểm mấu chốt của ví dụ</span>
+          <p>Cùng một bản quẻ cho ra Khôn, Bác hoặc Cấu tùy thao tác. Trong ví dụ này, chi quẻ và hỗ quẻ cùng là Khôn chỉ do hình học của Phục, <strong>không phải hai bằng chứng độc lập</strong> xác nhận một lời đoán. Vì vậy phải ghi rõ phép nào tạo kết quả; không thể gọi tất cả là “quẻ biến”.</p>
+        </div>
+
+        <h3>Trình tự thao tác để tránh diễn giải tùy ý</h3>
+        <div class="process">
+          <div class="process-step"><strong>Chốt quy tắc trước.</strong> Ghi rõ chỉ dùng chi quẻ, hay có thêm hỗ/tổng/thác và theo trường phái nào.</div>
+          <div class="process-step"><strong>Tính hình trước, giải sau.</strong> Viết sáu hào bằng 0/1 hoặc âm/dương và thực hiện phép đổi một cách máy móc để tránh “đổi cho ra quẻ mình muốn”.</div>
+          <div class="process-step"><strong>Giữ vai trò riêng.</strong> Chi quẻ theo hào động; hỗ quẻ soi bốn hào giữa; tổng quẻ đổi góc; thác quẻ tạo đối ảnh.</div>
+          <div class="process-step"><strong>Quay về văn bản.</strong> Kết quả cấu trúc chỉ là đầu mối; phải đối chiếu quái từ, hào từ và lịch sử chú giải.</div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Lỗi diễn giải phổ biến</span>
+          <p>Một quẻ có thể đồng thời có quẻ hỗ, tổng, thác và chi quẻ. Nếu mở tất cả phép rồi chọn ý nào “đúng mong muốn”, việc đọc sẽ mất khả năng kiểm soát. Hãy nêu trước trường phái và quy tắc mình dùng.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="cach-doc" data-section>
+        <p class="section-kicker">06 · Phương pháp</p>
+        <h2>Đọc một quẻ mà không trộn lẫn các thế kỷ</h2>
+        <p class="lead">Cách đọc tốt nhất không bắt đầu bằng việc tra một “từ điển điềm báo”. Nó bắt đầu bằng tình thế đang xét, rồi đi từ văn bản cổ sang cấu trúc và chú giải, luôn ghi rõ mình đang đứng ở lớp nào.</p>
+
+        <div class="process">
+          <div class="process-step"><strong>Đặt tình thế.</strong> Viết câu hỏi cụ thể: ai đang hành động, điều gì đang đổi, giới hạn nào có thật, quyết định nào còn trong tầm tay.</div>
+          <div class="process-step"><strong>Nhận diện toàn quẻ.</strong> Đọc tên, tượng hai quái và quái từ để nhận “thời” chung; chưa vội đi từng từ như mật mã.</div>
+          <div class="process-step"><strong>Đọc phần kinh trước.</strong> Tách quái từ và hào từ của lõi <em>Chu Dịch</em> khỏi <em>Thoán</em>, <em>Tượng</em> và các truyện bình giải.</div>
+          <div class="process-step"><strong>Đặt hào vào cấu trúc.</strong> Xét vị trí, trung/chính, ứng, tỷ, <span lang="zh-Hant">承</span>/<span lang="zh-Hant">乘</span> và quan hệ thượng–hạ quái.</div>
+          <div class="process-step"><strong>Nếu có hào động, lập chi quẻ.</strong> So sánh hai cấu hình như quan hệ biến đổi; không mặc định “bản quẻ = hiện tại, quẻ biến = tương lai chắc chắn”.</div>
+          <div class="process-step"><strong>Chọn một tuyến chú giải.</strong> Vương Bật cho thời–vị và ý; Trình Di cho đạo đức–chính trị; Chu Hy cho cả văn bản, tượng–số và nghi thức chiêm. Ghi rõ tuyến đã chọn.</div>
+          <div class="process-step"><strong>Trở lại hành động.</strong> Kết luận bằng phương án, rủi ro, dấu hiệu cần theo dõi và điều kiện đổi quyết định. Quẻ là khung phản tư, không thay thế dữ kiện thực tế.</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Lớp đọc</th><th>Câu hỏi chính</th><th>Điều phải tránh</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Văn bản lõi</strong></td><td>Lời quẻ/hào mô tả nghi lễ, hành động hay tình thế nào?</td><td>Ép mọi chữ cổ thành khái niệm siêu hình.</td></tr>
+              <tr><td><strong>Thập Dực</strong></td><td>Người chú giải đọc cấu trúc và đạo đức ra sao?</td><td>Gán chắc chắn toàn bộ cho Khổng Tử.</td></tr>
+              <tr><td><strong>Tượng–số Hán</strong></td><td>Quẻ nằm trong mạng lịch, khí, can chi và tương ứng nào?</td><td>Chiếu toàn bộ bảng Hán vào nguồn gốc Tây Chu.</td></tr>
+              <tr><td><strong>Nghĩa lý</strong></td><td>Thời, vị và trách nhiệm con người đòi hành động gì?</td><td>Biến bình giải đạo đức thành “nghĩa gốc duy nhất”.</td></tr>
+              <tr><td><strong>Ứng dụng hiện đại</strong></td><td>Khung này giúp thấy giả định và lựa chọn nào?</td><td>Tuyên bố năng lực dự báo khoa học chưa được chứng minh.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ví dụ đọc nhiều lớp: quẻ 11 Thái ䷊</h3>
+        <p class="muted">Dữ liệu quẻ và các thiên bình giải có thể đối chiếu tại bản nguyên văn. <a class="cite" href="#ref-1">[1]</a></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bước</th><th>Dữ liệu của quẻ Thái</th><th>Điều có thể rút ra</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tượng hai quái</strong></td><td>Thượng Khôn ☷, hạ Càn ☰: đất ở trên, trời ở dưới.</td><td>Truyền thống đọc hai khí hướng về nhau: cái ở trên hạ xuống, cái ở dưới đi lên, tạo giao thông.</td></tr>
+              <tr><td><strong>Quái từ lõi</strong></td><td>“Cái nhỏ đi, cái lớn đến”; cát và hanh.</td><td>Thế chung là trao đổi có lợi, nhưng lời ngắn chưa nói mọi hành động đều đúng.</td></tr>
+              <tr><td><strong>Thoán truyện</strong></td><td>Diễn thành trời–đất giao nhau, trên–dưới thông ý.</td><td>Lớp bình giải mở một lời đoán thành mô hình vũ trụ và chính trị.</td></tr>
+              <tr><td><strong>Đại Tượng</strong></td><td>Người trị vì phối hợp đường trời–đất để giúp dân.</td><td>Chuyển từ quan sát tự nhiên sang trách nhiệm thể chế và phân phối.</td></tr>
+              <tr><td><strong>Cấu trúc hào</strong></td><td>Ba dương dưới, ba âm trên; đủ ba cặp ứng. Hào 2 và 5 đều không “đắc chính”.</td><td>Hanh thông ở đây đến từ toàn thế giao cảm, không phải cộng điểm từng hào.</td></tr>
+              <tr><td><strong>Quẻ đối chiếu</strong></td><td>Quẻ 12 Bĩ ䷋ đảo vị hai quái: Càn trên, Khôn dưới.</td><td>Cùng hai thành tố nhưng quan hệ đổi thì thời thế đổi: mỗi bên đi theo chiều riêng, mất giao thông.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Từ quẻ đến câu hỏi thực tế</span>
+          <p>Nếu dùng Thái để xét một tổ chức, câu hỏi hữu ích không phải “có thành công chắc không?” mà là: <strong>thông tin có đi được giữa cấp trên và dưới không; nguồn lực có đến nơi cần không; dấu hiệu nào cho thấy hanh thông đang biến thành tự mãn?</strong> Đây là chuyển tượng thành tiêu chí quan sát, không phải biến tượng thành bằng chứng.</p>
+        </div>
+
+        <h3>Mẫu phiếu ghi một lần đọc</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mục ghi</th><th>Nội dung cần có</th><th>Tác dụng kiểm soát</th></tr></thead>
+            <tbody>
+              <tr><td>0. Dữ kiện ngoài quẻ</td><td>Điều đã biết, điều chưa biết, ràng buộc và bằng chứng kiểm tra được.</td><td>Ngăn biểu tượng thay thế thực tế.</td></tr>
+              <tr><td>1. Câu hỏi</td><td>Chủ thể, quyết định, thời hạn, lựa chọn thật sự.</td><td>Ngăn câu hỏi quá mơ hồ hoặc đổi sau khi thấy quẻ.</td></tr>
+              <tr><td>2. Kết quả thô</td><td>Sáu số 6/7/8/9 theo thứ tự dưới lên.</td><td>Cho phép dựng lại và kiểm tra lỗi.</td></tr>
+              <tr><td>3. Bản quẻ</td><td>Tên, thượng/hạ quái, quái từ và thời chung.</td><td>Giữ toàn cảnh trước khi chú ý hào riêng.</td></tr>
+              <tr><td>4. Hào động</td><td>Lời hào, vị, trung/chính/ứng và quan hệ gần.</td><td>Gắn lời vào đúng giai đoạn và vai trò.</td></tr>
+              <tr><td>5. Chi quẻ</td><td>Cấu hình sau đổi; nêu rõ chỉ là quan hệ/hướng chuyển.</td><td>Tránh tuyên bố tương lai như sự kiện chắc chắn.</td></tr>
+              <tr><td>6. Tuyến chú giải</td><td>Tên bản dịch hoặc nhà chú giải đã dùng.</td><td>Ngăn vô thức trộn Hán tượng–số với Tống nghĩa lý.</td></tr>
+              <tr><td>7. Kết luận kiểm chứng</td><td>Hành động, rủi ro, tín hiệu quan sát và ngày xem lại.</td><td>Đưa việc đọc về trách nhiệm và dữ kiện.</td></tr>
+              <tr><td>8. Dữ kiện phản chứng</td><td>Điều gì xảy ra sẽ buộc bỏ hoặc sửa cách hiểu hiện tại?</td><td>Chống việc giải thích lại mọi kết quả để “quẻ luôn đúng”.</td></tr>
+              <tr><td>9. Mức chắc chắn</td><td>Phân biệt chắc về hình quẻ, tương đối về nghĩa từ, giả thuyết ở phần ứng dụng.</td><td>Không biến suy luận thành sự thật.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter" id="dong-hoc" data-section>
+        <p class="section-kicker">07 · Các hệ thống người xưa xây thêm</p>
+        <h2>Từ lịch–khí thời Hán đến tổng hợp Chu Hy</h2>
+        <p class="lead">“Tượng số” và “nghĩa lý” là hai khuynh hướng hữu ích để định hướng, nhưng không phải hai phe kín. Nhiều học giả dùng cả cấu trúc, hình tượng, số và đạo đức theo tỷ lệ khác nhau. <a class="cite" href="#ref-10">[10]</a><a class="cite" href="#ref-11">[11]</a></p>
+
+        <h3>Ba mạch giao nhau, không phải một phả hệ thẳng</h3>
+        <div class="grid three">
+          <div class="card"><h4>Lịch–khí và tương ứng</h4><p>Ghép quẻ với âm dương, ngũ hành, tháng, tiết, can chi, thiên văn và trật tự đế chế. Mạch này tạo nhiều kỹ thuật tượng–số Hán.</p></div>
+          <div class="card"><h4>Chú giải văn bản</h4><p>Hỏi tên quẻ, lời quẻ/hào và sáu vị tạo một thời thế hành động ra sao. Vương Bật, Khổng Dĩnh Đạt và Trình Di là các mốc khác nhau của mạch này.</p></div>
+          <div class="card"><h4>Đồ–số và tu dưỡng</h4><p>Dùng sơ đồ, chu kỳ số và vũ trụ luận để nối trật tự tự nhiên với đạo đức; nổi bật trong các tổng hợp đời Tống.</p></div>
+        </div>
+
+        <div class="formula" aria-label="Ba đường truyền Dịch học">Hán lịch–khí ↘ · Vương Bật–Hàn Khang Bá → Khổng Dĩnh Đạt → Trình Di ↘ · Đồ học Tống → Thiệu Ung / Chu Đôn Di ↘ Chu Hy tái tổng hợp</div>
+        <p class="muted">Mũi tên biểu thị ảnh hưởng hoặc việc tiếp nhận văn bản, không mặc định là quan hệ truyền nghề bí mật trực tiếp.</p>
+
+        <figure class="chapter-visual">
+          <picture>
+            <source srcset="assets/kinh-dich/08-han-den-tong.webp" type="image/webp">
+            <img src="assets/kinh-dich/08-han-den-tong.png" alt="Minh họa các nhánh Dịch học từ Hán đến Tống" loading="lazy" width="1536" height="1024">
+          </picture>
+          <figcaption>Minh họa phả hệ: các dòng lịch–khí, tượng–số, nghĩa lý và tu dưỡng từng cạnh tranh, bổ sung rồi được tái tổng hợp.</figcaption>
+        </figure>
+
+        <div class="table-wrap school-table">
+          <table>
+            <thead><tr><th>Dòng / nhân vật</th><th>Đã tổng hợp gì?</th><th>Cách vận hành và mục tiêu</th><th>Cảnh báo lịch sử</th></tr></thead>
+            <tbody>
+              <tr><td>Âm dương–ngũ hành thời Hán</td><td>Quẻ/hào với khí, năm pha, mùa, phương, thân thể và chính trị.</td><td>Tạo mạng tương ứng trời–đất–người cho lịch, nghi lễ và nhà nước.</td><td>Âm dương và ngũ hành có lịch sử riêng; không phải mọi lời quẻ cổ đã chứa sẵn hệ này.</td></tr>
+              <tr><td>Mạnh Hỷ · quái khí</td><td>64 quẻ, bốn mùa, tiết khí và chu kỳ khí.</td><td>Đặt quẻ vào nhịp năm, biến Dịch thành mô hình thời gian.</td><td>Tác phẩm gốc thất tán; hệ thống hiện biết phần lớn qua trích dẫn muộn.</td></tr>
+              <tr><td>Kinh Phòng · bát cung, nạp giáp</td><td>Tám cung quẻ; can chi, ngũ hành và quan hệ sinh–khắc.</td><td>Phân loại 64 quẻ và gắn thời điểm cụ thể vào phép chiêm.</td><td>Nên nói “truyền thống quy cho Kinh Phòng”; nhiều chi tiết hiện hành là hậu Hán.</td></tr>
+              <tr><td>Đông Hán–Tam Quốc</td><td>Trịnh Huyền, Tuân Sảng, Ngu Phiên dùng hỗ thể, dịch vị, bàng thông và tiêu tức.</td><td>Mở rộng mạng quan hệ giữa quẻ và giải từng chi tiết cấu trúc.</td><td>Nhiều trước tác gốc đã mất; tri thức còn lại thường được phục dựng từ trích dẫn muộn.</td></tr>
+              <tr><td>Vương Bật (226–249)</td><td>Thời, vị, trung, chính, ứng và quan hệ giữa lời–tượng–ý.</td><td>Dùng tượng và lời như phương tiện đạt ý, nhấn mạnh hành động con người.</td><td>Ông không “xóa sạch tượng”; ông tổ chức lại cách dùng tượng. <a class="cite" href="#ref-8">[8]</a></td></tr>
+              <tr><td>Đường · Khổng Dĩnh Đạt</td><td><em>Chu Dịch chính nghĩa</em> đặt chú Vương Bật–Hàn Khang Bá vào hệ kinh học nhà nước.</td><td>Chuẩn hóa văn bản dùng trong học quan và tạo cầu nối sang Tống.</td><td>Được chính thống hóa không đồng nghĩa đó là nghĩa gốc duy nhất.</td></tr>
+              <tr><td>Thiệu Ung (1011–1077)</td><td>Trật tự 2–4–8–16–32–64, đồ Tiên thiên và chu kỳ lịch sử.</td><td>Mô tả vũ trụ như trật tự số và quá trình phân đôi.</td><td>Có thể gọi “cấu trúc hai dấu”, nhưng không có nghĩa đó là máy tính hay logic Boolean cổ. <a class="cite" href="#ref-12">[12]</a></td></tr>
+              <tr><td>Chu Đôn Di (1017–1073)</td><td>Thái cực, động–tĩnh, âm dương, ngũ hành, vạn vật và tu dưỡng.</td><td>Nối vũ trụ luận với đạo đức Nho gia.</td><td><em>Thái Cực đồ thuyết</em> dùng đồ dọc, không phải biểu tượng hai cá quen thuộc. <a class="cite" href="#ref-13">[13]</a></td></tr>
+              <tr><td>Trình Di (1033–1107)</td><td>Mỗi quẻ như một thời thế đạo đức–chính trị; cấu trúc hào chỉ vai trò.</td><td>Hỏi hành động nào thích đáng với vị trí và trách nhiệm.</td><td>Không chỉ là “chống bói”; ông vẫn suy nghĩa từ cấu trúc quẻ. <a class="cite" href="#ref-9">[9]</a></td></tr>
+              <tr><td>Chu Hy (1130–1200)</td><td>Trình học, Chu Đôn Di, đồ số Thiệu Ung, văn bản và cỏ thi.</td><td>Phục hồi mục đích chiêm cổ, nhưng giải lời theo tình thế và đạo đức.</td><td>Không thể xếp ông vào “nghĩa lý thuần túy”; ông chủ động dùng số, đồ và nghi thức. <a class="cite" href="#ref-7">[7]</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Cùng quẻ Phục ䷗, bốn lớp đọc</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Lớp</th><th>Trọng tâm</th><th>Điều được nhìn thấy</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Văn bản quẻ–hào</strong></td><td>“Trở lại” và trở lại sớm</td><td>Một tình thế sửa hướng hoặc bắt đầu quay về; hào đầu nhấn sửa khi chưa đi xa.</td></tr>
+              <tr><td><strong>Hán · tiêu tức</strong></td><td>Một dương sinh dưới năm âm</td><td>Dương bắt đầu tăng trong chu kỳ và được phối với tháng mười một âm lịch truyền thống.</td></tr>
+              <tr><td><strong>Vương Bật</strong></td><td>Thời điểm và điều kiện trở lại</td><td>Chuyển trọng tâm khỏi lịch tháng sang cách hành động đúng lúc khi mầm biến vừa xuất hiện.</td></tr>
+              <tr><td><strong>Tống học</strong></td><td>Sinh cơ và tự sửa</td><td>“Một dương trở lại” trở thành hình ảnh cho mầm thiện, sinh thành và phục hồi trật tự.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Bốn cách đọc có thể cùng tồn tại nhưng không đồng niên đại. Không được dùng lớp Hán/Tống để chứng minh lời quẻ Tây Chu vốn đã chứa trọn lịch–khí hoặc đạo đức học về sau. <a class="cite" href="#ref-19">[19]</a></p>
+
+        <h3>Hai sơ đồ Hán có ảnh hưởng lâu dài</h3>
+        <div class="grid two">
+          <div class="card">
+            <span class="term">八宮 · Bát cung</span>
+            <p>Cung Càn được xếp: <strong>Càn 1 → Cấu 44 → Độn 33 → Bĩ 12 → Quán 20 → Bác 23 → Tấn 35 → Đại Hữu 14</strong>. Đây là một thứ tự phân loại kỹ thuật, không thay thế thứ tự truyền thế 1–64.</p>
+          </div>
+          <div class="card">
+            <span class="term">十二消息卦 · Mười hai quẻ tiêu tức</span>
+            <p>Dương tăng: <strong>Phục → Lâm → Thái → Đại Tráng → Quải → Càn</strong>; âm tăng: <strong>Cấu → Độn → Bĩ → Quán → Bác → Khôn</strong>. Các tháng đi kèm là lịch truyền thống, không phải tháng Gregory.</p>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Đắc ý “quên” tượng không phải vứt bỏ tượng</span>
+          <p>Ở Vương Bật, lời và tượng là phương tiện giúp nắm ý; khi đã hiểu ý thì không được đồng nhất thực tại với ký hiệu. Điều này chống bám cứng vào một bảng vật tượng, chứ không xóa vai trò cấu trúc và hình tượng khỏi việc đọc. <a class="cite" href="#ref-8">[8]</a></p>
+        </div>
+      </section>
+
+      <section class="chapter" id="chiem-que" data-section>
+        <p class="section-kicker">08 · Thực hành có kiểm soát</p>
+        <h2>Chiêm quẻ: tạo sáu hào rồi đọc một tình thế</h2>
+        <p class="lead">Trong nghi thức cỏ thi và nhiều phép đồng xu, mỗi lượt tạo một số 6, 7, 8 hoặc 9. Lặp sáu lượt từ dưới lên để thành quẻ. Hai số “lão” là hào động.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Số</th><th>Loại hào</th><th>Trạng thái</th><th>Khi lập chi quẻ</th></tr></thead>
+            <tbody>
+              <tr><td><strong>6</strong></td><td>Lão âm</td><td>Âm động</td><td>Đổi thành dương</td></tr>
+              <tr><td><strong>7</strong></td><td>Thiếu dương</td><td>Dương tĩnh</td><td>Giữ nguyên</td></tr>
+              <tr><td><strong>8</strong></td><td>Thiếu âm</td><td>Âm tĩnh</td><td>Giữ nguyên</td></tr>
+              <tr><td><strong>9</strong></td><td>Lão dương</td><td>Dương động</td><td>Đổi thành âm</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Phép cỏ thi</h3>
+            <p>Nghi thức phân và đếm 49 cọng tạo xác suất không đều: 6 = 1/16, 7 = 5/16, 8 = 7/16, 9 = 3/16. Chu Hy ghi lại một quy trình có ảnh hưởng lớn trong truyền thống Tống. <a class="cite" href="#ref-7">[7]</a></p>
+          </div>
+          <div class="card">
+            <h3>Phép ba đồng xu</h3>
+            <p>Một quy ước phổ biến cho tổng 6–9 với xác suất 1/8, 3/8, 3/8, 1/8. Cách gán sấp/ngửa có thể đảo giữa truyền thống; phải nêu quy ước trước khi gieo.</p>
+          </div>
+        </div>
+
+        <h3>Phép cỏ thi: tạo một hào qua ba lần “biến”</h3>
+        <div class="process">
+          <div class="process-step"><strong>Chuẩn bị 50 cọng, đặt riêng một cọng.</strong> Cọng đặt riêng không tham gia đếm; còn 49 cọng được dùng. <em>Hệ Từ</em> chỉ nêu công thức “số Đại Diễn là 50, dùng 49”; nghi thức chi tiết quen thuộc là sự hệ thống hóa về sau.</div>
+          <div class="process-step"><strong>Chia 49 cọng ngẫu nhiên thành hai bó.</strong> Lấy một cọng từ bó bên phải kẹp riêng giữa các ngón.</div>
+          <div class="process-step"><strong>Đếm từng bó theo nhóm bốn.</strong> Giữ phần dư của bó trái và bó phải; nếu chia hết thì phần dư được tính là bốn. Cọng kẹp riêng cùng hai phần dư được loại khỏi vòng đếm đó.</div>
+          <div class="process-step"><strong>Gom số cọng còn lại và lặp lại.</strong> Thực hiện tổng cộng ba vòng chia–đếm cho một hào. Sau vòng ba, số cọng còn lại là 24, 28, 32 hoặc 36.</div>
+          <div class="process-step"><strong>Chia số còn lại cho bốn.</strong> Kết quả lần lượt là 6, 7, 8 hoặc 9. Ghi thành hào dưới cùng; khôi phục bộ 49 cọng và làm lại toàn quy trình cho hào kế tiếp.</div>
+          <div class="process-step"><strong>Kết thúc sau sáu hào.</strong> Hào thứ sáu là hào trên cùng. Lưu dãy số gốc để phân biệt hào tĩnh với hào động.</div>
+        </div>
+
+        <div class="callout">
+          <span class="callout-label">Vì sao xác suất cỏ thi và đồng xu khác nhau?</span>
+          <p>Ba vòng đếm cỏ thi không tạo bốn kết quả đồng xác suất; dương động 9 xuất hiện nhiều hơn âm động 6. Ba đồng xu lại cho phân bố đối xứng. Vì vậy đồng xu là một phương pháp thay thế tiện dụng, không phải bản mô phỏng xác suất hoàn toàn giống cỏ thi.</p>
+        </div>
+
+        <h3>Một quy ước ba đồng xu hoàn chỉnh</h3>
+        <p>Quy ước dưới đây lấy <strong>ngửa = 3</strong>, <strong>sấp = 2</strong>. Một số truyền thống đảo cách gán; điều quan trọng là chọn trước và dùng nhất quán.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Kết quả ba đồng</th><th>Tổng</th><th>Hào</th><th>Xác suất</th></tr></thead>
+            <tbody>
+              <tr><td>3 sấp</td><td>6</td><td>Lão âm · âm động</td><td>1/8</td></tr>
+              <tr><td>2 sấp + 1 ngửa</td><td>7</td><td>Thiếu dương · dương tĩnh</td><td>3/8</td></tr>
+              <tr><td>1 sấp + 2 ngửa</td><td>8</td><td>Thiếu âm · âm tĩnh</td><td>3/8</td></tr>
+              <tr><td>3 ngửa</td><td>9</td><td>Lão dương · dương động</td><td>1/8</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ví dụ dựng đủ một quẻ</h3>
+        <p>Giả sử sáu lượt cho dãy <strong>[8, 7, 8, 9, 6, 7]</strong> từ dưới lên. Bảng này chỉ minh họa cách dựng hình; chưa phải một lời đoán.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Vị hào</th><th>1 · dưới</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6 · trên</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Số thô</strong></td><td>8</td><td>7</td><td>8</td><td>9</td><td>6</td><td>7</td></tr>
+              <tr><td><strong>Bản quẻ</strong></td><td>Âm</td><td>Dương</td><td>Âm</td><td>Dương động</td><td>Âm động</td><td>Dương</td></tr>
+              <tr><td><strong>Chi quẻ</strong></td><td>Âm</td><td>Dương</td><td>Âm</td><td>Âm</td><td>Dương</td><td>Dương</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid two">
+          <div class="card"><span class="term">Bản quẻ ䷿ Vị Tế</span><p>Ba hào dưới âm–dương–âm là Khảm ☵; ba hào trên dương–âm–dương là Ly ☲. Thượng Ly, hạ Khảm tạo quẻ 64.</p></div>
+          <div class="card"><span class="term">Chi quẻ ䷺ Hoán</span><p>Đổi hào 4 dương thành âm và hào 5 âm thành dương; thượng quái trở thành Tốn ☴, hạ Khảm giữ nguyên, tạo quẻ 59.</p></div>
+        </div>
+        <p class="muted">Ví dụ xác nhận phép tính “Vị Tế → Hoán”; nó không tự động chứng minh hiện tại chắc chắn là Vị Tế hay tương lai chắc chắn là Hoán.</p>
+
+        <div class="process">
+          <div class="process-step"><strong>Ghi câu hỏi và thời điểm.</strong> Tránh hỏi đi hỏi lại đến khi có câu trả lời vừa ý.</div>
+          <div class="process-step"><strong>Tạo sáu hào từ dưới lên.</strong> Giữ nguyên kết quả thô 6/7/8/9 để có thể kiểm tra lại.</div>
+          <div class="process-step"><strong>Lập bản quẻ.</strong> Đọc tên, quái từ và tượng hai quái trước.</div>
+          <div class="process-step"><strong>Đánh dấu hào động.</strong> Đọc hào từ tương ứng và vị trí của hào trong toàn quẻ.</div>
+          <div class="process-step"><strong>Lập chi quẻ.</strong> Lật 6 và 9; dùng nó như cấu hình liên hệ hoặc hướng chuyển, không phải định mệnh chắc chắn.</div>
+          <div class="process-step"><strong>Chốt nhận định bằng dữ kiện.</strong> Viết ra hành động, điều kiện và giới hạn; với y tế, pháp lý, tài chính hay an toàn, luôn ưu tiên chuyên gia và bằng chứng chuyên môn.</div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Không có một luật nhiều hào động duy nhất cho mọi thời</span>
+          <p>Các quy tắc như “một hào đọc hào ấy, nhiều hào chọn hào này/hào kia” thay đổi theo truyền thống chú giải. Bộ quy tắc Chu Hy có ảnh hưởng lớn nhưng là một lựa chọn đời Tống, không phải luật nguyên thủy được ghi sẵn trong lõi <em>Chu Dịch</em>.</p>
+        </div>
+
+        <h3>Quy tắc nhiều hào động trong hệ Chu Hy</h3>
+        <p>Bảng này giúp đọc đúng một truyền thống có ảnh hưởng lớn; nó <strong>không phải chuẩn duy nhất xuyên lịch sử</strong>. Chính phần giải thích truyền thống thừa nhận một số quy tắc được suy rộng chứ không có nguyên văn đầy đủ trong Kinh/Truyện. <a class="cite" href="#ref-7">[7]</a></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Số hào động</th><th>Văn bản được ưu tiên</th><th>Quy tắc chủ</th></tr></thead>
+            <tbody>
+              <tr><td><strong>0</strong></td><td>Quái từ bản quẻ</td><td>Đọc thời chung của bản quẻ.</td></tr>
+              <tr><td><strong>1</strong></td><td>Một hào từ động của bản quẻ</td><td>Hào ấy làm trọng tâm.</td></tr>
+              <tr><td><strong>2</strong></td><td>Hai hào từ động của bản quẻ</td><td>Cả hai đều đọc; hào ở trên làm chủ.</td></tr>
+              <tr><td><strong>3</strong></td><td>Quái từ bản quẻ và chi quẻ</td><td>So sánh hai thời chung.</td></tr>
+              <tr><td><strong>4</strong></td><td>Hai hào không động trong chi quẻ</td><td>Hào ở dưới làm chủ.</td></tr>
+              <tr><td><strong>5</strong></td><td>Một hào không động trong chi quẻ</td><td>Hào tĩnh còn lại làm trọng tâm.</td></tr>
+              <tr><td><strong>6</strong></td><td>Quái từ chi quẻ</td><td>Riêng Càn/Khôn dùng <span lang="zh-Hant">用九/用六</span>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Kỷ luật đạo đức của việc chiêm</span>
+          <p>Không dùng quẻ để ép người khác, thay quyền đồng thuận, chẩn đoán bệnh, quyết định đầu tư mù quáng hoặc trốn trách nhiệm. Giá trị thực hành hợp lý nhất là buộc người hỏi mô tả tình thế, nhìn rủi ro và ghi điều kiện kiểm chứng.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="sau-muoi-tu-que" data-section>
+        <p class="section-kicker">09 · Bảng tra cứu tương tác</p>
+        <h2>Đủ 64 quẻ theo thứ tự truyền thế</h2>
+        <p class="lead">Gõ số, chữ Hán, tên Hán–Việt, chủ đề hoặc lọc theo thượng/hạ quái. Chủ đề là nhãn gợi nhớ rất ngắn, <strong>không thay thế quái từ, hào từ hay hoàn cảnh cụ thể</strong>. Thứ tự và ký hiệu theo bản truyền thế và chuẩn Unicode. <a class="cite" href="#ref-1">[1]</a><a class="cite" href="#ref-14">[14]</a></p>
+
+        <h3>Hai thiên và 32 cặp trong bản truyền thế</h3>
+        <p>Sáu vị, mỗi vị có hai trạng thái âm hoặc dương, tạo <strong>2<sup>6</sup> = 64</strong> cấu hình. Đây là sự thật tổ hợp; nó không tự chứng minh ai đầu tiên liệt kê đủ 64 quẻ hay người cổ đại đã dùng số nhị phân theo nghĩa toán học hiện đại.</p>
+        <p>Văn bản nhận được chia thành <strong>Thượng Kinh</strong> (quẻ 1–30) và <strong>Hạ Kinh</strong> (quẻ 31–64): tỷ lệ 30/34, không phải 32/32. Trong 32 cặp lẻ–chẵn, 28 cặp có quẻ sau là hình đảo trật tự sáu hào của quẻ trước. Bốn cặp 1–2, 27–28, 29–30 và 61–62 gồm các quẻ tự đối xứng khi lật, nên quan hệ cặp được tạo bằng đổi toàn bộ âm–dương. <em>Tự Quái</em> giải ý nghĩa cho chuỗi nhưng không chứng minh một thuật toán biên soạn duy nhất.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cặp</th><th>Quan hệ hình</th><th>Tuyến ý nghĩa truyền thống</th><th>Điều nên quan sát</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1 Càn ䷀ / 2 Khôn ䷁</strong></td><td>Đối ảnh toàn bộ âm–dương</td><td>Phát động / tiếp nhận</td><td>Hai điều kiện bổ sung của sinh thành.</td></tr>
+              <tr><td><strong>3 Truân ䷂ / 4 Mông ䷃</strong></td><td>Lật trên–dưới</td><td>Khó lúc bắt đầu / non trẻ cần học</td><td>Một bên là rối của việc mới sinh; một bên là thiếu hiểu biết khi bước vào việc ấy.</td></tr>
+              <tr><td><strong>11 Thái ䷊ / 12 Bĩ ䷋</strong></td><td>Đối ảnh âm–dương và đổi vị hai quái</td><td>Thông / bế</td><td>Cùng Càn–Khôn nhưng hướng vận động khác tạo quan hệ khác.</td></tr>
+              <tr><td><strong>23 Bác ䷖ / 24 Phục ䷗</strong></td><td>Lật trên–dưới</td><td>Suy rụng / trở lại</td><td>Cái còn sót ở cực trên và mầm trở lại ở đáy.</td></tr>
+              <tr><td><strong>63 Ký Tế ䷾ / 64 Vị Tế ䷿</strong></td><td>Vừa lật vừa đối ảnh</td><td>Đã hoàn tất / chưa hoàn tất</td><td>Ổn định phải giữ; chưa thành vẫn còn đường chuyển.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Năm “bản đồ” khác nhau của cùng 64 quẻ</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bản đồ</th><th>Câu hỏi nó trả lời</th><th>Công dụng</th><th>Cảnh báo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Thứ tự truyền thế 1–64</strong></td><td>Quẻ đứng ở đâu trong bản Kinh hiện hành?</td><td>Đọc văn bản, tra Unicode, nhận cặp kế tiếp.</td><td>“Thứ tự Văn Vương” là tên quy ước; tác giả lịch sử chưa được chứng minh.</td></tr>
+              <tr><td><strong>Ma trận 8 × 8</strong></td><td>Thượng/hạ quái này tạo quẻ nào?</td><td>Tra cấu tạo và thấy đủ 64 tổ hợp không trùng.</td><td>Là bảng phân loại, không tự động là thứ tự đọc cổ.</td></tr>
+              <tr><td><strong>Ba mươi hai cặp</strong></td><td>Quẻ kế liên hệ bằng lật hay đổi nét?</td><td>Nhận cấu trúc hình học trong thứ tự truyền thế.</td><td>Hình học chưa giải thích chắc chắn toàn bộ lịch sử sắp xếp.</td></tr>
+              <tr><td><strong>Bát cung Kinh Phòng</strong></td><td>Quẻ thuộc “gia đình” kỹ thuật nào?</td><td>Nạp giáp, Thế–Ứng và các phép chiêm hậu kỳ.</td><td>Không thay số 1–64 và không thuộc lớp Tây Chu.</td></tr>
+              <tr><td><strong>Tiêu tức / Tiên thiên</strong></td><td>Âm dương tăng–giảm hoặc phân nhánh ra sao?</td><td>Mô hình mùa, chu kỳ và đồ–số.</td><td>Không đồng nhất lịch Hán hay đồ Tống với nghĩa gốc quái từ.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout jade">
+          <span class="callout-label">Các bản khai quật cho thấy thứ tự không từng là duy nhất</span>
+          <p>Bản Mã Vương Đôi và những văn bản Dịch khai quật khác có cách sắp và dị văn khác bản truyền thế. Unicode chỉ mã hóa bộ ký hiệu theo thứ tự truyền thế hiện hành; nó không phải chứng cứ niên đại hay tác giả cổ đại. <a class="cite" href="#ref-21">[21]</a></p>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Có cấu trúc hai dấu không đồng nghĩa có máy tính cổ</span>
+          <p>Ta có thể mã hóa âm = 0, dương = 1 để mô tả hiện đại, nhưng đổi hướng đọc hoặc đổi quy ước 0/1 sẽ đổi số. Thiệu Ung dùng quá trình phân nhánh cho vũ trụ luận và chu kỳ, không trình bày logic Boolean hay công nghệ tính toán. <a class="cite" href="#ref-22">[22]</a></p>
+        </div>
+
+        <div class="grid three">
+          <div class="card"><h4>Tìm theo “thời”</h4><p>Gõ một trạng thái như “khởi đầu”, “trở ngại”, “tăng”, “giảm”, “hoàn tất” để tìm các quẻ có nhãn gần vấn đề.</p></div>
+          <div class="card"><h4>Lọc theo cấu trúc</h4><p>Chọn thượng/hạ quái để thấy mọi cách một quái tương tác với tám môi trường còn lại.</p></div>
+          <div class="card"><h4>Đọc theo cặp</h4><p>So quẻ chẵn–lẻ liền nhau để nhận điều gì đổi khi đảo góc nhìn hoặc đổi toàn bộ âm–dương.</p></div>
+        </div>
+
+        <div class="hex-controls" role="search" aria-label="Tìm trong 64 quẻ">
+          <input id="hex-search" type="search" placeholder="Tìm: 63, Ký Tế, 既濟, hoàn tất…" autocomplete="off" aria-label="Từ khóa tìm quẻ">
+          <select id="upper-filter" aria-label="Lọc theo thượng quái">
+            <option value="">Mọi thượng quái</option>
+            <option>Càn</option><option>Khôn</option><option>Chấn</option><option>Tốn</option>
+            <option>Khảm</option><option>Ly</option><option>Cấn</option><option>Đoài</option>
+          </select>
+          <select id="lower-filter" aria-label="Lọc theo hạ quái">
+            <option value="">Mọi hạ quái</option>
+            <option>Càn</option><option>Khôn</option><option>Chấn</option><option>Tốn</option>
+            <option>Khảm</option><option>Ly</option><option>Cấn</option><option>Đoài</option>
+          </select>
+          <button id="clear-filter" type="button">Xóa lọc</button>
+        </div>
+        <p class="hex-status" id="hex-status" aria-live="polite">Đang hiển thị 64/64 quẻ.</p>
+        <div class="hex-grid" id="hex-grid"></div>
+        <noscript><p class="callout warning">Cần bật JavaScript để hiện bảng tra cứu 64 quẻ.</p></noscript>
+
+        <div class="callout">
+          <span class="callout-label">Quy ước bảng</span>
+          <p><strong>Thượng quái</strong> = ba hào trên; <strong>hạ quái</strong> = ba hào dưới. Ký hiệu ䷀–䷿ chạy liên tục theo thứ tự Văn Vương/King Wen trong Unicode. Nếu máy hiện ô vuông, đó là thiếu phông ký hiệu, không phải thiếu dữ liệu.</p>
+        </div>
+
+        <h3>Một thẻ quẻ chưa phải là một lời giải</h3>
+        <div class="grid two">
+          <div class="card"><h4>Thẻ đang cho bạn</h4><p>Số thứ tự, ký hiệu, tên Hán–Việt, chữ Hán, hai quái thành phần và một nhãn chủ đề để định hướng tra cứu.</p></div>
+          <div class="card"><h4>Thẻ cố ý chưa cho</h4><p>Toàn bộ quái từ, sáu hào từ, bản dịch, dị bản thủ bản, <em>Thoán/Tượng</em> và bình giải từng học giả. Những lớp đó phải được đọc từ nguồn, không thể nén thành một dòng “tốt/xấu”.</p></div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-label">Không biến thứ tự 64 quẻ thành thang tiến hóa cứng</span>
+          <p>Chuỗi truyền thế có những cặp và chuyển tiếp giàu ý nghĩa, nhưng không phải mọi lần chuyển từ quẻ <em>n</em> sang <em>n+1</em> đều là quy luật lịch sử bắt buộc. <em>Tự Quái</em> là một cách hợp lý hóa hậu kỳ, không phải biên bản của người sắp thứ tự ban đầu.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="nguon" data-section>
+        <p class="section-kicker">10 · Tra cứu tiếp</p>
+        <h2>Thuật ngữ và nguồn kiểm chứng</h2>
+
+        <dl class="glossary">
+          <div><dt>周易 / 易經 · Chu Dịch / Dịch Kinh</dt><dd>“Dịch nhà Chu” và tên nhấn địa vị kinh điển. Trang này dùng “lõi Chu Dịch” cho quẻ–hào sớm, “Kinh Dịch” cho chỉnh thể truyền thế.</dd></div>
+          <div><dt>經 / 傳 · Kinh / Truyện</dt><dd>Phần lõi quẻ–hào và các thiên bình giải. Hai lớp được đóng chung nhưng không đồng niên đại.</dd></div>
+          <div><dt>卦辭 / 爻辭 · Quái từ / hào từ</dt><dd>Lời chung của quẻ và lời gắn với từng hào.</dd></div>
+          <div><dt>彖 / 象 · Thoán / Tượng</dt><dd>Các thiên bình giải lời quẻ và hình tượng/cấu trúc; thuộc <em>Thập Dực</em>.</dd></div>
+          <div><dt>經卦 / 別卦 · Kinh quái / biệt quái</dt><dd>Quái ba hào và quẻ kép sáu hào.</dd></div>
+          <div><dt>本卦 / 之卦 · Bản quẻ / chi quẻ</dt><dd>Quẻ ban đầu và quẻ liên hệ sau khi đổi các hào động.</dd></div>
+          <div><dt>象數 / 義理 · Tượng số / nghĩa lý</dt><dd>Hai định hướng nhấn vào hình–số hoặc ý nghĩa–nguyên lý; trên thực tế thường giao nhau.</dd></div>
+          <div><dt>先天 / 後天 · Tiên thiên / Hậu thiên</dt><dd>Hai hệ đồ hình truyền thống, gắn với trật tự đối đãi và chu trình vận hành.</dd></div>
+          <div><dt>太極 · Thái cực</dt><dd>Khái niệm về cực/trục tối cao trong <em>Hệ Từ</em> và Tống học; không mặc định đồng nhất với một biểu tượng đồ họa duy nhất.</dd></div>
+          <div><dt>元亨利貞 · Nguyên hanh lợi trinh</dt><dd>Bốn chữ nổi bật ở quẻ Càn và nhiều quẻ khác; cách ngắt và giải nghĩa thay đổi từ lời chiêm cổ đến bình giải đạo đức.</dd></div>
+          <div><dt>貞 · Trinh</dt><dd>Trong lớp cổ liên quan việc chiêm/xác định điều đúng cho việc hỏi; về sau thường được đạo đức hóa thành chính bền, ngay chính.</dd></div>
+          <div><dt>君子 / 大人 / 小人</dt><dd>Quân tử, đại nhân, tiểu nhân là các loại vai trò/chủ thể trong văn bản và bình giải; không nên mặc định là nhãn bản chất cố định của một cá nhân.</dd></div>
+          <div><dt>利涉大川 · Lợi thiệp đại xuyên</dt><dd>“Có lợi khi vượt sông lớn”: hình ảnh hành động rủi ro/quy mô lớn, thường được chú giải rộng thành dấn thân vào việc trọng đại.</dd></div>
+          <div><dt>吉凶悔吝無咎</dt><dd>Cát, hung, hối, lận, vô cữu: thang đánh giá tình thế và hành động, không phải năm loại số phận.</dd></div>
+          <div><dt>卦氣 · Quái khí</dt><dd>Hệ Hán phân bố quẻ trong chu kỳ lịch–khí; không phải một phần đã chứng minh của lõi Tây Chu.</dd></div>
+          <div><dt>納甲 · Nạp giáp</dt><dd>Kỹ thuật gắn can chi/ngũ hành vào quẻ hoặc hào, về sau là nền của nhiều phép Lục hào.</dd></div>
+          <div><dt>互體 · Hỗ thể</dt><dd>Đơn quái rút từ các hào 2–4 hoặc 3–5; kỹ thuật nổi bật trong chú giải thời Hán.</dd></div>
+          <div><dt>卦主 · Quái chủ</dt><dd>Hào được một nhà chú giải xem là chi phối ý toàn quẻ; lựa chọn có thể khác nhau giữa các dòng.</dd></div>
+          <div><dt>八宮 · Bát cung</dt><dd>Tám nhóm kỹ thuật, mỗi nhóm đứng đầu bởi một quẻ thuần; không phải tám đoạn liên tiếp của thứ tự 1–64.</dd></div>
+          <div><dt>消息卦 · Quẻ tiêu tức</dt><dd>Mười hai quẻ biểu thị âm/dương tăng–giảm trong chu kỳ năm của truyền thống Hán.</dd></div>
+          <div><dt>世 / 應 · Thế / Ứng</dt><dd>Hai vị trí kỹ thuật trong lục hào bát cung; không đồng nhất hoàn toàn với “ứng” giữa các cặp 1–4, 2–5, 3–6.</dd></div>
+          <div><dt>氣 · Khí</dt><dd>Khái niệm về quá trình và vật chất–sinh lực trong tư tưởng Trung Hoa; không đồng nhất với “năng lượng” theo vật lý hiện đại.</dd></div>
+          <div><dt>五行 · Ngũ hành</dt><dd>Năm pha hoặc tiến trình Mộc–Hỏa–Thổ–Kim–Thủy, không phải năm nguyên tố hóa học bất biến.</dd></div>
+          <div><dt>河圖 / 洛書 · Hà Đồ / Lạc Thư</dt><dd>Đồ số có phả hệ truyền thuyết lâu dài; hình thức truyền thế được nổi bật và chuẩn hóa đặc biệt trong Tống học.</dd></div>
+        </dl>
+
+        <h3>Năm nhãn chứng cứ nên gắn cho mọi nhận định</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nhãn</th><th>Nghĩa</th><th>Ví dụ cách viết đúng</th></tr></thead>
+            <tbody>
+              <tr><td><strong>[VB] Văn bản</strong></td><td>Câu có trực tiếp trong bản truyền thế.</td><td>“<em>Hệ Từ</em> nêu số Đại Diễn 50, dùng 49.”</td></tr>
+              <tr><td><strong>[KT] Khai quật</strong></td><td>Thủ bản hoặc hiện vật có bối cảnh khảo cổ.</td><td>“Bản lụa Mã Vương Đôi có thứ tự và bình giải khác bản truyền thế.”</td></tr>
+              <tr><td><strong>[TT] Truyền thống</strong></td><td>Quy thuộc được văn hóa lưu truyền.</td><td>“Truyền thống gắn đồ Tiên thiên với Phục Hy.”</td></tr>
+              <tr><td><strong>[PD] Phục dựng</strong></td><td>Hệ thống học giả dựng lại từ chỉ dẫn rời.</td><td>“Chu Hy phục dựng và hệ thống hóa nghi thức cỏ thi.”</td></tr>
+              <tr><td><strong>[SS] So sánh hiện đại</strong></td><td>Ngôn ngữ phân tích dùng sau này.</td><td>“Có thể mô tả đồ quẻ bằng mã hai dấu, nhưng đó là cách mã hóa hiện đại.”</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Chọn nguồn theo đúng câu hỏi</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nếu muốn biết…</th><th>Nên bắt đầu ở đâu?</th><th>Đừng dùng một mình…</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Văn bản nói gì</strong></td><td>Nguyên văn quẻ–hào [1], đối chiếu ít nhất hai bản dịch học thuật.</td><td>Một sách diễn nghĩa không ghi chữ Hán hoặc không tách kinh–truyện.</td></tr>
+              <tr><td><strong>Khái niệm âm–dương, tượng, số</strong></td><td><em>Hệ Từ</em> [2], SEP [4], nghiên cứu Thập Dực [17]–[18].</td><td>Việc gán ngược mọi khái niệm hậu kỳ cho thời Tây Chu.</td></tr>
+              <tr><td><strong>Bát quái liên tưởng gì</strong></td><td><em>Thuyết Quái</em> [3] cùng phân tích lịch sử [18].</td><td>Một bảng phong thủy hiện đại không ghi hệ Tiên thiên/Hậu thiên.</td></tr>
+              <tr><td><strong>Hán tượng–số vận hành ra sao</strong></td><td>Nielsen [10] và Redmond–Hon [11].</td><td>Lời tuyên bố toàn bộ can chi, ngũ hành đã có trong lời quẻ cổ.</td></tr>
+              <tr><td><strong>Vương Bật, Trình Di, Chu Hy đọc thế nào</strong></td><td>Các bản dịch chuyên biệt [8], [9], [7].</td><td>Một bản “Kinh Dịch chung” đã hòa lẫn ba nhà mà không đánh dấu.</td></tr>
+              <tr><td><strong>Đồ Thái cực / Tiên thiên có từ bao giờ</strong></td><td>Adler [13], Louis [15], Wyatt [12].</td><td>Truyền thuyết tác giả được trình bày như niên đại khảo cổ.</td></tr>
+              <tr><td><strong>Thực hành cỏ thi</strong></td><td>Chu Hy qua bản dịch Adler [7], đồng thời ghi rõ đây là hệ Tống.</td><td>Một “luật nhiều hào” không nêu xuất xứ.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Bảy câu hỏi kiểm tra một lời giải Kinh Dịch</h3>
+        <div class="process">
+          <div class="process-step">Nội dung này thuộc <strong>lõi Chu Dịch, Thập Dực, Hán, Ngụy–Tấn, Tống hay hiện đại</strong>?</div>
+          <div class="process-step">Tác giả đang dịch <strong>nguyên văn</strong> hay đang trình bày <strong>một bình giải</strong>?</div>
+          <div class="process-step">Hào có được đếm từ dưới lên và thượng/hạ quái có bị đảo không?</div>
+          <div class="process-step">Nhận định tốt/xấu có xét <strong>thời, vị và toàn quẻ</strong>, hay chỉ cộng thuộc tính?</div>
+          <div class="process-step">Nếu dùng quẻ biến/hỗ/tổng/thác, phép tạo có được ghi rõ và tính nhất quán không?</div>
+          <div class="process-step">Nguồn có phân biệt truyền thuyết tác quyền với bằng chứng văn bản–khảo cổ không?</div>
+          <div class="process-step">Kết luận có chừa chỗ cho dữ kiện thực tế, bất định và trách nhiệm của người quyết định không?</div>
+        </div>
+
+        <h3>Nguồn chính và nghiên cứu</h3>
+        <ol class="references">
+          <li id="ref-1"><strong>Chinese Text Project, <em>Book of Changes</em>.</strong><span class="meta">Nguyên văn công khai của thứ tự 64 quẻ, quái từ, hào từ và các thiên truyện.</span><a href="https://ctext.org/book-of-changes" target="_blank" rel="noopener noreferrer">Mở nguồn</a></li>
+          <li id="ref-2"><strong><em>Hệ Từ</em> thượng và hạ, Chinese Text Project.</strong><span class="meta">Nguồn trực tiếp cho ngôn ngữ biến hóa, âm–dương, tượng, số và Thái cực.</span><a href="https://ctext.org/book-of-changes/xi-ci-shang" target="_blank" rel="noopener noreferrer">Thượng</a> · <a href="https://ctext.org/book-of-changes/xi-ci-xia" target="_blank" rel="noopener noreferrer">Hạ</a></li>
+          <li id="ref-3"><strong><em>Thuyết Quái</em>, Chinese Text Project.</strong><span class="meta">Nguồn trực tiếp cho nhiều bảng liên tưởng của tám quái.</span><a href="https://ctext.org/book-of-changes/shuo-gua" target="_blank" rel="noopener noreferrer">Mở nguồn</a></li>
+          <li id="ref-4"><strong>Stanford Encyclopedia of Philosophy, “Chinese Philosophy of Change (Yijing)”.</strong><span class="meta">Tổng quan học thuật về văn bản đa tầng, cấu trúc hào, quyết định, Hán học và Vương Bật.</span><a href="https://plato.stanford.edu/entries/chinese-change/" target="_blank" rel="noopener noreferrer">Mở nguồn</a></li>
+          <li id="ref-5"><strong>Bent Nielsen, “Yijing”.</strong><span class="meta">Chương tổng quan 2024 về quá trình văn bản và kinh điển hóa.</span><a href="https://researchprofiles.ku.dk/en/publications/yijing/" target="_blank" rel="noopener noreferrer">Mở nguồn</a></li>
+          <li id="ref-6"><strong>Edward L. Shaughnessy, “A First Reading of the Mawangdui Yijing Manuscript”.</strong><span class="meta">Nghiên cứu nền tảng về thủ bản Mã Vương Đôi và khác biệt với bản truyền thế.</span><a href="https://doi.org/10.1017/S0362502800003552" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-7"><strong>Joseph A. Adler dịch, <em>The Original Meaning of the Yijing</em> của Chu Hy.</strong><span class="meta">Bản dịch học thuật về tổng hợp Chu Hy, mục đích chiêm và nghi thức cỏ thi.</span><a href="https://cup.columbia.edu/book/the-original-meaning-of-the-yijing/9780231191241/" target="_blank" rel="noopener noreferrer">Mở sách</a> · <a href="https://www2.kenyon.edu/Depts/Religion/Fac/Adler/Writings/Qimeng-3.pdf" target="_blank" rel="noopener noreferrer">Nghi thức PDF</a></li>
+          <li id="ref-8"><strong>Richard John Lynn dịch, <em>The Classic of Changes as Interpreted by Wang Bi</em>.</strong><span class="meta">Bản dịch và nghiên cứu chuẩn về bình giải Vương Bật.</span><a href="https://cup.columbia.edu/book/the-classic-of-changes/9780231514057/" target="_blank" rel="noopener noreferrer">Mở sách</a></li>
+          <li id="ref-9"><strong>L. Michael Harrington dịch, <em>The Yi River Commentary on the Book of Changes</em>.</strong><span class="meta">Bản dịch bình giải của Trình Di.</span><a href="https://yalebooks.yale.edu/book/9780300218077/the-yi-river-commentary-on-the-book-of-changes/" target="_blank" rel="noopener noreferrer">Mở sách</a></li>
+          <li id="ref-10"><strong>Bent Nielsen, <em>A Companion to Yi Jing Numerology and Cosmology</em>.</strong><span class="meta">Từ điển nghiên cứu kỹ thuật về quái khí, bát cung, nạp giáp và tượng–số.</span><a href="https://doi.org/10.4324/9780203357927" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-11"><strong>Geoffrey Redmond &amp; Tze-ki Hon, “Cosmology”.</strong><span class="meta">Bối cảnh vũ trụ luận Dịch học và mạng tương ứng thời Hán.</span><a href="https://doi.org/10.1093/acprof:oso/9780199766819.003.0008" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-12"><strong>Don J. Wyatt, <em>The Recluse of Loyang: Shao Yung</em>.</strong><span class="meta">Nghiên cứu chuyên khảo về Thiệu Ung, đồ số và chu kỳ lịch sử.</span><a href="https://doi.org/10.1515/9780824874667" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-13"><strong>Joseph A. Adler, bản dịch và nghiên cứu Chu Đôn Di.</strong><span class="meta">Nguyên văn dịch <em>Thái Cực đồ thuyết</em> và chú giải học thuật.</span><a href="https://www2.kenyon.edu/Depts/Religion/Fac/Adler/Writings/Chou.htm" target="_blank" rel="noopener noreferrer">Mở nguồn</a></li>
+          <li id="ref-14"><strong>Unicode Standard, Yijing Hexagram Symbols U+4DC0–U+4DFF.</strong><span class="meta">Bảng mã chính thức cho 64 ký hiệu theo thứ tự truyền thế.</span><a href="https://www.unicode.org/charts/PDF/U4DC0.pdf" target="_blank" rel="noopener noreferrer">Mở PDF</a></li>
+          <li id="ref-15"><strong>François Louis, “The Genesis of an Icon: The Taiji Diagram’s Early History”.</strong><span class="meta">Nghiên cứu niên đại và quá trình hình thành biểu tượng thái cực.</span><a href="https://doi.org/10.2307/25066694" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-16"><strong>Kidder Smith và cộng sự, <em>Sung Dynasty Uses of the I Ching</em>.</strong><span class="meta">Tổng hợp các cách dùng Dịch học thời Tống.</span><a href="https://doi.org/10.1515/9781400860968" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-17"><strong>Geoffrey Redmond &amp; Tze-ki Hon, “The Ten Wings”.</strong><span class="meta">Khảo sát lịch sử và chức năng của các thiên bình giải trong truyền thống Kinh Dịch.</span><a href="https://doi.org/10.1093/acprof:oso/9780199766819.003.0007" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-18"><strong>William Matthews, “Encompassing the Horse: Analogy, Category, and Scale in the Yijing”.</strong><span class="meta">Phân tích học thuật về tính hậu kỳ và cơ chế loại suy trong <em>Hệ Từ</em>/<em>Thuyết Quái</em>.</span><a href="https://doi.org/10.51661/bjocs.v8i1.19" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-19"><strong>Richard J. Smith, <em>Fathoming the Cosmos and Ordering the World</em>.</strong><span class="meta">Lịch sử dài hạn của Dịch học, hữu ích để tránh chia cứng tượng–số và nghĩa lý.</span><a href="https://www.upress.virginia.edu/title/2188/" target="_blank" rel="noopener noreferrer">Nhà xuất bản</a></li>
+          <li id="ref-20"><strong>Joseph A. Adler, <em>The Yijing: A Guide</em>.</strong><span class="meta">Tổng quan học thuật về tên văn bản, các lớp, chiêm quẻ và lịch sử chú giải.</span><a href="https://doi.org/10.1093/oso/9780190072452.001.0001" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-21"><strong>Edward L. Shaughnessy, <em>Unearthing the Changes</em>.</strong><span class="meta">Chuyên khảo về các văn bản Dịch khai quật và sự đa dạng của truyền thống cổ.</span><a href="https://cup.columbia.edu/book/unearthing-the-changes/9780231533300/" target="_blank" rel="noopener noreferrer">Nhà xuất bản</a></li>
+          <li id="ref-22"><strong>Bent Nielsen, “Cycles and Sequences of the Eight Trigrams”.</strong><span class="meta">Nghiên cứu chuyên biệt về nguồn gốc và lịch sử các trật tự quái.</span><a href="https://doi.org/10.1111/1540-6253.12086" target="_blank" rel="noopener noreferrer">DOI</a></li>
+        </ol>
+
+        <div class="callout jade">
+          <span class="callout-label">Cách dùng nguồn</span>
+          <p>Bắt đầu từ nguồn nguyên văn [1]–[3], dùng nghiên cứu [4]–[6] và [17]–[22] để tách lớp lịch sử, rồi chọn bản chú giải chuyên biệt [7]–[13]. Không dựa vào một bản dịch duy nhất cho mọi câu hỏi.</p>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <p>Trang này là bản đồ tri thức Dịch học truyền thống, không phải khẳng định hiệu lực dự báo khoa học. Mọi ứng dụng thực tế cần đi cùng dữ kiện, bối cảnh và trách nhiệm quyết định.</p>
+    <a href="#top">Trở về đầu trang ↑</a> · <a href="kinh-dich-nguon-goc-va-qua-trinh-hinh-thanh.html">Đọc trang nguồn gốc &amp; hình thành</a>
+  </footer>
+
+  <script>
+    (() => {
+      const HEXAGRAMS = [
+        [1, "乾", "Càn", "Càn", "Càn", "Cương kiện, sáng tạo"],
+        [2, "坤", "Khôn", "Khôn", "Khôn", "Nhu thuận, tiếp nhận"],
+        [3, "屯", "Truân", "Khảm", "Chấn", "Khởi đầu gian nan"],
+        [4, "蒙", "Mông", "Cấn", "Khảm", "Non trẻ chưa sáng"],
+        [5, "需", "Nhu", "Khảm", "Càn", "Chờ đúng thời"],
+        [6, "訟", "Tụng", "Càn", "Khảm", "Tranh tụng"],
+        [7, "師", "Sư", "Khôn", "Khảm", "Tổ chức quân chúng"],
+        [8, "比", "Tỷ", "Khảm", "Khôn", "Liên kết, nương nhau"],
+        [9, "小畜", "Tiểu Súc", "Tốn", "Càn", "Tích chứa nhỏ"],
+        [10, "履", "Lý", "Càn", "Đoài", "Bước đi thận trọng"],
+        [11, "泰", "Thái", "Khôn", "Càn", "Giao hòa, hanh thông"],
+        [12, "否", "Bĩ", "Càn", "Khôn", "Bế tắc, không giao"],
+        [13, "同人", "Đồng Nhân", "Càn", "Ly", "Đồng tâm với người"],
+        [14, "大有", "Đại Hữu", "Ly", "Càn", "Sở hữu lớn"],
+        [15, "謙", "Khiêm", "Khôn", "Cấn", "Khiêm nhường"],
+        [16, "豫", "Dự", "Chấn", "Khôn", "Hứng khởi, dự bị"],
+        [17, "隨", "Tùy", "Đoài", "Chấn", "Thuận theo, thích ứng"],
+        [18, "蠱", "Cổ", "Cấn", "Tốn", "Sửa điều hư hoại"],
+        [19, "臨", "Lâm", "Khôn", "Đoài", "Đến gần, cai quản"],
+        [20, "觀", "Quan", "Tốn", "Khôn", "Quan sát, chiêm nghiệm"],
+        [21, "噬嗑", "Phệ Hạp", "Ly", "Chấn", "Phá chướng, quyết đoán"],
+        [22, "賁", "Bí", "Cấn", "Ly", "Trang sức, văn vẻ"],
+        [23, "剝", "Bác", "Cấn", "Khôn", "Bong rụng, suy thoái"],
+        [24, "復", "Phục", "Khôn", "Chấn", "Trở lại, phục sinh"],
+        [25, "無妄", "Vô Vọng", "Càn", "Chấn", "Không vọng, chân thật"],
+        [26, "大畜", "Đại Súc", "Cấn", "Càn", "Tích chứa lớn"],
+        [27, "頤", "Di", "Cấn", "Chấn", "Nuôi dưỡng"],
+        [28, "大過", "Đại Quá", "Đoài", "Tốn", "Quá mức, gánh nặng"],
+        [29, "坎", "Khảm", "Khảm", "Khảm", "Hiểm nguy trùng điệp"],
+        [30, "離", "Ly", "Ly", "Ly", "Nương bám, sáng rõ"],
+        [31, "咸", "Hàm", "Đoài", "Cấn", "Cảm ứng, tương giao"],
+        [32, "恆", "Hằng", "Chấn", "Tốn", "Bền lâu"],
+        [33, "遯", "Độn", "Càn", "Cấn", "Lui tránh đúng lúc"],
+        [34, "大壯", "Đại Tráng", "Chấn", "Càn", "Sức mạnh lớn"],
+        [35, "晉", "Tấn", "Ly", "Khôn", "Tiến lên"],
+        [36, "明夷", "Minh Di", "Khôn", "Ly", "Ánh sáng bị che"],
+        [37, "家人", "Gia Nhân", "Tốn", "Ly", "Trật tự gia đình"],
+        [38, "睽", "Khuê", "Ly", "Đoài", "Đối nghịch"],
+        [39, "蹇", "Kiển", "Khảm", "Cấn", "Trở ngại, gian nan"],
+        [40, "解", "Giải", "Chấn", "Khảm", "Tháo gỡ"],
+        [41, "損", "Tổn", "Cấn", "Đoài", "Giảm bớt"],
+        [42, "益", "Ích", "Tốn", "Chấn", "Tăng ích"],
+        [43, "夬", "Quải", "Đoài", "Càn", "Quyết đoán, khai thông"],
+        [44, "姤", "Cấu", "Càn", "Tốn", "Gặp gỡ bất ngờ"],
+        [45, "萃", "Tụy", "Đoài", "Khôn", "Tụ hội"],
+        [46, "升", "Thăng", "Khôn", "Tốn", "Tiến lên từng bậc"],
+        [47, "困", "Khốn", "Đoài", "Khảm", "Khốn cùng, bức bách"],
+        [48, "井", "Tỉnh", "Khảm", "Tốn", "Giếng, nguồn nuôi"],
+        [49, "革", "Cách", "Đoài", "Ly", "Cải cách, đổi mới"],
+        [50, "鼎", "Đỉnh", "Ly", "Tốn", "Dung luyện, chuyển hóa"],
+        [51, "震", "Chấn", "Chấn", "Chấn", "Chấn động, cảnh tỉnh"],
+        [52, "艮", "Cấn", "Cấn", "Cấn", "Dừng lại, tĩnh"],
+        [53, "漸", "Tiệm", "Tốn", "Cấn", "Tiến dần"],
+        [54, "歸妹", "Quy Muội", "Chấn", "Đoài", "Hôn phối thứ vị"],
+        [55, "豐", "Phong", "Chấn", "Ly", "Thịnh đầy"],
+        [56, "旅", "Lữ", "Ly", "Cấn", "Lữ hành, tạm trú"],
+        [57, "巽", "Tốn", "Tốn", "Tốn", "Thuận nhập, thấm dần"],
+        [58, "兌", "Đoài", "Đoài", "Đoài", "Vui hòa, giao tiếp"],
+        [59, "渙", "Hoán", "Tốn", "Khảm", "Phân tán, giải kết"],
+        [60, "節", "Tiết", "Khảm", "Đoài", "Tiết chế, định mức"],
+        [61, "中孚", "Trung Phu", "Tốn", "Đoài", "Thành tín bên trong"],
+        [62, "小過", "Tiểu Quá", "Chấn", "Cấn", "Việc nhỏ vượt mức"],
+        [63, "既濟", "Ký Tế", "Khảm", "Ly", "Đã hoàn tất"],
+        [64, "未濟", "Vị Tế", "Ly", "Khảm", "Chưa hoàn tất"]
+      ].map(([number, han, name, upper, lower, theme]) => ({
+        number,
+        symbol: String.fromCodePoint(0x4DBF + number),
+        han,
+        name,
+        upper,
+        lower,
+        theme
+      }));
+
+      const progress = document.getElementById("reading-progress");
+      const tocLinks = [...document.querySelectorAll(".toc a")];
+      const sections = [...document.querySelectorAll("[data-section]")];
+      const grid = document.getElementById("hex-grid");
+      const status = document.getElementById("hex-status");
+      const search = document.getElementById("hex-search");
+      const upperFilter = document.getElementById("upper-filter");
+      const lowerFilter = document.getElementById("lower-filter");
+      const clearFilter = document.getElementById("clear-filter");
+
+      const normalize = (value) => String(value)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("vi");
+
+      const renderHexagrams = () => {
+        const query = normalize(search.value.trim());
+        const upper = upperFilter.value;
+        const lower = lowerFilter.value;
+        const filtered = HEXAGRAMS.filter((hex) => {
+          const haystack = normalize([hex.number, hex.han, hex.name, hex.upper, hex.lower, hex.theme].join(" "));
+          return (!query || haystack.includes(query))
+            && (!upper || hex.upper === upper)
+            && (!lower || hex.lower === lower);
+        });
+
+        grid.innerHTML = filtered.length
+          ? filtered.map((hex) => `
+              <section class="hex-card" aria-label="Quẻ ${hex.number} ${hex.name}">
+                <div>
+                  <span class="hex-symbol" aria-hidden="true">${hex.symbol}</span>
+                  <span class="hex-no">QUẺ ${String(hex.number).padStart(2, "0")}</span>
+                </div>
+                <div>
+                  <h3><span class="hex-han" lang="zh-Hant">${hex.han}</span> · ${hex.name}</h3>
+                  <p class="hex-pair">Thượng ${hex.upper} · Hạ ${hex.lower}</p>
+                  <p class="hex-theme">${hex.theme}</p>
+                </div>
+              </section>`).join("")
+          : '<p class="empty">Không có quẻ nào khớp bộ lọc. Hãy thử tên khác hoặc xóa lọc.</p>';
+
+        status.textContent = `Đang hiển thị ${filtered.length}/64 quẻ.`;
+      };
+
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const value = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0;
+        progress.style.width = `${value}%`;
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        tocLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
+        });
+      }, { rootMargin: "-18% 0px -70% 0px", threshold: [0, .15, .5] });
+
+      search.addEventListener("input", renderHexagrams);
+      upperFilter.addEventListener("change", renderHexagrams);
+      lowerFilter.addEventListener("change", renderHexagrams);
+      clearFilter.addEventListener("click", () => {
+        search.value = "";
+        upperFilter.value = "";
+        lowerFilter.value = "";
+        renderHexagrams();
+        search.focus();
+      });
+
+      sections.forEach((section) => observer.observe(section));
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      renderHexagrams();
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
